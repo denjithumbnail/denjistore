@@ -107,7 +107,6 @@
             padding-bottom: 5px;
         }
 
-        /* Thay đổi màu dấu gạch chéo thành #aaaaaa */
         .nav-links a:not(:last-child)::after {
             content: "/";
             color: #aaaaaa;
@@ -141,6 +140,7 @@
             -webkit-text-stroke: 2.5px #f65602; 
             text-stroke: 2.5px #f65602;
             paint-order: stroke fill;
+            text-transform: uppercase; /* Ép kiểu chữ hoa bằng CSS để sửa lỗi phông hiển thị viền */
         }
 
         .hero-text p {
@@ -250,7 +250,7 @@
 
     <main class="hero-container">
         <div class="hero-text">
-            <h1>DENJI STORE<br><span class="outline">MINECRAFT</span><br>THUMBNAILS.</h1>
+            <h1>DENJI STORE<br><span class="outline">minecraft</span><br>THUMBNAILS.</h1>
             <p>We provide high-quality Minecraft Thumbnail products!</p>
         </div>
         
