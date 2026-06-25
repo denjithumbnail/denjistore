@@ -93,24 +93,45 @@
             align-items: center;
         }
 
+        /* Định cấu trúc link để làm đường gạch chân chuẩn */
         .nav-links a {
             color: #aaaaaa;
             text-decoration: none;
             margin-left: 25px;
             font-size: 18px;
             transition: 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+            display: inline-block;
         }
 
         .nav-links a:hover, .nav-links a.active {
             color: #ffffff;
-            border-bottom: 2px solid #f65602;
-            padding-bottom: 5px;
         }
 
-        .nav-links a:not(:last-child)::after {
-            content: "/";
+        /* Tạo đường gạch chân bằng pseudo-element để không bị dính vào dấu "/" */
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f65602;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::before, .nav-links a.active::before {
+            transform: scaleX(1);
+        }
+
+        /* Đưa dấu gạch chéo ra ngoài luồng gạch chân của thẻ a */
+        .nav-links .separator {
             color: #aaaaaa;
             margin-left: 25px;
+            font-size: 18px;
+            user-select: none;
             pointer-events: none;
         }
 
@@ -135,9 +156,8 @@
             letter-spacing: -2px;
         }
 
-        /* Sửa lỗi phông chữ hoàn toàn bằng phương pháp text-shadow đổ viền mới */
         .hero-text h1 .outline {
-            color: #0d0d0d; /* Tiệp với màu nền đen phía sau tạo cảm giác rỗng ruột */
+            color: #0d0d0d; 
             text-shadow: 
                 -2px -2px 0 #f65602,  
                  2px -2px 0 #f65602,
@@ -250,7 +270,9 @@
         </div>
         <div class="nav-links">
             <a href="#">Reviews</a>
+            <span class="separator">/</span>
             <a href="#">Work</a>
+            <span class="separator">/</span>
             <a href="#" class="active">Contact</a>
         </div>
     </nav>
