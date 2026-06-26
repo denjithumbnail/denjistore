@@ -8,12 +8,10 @@
     <style>
         body { margin: 0; padding: 0; background-color: #0d0d0d; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Cập nhật Marquee */
         .marquee-wrapper { background: linear-gradient(90deg, #f65602, #ff6a00); color: #000000; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 2px; padding: 15px 0; text-transform: uppercase; overflow: hidden; display: flex; white-space: nowrap; box-shadow: 0 5px 20px rgba(246, 86, 2, 0.4); width: 100%; }
         .marquee-content { display: flex; animation: marquee 20s linear infinite; gap: 40px; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
-        /* CSS các phần khác */
+
         .header-nav { max-width: 1430px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-icon { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; }
@@ -33,7 +31,7 @@
         .stats-grid { display: flex; gap: 20px; margin-bottom: 25px; }
         .stat-box { background: #141414; border: 1px solid #222; padding: 26px; border-radius: 18px; flex: 1; }
         .stat-box h2 { font-family: 'Montserrat', sans-serif; font-size: 42px; color: #f65602; margin: 0; }
-        .cta-btn { background: #f65602; color: #ffffff; display: block; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 21px; box-shadow: 0 12px 35px rgba(246, 86, 2, 0.35); transition: 0.3s; }
+        .cta-btn { background: #f65602; color: #ffffff; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 21px; box-shadow: 0 12px 35px rgba(246, 86, 2, 0.35); transition: 0.3s; }
         .cta-btn:hover { transform: translateY(-4px); box-shadow: 0 18px 45px rgba(246, 86, 2, 0.55); }
         .section-container { max-width: 1430px; margin: 60px auto; padding: 0 40px; box-sizing: border-box; scroll-margin-top: 120px; }
         .divider { height: 4px; width: 100%; background-color: #f65602; margin: 40px auto; border-radius: 2px; }
@@ -43,18 +41,20 @@
         .video-card:hover { transform: translateY(-10px); }
         .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 
-        /* Review Section - CHỈNH THÀNH KÉO NGANG */
         .review-slider {
-            overflow-x: auto;
-            overflow-y: hidden;
-            display: block;
-            width: 100%;
-            cursor: grab;
+            overflow:hidden;
+            overflow-y:hidden;
+            display:block;
+            width:100%;
+            cursor:grab;
+            user-select:none;
         }
+        .review-slider:active{cursor:grabbing;}
 
         .review-track {
-            display: flex;
-            gap: 30px;
+            display:flex;
+            gap:30px;
+            width:max-content;
         }
 
         .review-item {
@@ -100,14 +100,23 @@
             line-height: 1.5;
             margin: 0;
         }
+
+        .review-date {
+            margin-top: auto;
+            font-size: 11px;
+            color: #aaaaaa;
+            text-align: right;
+            font-style: normal;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body id="top">
 
     <div class="marquee-wrapper">
         <div class="marquee-content" id="marquee">
-            <span>• WELCOME TO DENJI STORE</span> <span>• WELCOME TO DENJI STORE</span> 
-            <span>• WELCOME TO DENJI STORE</span> <span>• WELCOME TO DENJI STORE</span>
+            <span>• DENJI STORE</span> <span>• THUMBNAIL</span> 
+            <span>• DENJI STORE</span> <span>• THUMBNAIL</span>
         </div>
     </div>
 
@@ -132,7 +141,7 @@
         </div>
         <div class="hero-right">
             <div class="stats-grid">
-                <div class="stat-box"><h2>89K+</h2><p>Views</p></div>
+                <div class="stat-box"><h2>90K+</h2><p>Views</p></div>
                 <div class="stat-box"><h2>1.4K+</h2><p>Likes</p></div>
             </div>
             <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
@@ -155,24 +164,34 @@
                 
                 <div class="review-item">
                     <div class="review-header">
-                        <img src="denjistore.jpg" class="review-avatar" alt="Avatar">
-                        <div class="review-info">
-                            <h4>@sillyrent</h4>
-                            <span>100+ SUBSCRIBERS</span>
-                        </div>
-                    </div>
-                    <p class="review-text">"Very easy to work with, gave me raw version and asked for any changes. Would highly recommend!"</p>
-                </div>
-
-                <div class="review-item">
-                    <div class="review-header">
-                        <img src="denjistore.jpg" class="review-avatar" alt="Avatar">
+                        <img src="pepe.jpg" class="review-avatar" alt="Avatar">
                         <div class="review-info">
                             <h4>@pepetheninja</h4>
                             <span>40K+ SUBSCRIBERS</span>
                         </div>
                     </div>
                     <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
+
+                    <div class="review-date">
+                        June 25, 2026
+                    </div>
+
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <img src="sillyrent.jpg" class="review-avatar" alt="Avatar">
+                        <div class="review-info">
+                            <h4>@sillyrent</h4>
+                            <span>100+ SUBSCRIBERS</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Very easy to work with, gave me raw version and asked for any changes. Would highly recommend!"</p>
+
+                    <div class="review-date">
+                        June 25, 2026
+                    </div>
+
                 </div>
 
             </div>
@@ -195,6 +214,33 @@
                 this.classList.add('active');
             });
         });
+
+const reviewSlider=document.querySelector('.review-slider');
+const reviewTrack=document.querySelector('.review-track');
+reviewTrack.innerHTML+=reviewTrack.innerHTML;
+let dragging=false,startX=0,startScroll=0,speed=0.6;
+function loop(){
+ if(!dragging){
+   reviewSlider.scrollLeft+=speed;
+   if(reviewSlider.scrollLeft>=reviewTrack.scrollWidth/2) reviewSlider.scrollLeft=0;
+ }
+ requestAnimationFrame(loop);
+}
+loop();
+reviewSlider.addEventListener('mousedown',e=>{dragging=true;startX=e.pageX;startScroll=reviewSlider.scrollLeft;});
+window.addEventListener('mouseup',()=>dragging=false);
+window.addEventListener('mousemove',e=>{
+ if(!dragging) return;
+ e.preventDefault();
+ reviewSlider.scrollLeft=startScroll-(e.pageX-startX);
+});
+reviewSlider.addEventListener('touchstart',e=>{dragging=true;startX=e.touches[0].pageX;startScroll=reviewSlider.scrollLeft;},{passive:true});
+reviewSlider.addEventListener('touchmove',e=>{
+ if(!dragging) return;
+ reviewSlider.scrollLeft=startScroll-(e.touches[0].pageX-startX);
+},{passive:true});
+reviewSlider.addEventListener('touchend',()=>dragging=false);
+
     </script>
 </body>
 </html>
