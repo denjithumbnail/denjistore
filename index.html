@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, initial-scale=0.2, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DENJI STORE - Ultra Thumbnails</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -55,6 +55,25 @@
         }
         to{
             transform:translateX(-50%);
+        }
+    }
+
+        @media (max-width: 768px) {
+        /* Đưa các phần tử về 100% chiều rộng màn hình */
+        .hero-container {
+            grid-template-columns: 1fr; /* Chia cột dọc */
+            text-align: center;
+            margin-top: 40px;
+        }
+        .hero-text h1 { font-size: 40px; }
+        
+        .product-grid {
+            grid-template-columns: 1fr; /* Sản phẩm xếp dọc */
+            gap: 20px;
+        }
+
+        .review-item {
+            min-width: 85vw; /* Review chiếm 85% màn hình */
         }
     }
 
