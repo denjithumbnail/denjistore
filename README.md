@@ -1,1 +1,1 @@
-# my-thumbnail-downloader
+Developer: Denji
