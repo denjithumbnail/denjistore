@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DENJI STORE - Ultra Thumbnails</title>
+    
+    <link rel="icon" type="image/jpeg" href="denjistore.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; background-color: #0d0d0d; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; background-color: #0d0d0d; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; box-sizing: border-box; }
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } /* Firefox */ html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
@@ -77,6 +80,13 @@
     .product-grid { grid-template-columns: 1fr; }
 
     .review-item { min-width: 100%; box-sizing: border-box; }
+    
+    .site-footer {
+        padding: 30px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
 }
         .header-nav { max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
@@ -107,14 +117,13 @@
         .video-card:hover { transform: translateY(-10px); }
         .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 
-        /* ĐÃ ĐIỀU CHỈNH ĐỘ DÀI RỘNG BẰNG THANH NGANG CAM */
         .review-slider {
             overflow: hidden;
             display: block;
-            width: 97%;             /* Khớp hoàn toàn với độ rộng thanh cam */
-            max-width: 1900px;      /* Giới hạn tối đa giống thanh cam */
+            width: 97%;             
+            max-width: 1900px;      
             height: 450px;          
-            margin: 0 auto;         /* Căn giữa đều hai bên */
+            margin: 0 auto; 
             position: relative;
             cursor: grab;
             user-select: none;
@@ -181,6 +190,24 @@
             font-style: normal;
             opacity: 0.8;
         }
+
+        .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 40px 40px 40px; 
+            user-select: none;
+        }
+
+        /* Giữ nguyên phần credit dưới footer gọn gàng không kèm logo */
+        .site-credit {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #555555;   
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
     </style>
 </head>
 <body id="top">
@@ -207,7 +234,7 @@
     <nav class="header-nav">
         <div class="logo-area">
             <img src="denjistore.jpg" class="logo-icon">
-            <div class="logo-text"><h3>DENJI STORE</h3><span>Studio</span></div>
+            <div class="logo-text"><h3>DENJI STORE</h3><span>Minecraft Studio</span></div>
         </div>
         <div class="nav-links">
             <a href="#reviews-section" class="nav-item">Reviews</a> 
@@ -277,6 +304,11 @@
             </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <p class="site-credit">&copy; 2026 Denji Store</p>
+        <p class="site-credit">&copy; Developer: Denji</p>
+    </footer>
 
     <script>
     function adjustScale() {
