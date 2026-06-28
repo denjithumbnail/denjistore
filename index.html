@@ -13,11 +13,11 @@
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
+    /* Đưa thanh chữ chạy độc lập ra ngoài để kéo dài hơn trên PC */
     .marquee-wrapper{
         position: relative;
-
-        width: 97%;
-        max-width: 1900px;
+        width: 98%; /* Tăng chiều rộng lên 98% giúp thanh màu cam dài sát hai bên rìa màn hình trên PC */
+        max-width: 1850px; /* Tăng max-width để dài hơn tổng thể nội dung bên dưới */
         margin-top: 35px;
         margin-left: auto;
         margin-right: auto;
@@ -38,6 +38,13 @@
         border-radius: 16px;
         box-shadow: 0 5px 20px rgba(246,86,2,.4);
 
+        box-sizing: border-box;
+    }
+
+    .content-wrapper {
+        width: 97%;
+        max-width: 1600px;
+        margin: 0 auto;
         box-sizing: border-box;
     }
     
@@ -65,114 +72,10 @@
     }
 
     @media (max-width: 768px) {
-    body { overflow-x: hidden; }
-
-    .header-nav {
-        position: static;
-        width: 100%;
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        margin: 10px auto;
-    }
-    
-    .nav-links {
-        margin: 0;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .nav-links a {
-        margin: 0 10px;
-        font-size: 16px;
+        body { overflow-x: hidden; }
     }
 
-    .hero-container {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 40px !important;
-        padding: 0 20px !important;
-        gap: 30px;
-    }
-    .hero-text h1 { font-size: 42px !important; line-height: 1.2; }
-    .hero-text p { font-size: 16px; margin-top: 15px; }
-
-    .hero-right {
-        transform: none !important;
-        margin-top: 0;
-    }
-    
-    .stats-grid {
-        gap: 15px;
-    }
-    
-    .stat-box {
-        padding: 20px;
-        text-align: center !important;
-    }
-    
-    .stat-box h2 {
-        font-size: 40px !important;
-    }
-    
-    .stat-box p {
-        font-size: 16px;
-    }
-    
-    .cta-btn {
-        font-size: 22px;
-        padding: 16px;
-    }
-    
-    .title {
-        font-size: 32px !important;
-        margin-bottom: 25px;
-    }
-
-    .product-grid, .showcase-grid { grid-template-columns: 1fr !important; gap: 20px; }
-
-    .review-slider {
-        height: auto;
-        max-height: 500px;
-    }
-
-    .review-item { min-width: 100%; box-sizing: border-box; padding: 20px; }
-    .review-text { font-size: 14px; }
-    
-    .site-footer {
-        padding: 30px 20px;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 20px !important;
-    }
-    
-    .footer-left {
-        order: 2;
-        justify-content: center !important;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .footer-right {
-        order: 1;
-        align-items: center !important; 
-        width: 100%;
-        text-align: center;
-    }
-
-    .social-icons-wrapper {
-        justify-content: center !important;
-        margin-bottom: 5px;
-    }
-
-    .section-container {
-        padding: 0 20px !important;
-        margin: 40px auto;
-    }
-}
-        .header-nav { max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
+        .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-icon { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; }
         .logo-text h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 26px; letter-spacing: -0.5px; }
@@ -188,7 +91,7 @@
         #product-section { scroll-margin-top: 140px; }
         #reviews-section { scroll-margin-top: 140px; }
 
-        .hero-container { max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
+        .hero-container { width: 100%; max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 120px; font-weight: 900; line-height: 1.05; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
         .hero-text .outline { color: #0d0d0d; text-shadow: -2px -2px 0 #f65602, 2px -2px 0 #f65602, -2px 2px 0 #f65602, 2px 2px 0 #f65602; }
         .hero-text p { margin: 25px 0 0 0; font-size: 18px; color: #aaaaaa; }
@@ -203,7 +106,7 @@
         .cta-btn { background: #f65602; color: #ffffff; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: 0 12px 35px rgba(246, 86, 2, 0.35); transition: 0.3s; margin: 0; }
         .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: 0 18px 45px rgba(246, 86, 2, 0.55); }
         
-        .section-container { max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
+        .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
         .divider { height: 4px; width: 100%; background-color: #f65602; margin: 40px auto; border-radius: 2px; }
         .title { font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
 
@@ -297,10 +200,12 @@
             opacity: 0.8;
         }
 
+        /* Duy trì tỷ lệ kéo rộng lề trái phải đồng bộ của Footer */
         .site-footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-end; 
+            width: 96%;
             max-width: 1600px;
             margin: 0 auto;
             padding: 40px 0; 
@@ -351,118 +256,120 @@
 </head>
 <body>
 
-        <div class="marquee-wrapper">
-            <div class="marquee-track" id="marqueeTrack">
-                <div class="marquee-content" id="marquee">
-                    <span>• DENJI STORE</span>
-                    <span>• THUMBNAIL</span>
+    <div class="marquee-wrapper">
+        <div class="marquee-track" id="marqueeTrack">
+            <div class="marquee-content" id="marquee">
+                <span>• DENJI STORE</span>
+                <span>• THUMBNAIL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <nav class="header-nav">
+            <div class="logo-area">
+                <img src="denjistore.jpg" class="logo-icon">
+                <div class="logo-text"><h3>DENJI STORE</h3><span>Minecraft Studio</span></div>
+            </div>
+            <div class="nav-links">
+                <a href="#reviews-section" class="nav-item">Reviews</a> 
+                <span class="separator">/</span> 
+                <a href="#product-section" class="nav-item">Works</a> 
+                <span class="separator">/</span> 
+                <a href="#contact-section" class="nav-item active">Contact</a>
+            </div>
+        </nav>
+
+        <section id="contact-section">
+            <main class="hero-container">
+                <div class="hero-text">
+                    <h1>DENJI STORE<br><span class="outline">MINECRAFT</span><br>THUMBNAILS</h1>
+                    <p>We provide professional Minecraft thumbnails!</p>
+                </div>
+                <div class="hero-right">
+                    <div class="stats-grid">
+                        <div class="stat-box"><h2>92K+</h2><p>Views</p></div>
+                        <div class="stat-box"><h2>1.4K+</h2><p>Likes</p></div>
+                    </div>
+                    <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
+                </div>
+            </main>
+        </section>
+
+        <section id="product-section" class="section-container">
+            <div class="divider"></div>
+            <h2 class="title">YOU<span class="youtube-highlight">TUBE</span> VIRAL</h2>
+            <div class="product-grid" id="productGrid">
+                <div data-youtube="io562SY6aFo"></div>
+            </div>
+
+            <div class="divider"></div>
+            <h2 class="title">SHOWCASE</h2>
+            <div class="showcase-grid">
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png" alt="">
+                </div>
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/J4kbK30Q/ducktai.png" alt="">
+                </div>
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/ZRwctTzz/1.jpg" alt="">
                 </div>
             </div>
-        </div>
+        </section>
 
-    <nav class="header-nav">
-        <div class="logo-area">
-            <img src="denjistore.jpg" class="logo-icon">
-            <div class="logo-text"><h3>DENJI STORE</h3><span>Minecraft Studio</span></div>
-        </div>
-        <div class="nav-links">
-            <a href="#reviews-section" class="nav-item">Reviews</a> 
-            <span class="separator">/</span> 
-            <a href="#product-section" class="nav-item">Works</a> 
-            <span class="separator">/</span> 
-            <a href="#contact-section" class="nav-item active">Contact</a>
-        </div>
-    </nav>
-
-    <section id="contact-section">
-        <main class="hero-container">
-            <div class="hero-text">
-                <h1>DENJI STORE<br><span class="outline">MINECRAFT</span><br>THUMBNAILS</h1>
-                <p>We provide professional Minecraft thumbnails!</p>
-            </div>
-            <div class="hero-right">
-                <div class="stats-grid">
-                    <div class="stat-box"><h2>92K+</h2><p>Views</p></div>
-                    <div class="stat-box"><h2>1.4K+</h2><p>Likes</p></div>
-                </div>
-                <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
-            </div>
-        </main>
-    </section>
-
-    <section id="product-section" class="section-container">
-        <div class="divider"></div>
-        <h2 class="title">YOU<span class="youtube-highlight">TUBE</span> VIRAL</h2>
-        <div class="product-grid" id="productGrid">
-            <div data-youtube="io562SY6aFo"></div>
-        </div>
-
-        <div class="divider"></div>
-        <h2 class="title">SHOWCASE</h2>
-        <div class="showcase-grid">
-            <div class="image-card">
-                <img src="https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png" alt="">
-            </div>
-            <div class="image-card">
-                <img src="https://i.postimg.cc/J4kbK30Q/ducktai.png" alt="">
-            </div>
-            <div class="image-card">
-                <img src="https://i.postimg.cc/ZRwctTzz/1.jpg" alt="">
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews-section" class="section-container">
-        <div class="divider"></div>
-        <h2 class="title">REVIEWS</h2>
-        <div class="review-slider">
-            <div class="review-track" id="reviewTrack">
-                
-                <div class="review-item">
-                    <div class="review-header">
-                        <img src="https://i.postimg.cc/tR2BxNfS/channels4-profile.jpg" class="review-avatar" alt="Avatar">
-                        <div class="review-info">
-                            <h4>@Orbitzmc</h4>
-                            <span>2K+ SUBSCRIBERS</span>
+        <section id="reviews-section" class="section-container">
+            <div class="divider"></div>
+            <h2 class="title">REVIEWS</h2>
+            <div class="review-slider">
+                <div class="review-track" id="reviewTrack">
+                    
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/tR2BxNfS/channels4-profile.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@Orbitzmc</h4>
+                                <span>2K+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"The thumbnail looked professional and definitely stood out compared to others. Communication was easy throughout the process, and I’d happily use this service again. If you’re looking for high-quality Minecraft thumbnails that grab attention, I’d definitely recommend them."</p>
+                        <div class="review-date">
+                            June 27, 2026
                         </div>
                     </div>
-                    <p class="review-text">"The thumbnail looked professional and definitely stood out compared to others. Communication was easy throughout the process, and I’d happily use this service again. If you’re looking for high-quality Minecraft thumbnails that grab attention, I’d definitely recommend them."</p>
-                    <div class="review-date">
-                        June 27, 2026
-                    </div>
-                </div>
 
-                <div class="review-item">
-                    <div class="review-header">
-                        <img src="https://i.postimg.cc/2Sp8FhLm/pepe.jpg" class="review-avatar" alt="Avatar">
-                        <div class="review-info">
-                            <h4>@pepetheninja</h4>
-                            <span>40K+ SUBSCRIBERS</span>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/2Sp8FhLm/pepe.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@pepetheninja</h4>
+                                <span>40K+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
+                        <div class="review-date">
+                            June 25, 2026
                         </div>
                     </div>
-                    <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
-                    <div class="review-date">
-                        June 25, 2026
-                    </div>
-                </div>
 
-                <div class="review-item">
-                    <div class="review-header">
-                        <img src="https://i.postimg.cc/XNzvqTVd/sillyrent.jpg" class="review-avatar" alt="Avatar">
-                        <div class="review-info">
-                            <h4>@sillyrent</h4>
-                            <span>100+ SUBSCRIBERS</span>
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/XNzvqTVd/sillyrent.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@sillyrent</h4>
+                                <span>100+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"Very easy to work with, gave me raw version and asked for any changes. Would highly recommend!"</p>
+                        <div class="review-date">
+                            June 25, 2026
                         </div>
                     </div>
-                    <p class="review-text">"Very easy to work with, gave me raw version and asked for any changes. Would highly recommend!"</p>
-                    <div class="review-date">
-                        June 25, 2026
-                    </div>
-                </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer class="site-footer">
         <div class="footer-left">
@@ -533,4 +440,72 @@
     let currentY = 0;            
     let speed = 0.6;              
     let isDragging = false;       
-    let startY = 0;            
+    let startY = 0;               
+    let baseHeight = 0;          
+
+    function updateDimensions() {
+        baseHeight = (reviewTrack.scrollHeight / 2) + 15;
+    }
+    window.addEventListener('load', updateDimensions);
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+
+    function renderLoop() {
+        if (!isDragging) {
+            currentY -= speed; 
+            
+            if (Math.abs(currentY) >= baseHeight) {
+                currentY += baseHeight;
+            }
+        }
+        
+        reviewTrack.style.transform = `translateY(${currentY}px)`;
+        requestAnimationFrame(renderLoop);
+    }
+    
+    setTimeout(renderLoop, 200);
+
+    reviewSlider.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startY = e.pageY - currentY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        currentY = e.pageY - startY;
+
+        if (currentY > 0) currentY -= baseHeight;
+        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    reviewSlider.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startY = e.touches[0].pageY - currentY;
+    }, { passive: false });
+
+    reviewSlider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
+        e.preventDefault(); 
+        
+        currentY = e.touches[0].pageY - startY;
+
+        if (currentY > 0) currentY -= baseHeight;
+        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    window.addEventListener('blur', () => {
+        isDragging = false;
+    });
+    </script>
+</body>
+</html>
