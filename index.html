@@ -13,10 +13,11 @@
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
+    /* Đưa thanh chữ chạy độc lập ra ngoài để kéo dài hơn trên PC */
     .marquee-wrapper{
         position: relative;
-        width: 100%; 
-        max-width: 1840px; 
+        width: 98%; /* Tăng chiều rộng lên 98% giúp thanh màu cam dài sát hai bên rìa màn hình trên PC */
+        max-width: 1660px; /* Tăng max-width để dài hơn tổng thể nội dung bên dưới */
         margin-top: 35px;
         margin-left: auto;
         margin-right: auto;
@@ -467,60 +468,4 @@
 
     function renderLoop() {
         if (!isDragging) {
-            currentY -= speed; 
-            
-            if (Math.abs(currentY) >= baseHeight) {
-                currentY += baseHeight;
-            }
-        }
-        
-        reviewTrack.style.transform = `translateY(${currentY}px)`;
-        requestAnimationFrame(renderLoop);
-    }
-    
-    setTimeout(renderLoop, 200);
-
-    reviewSlider.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startY = e.pageY - currentY;
-    });
-
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        currentY = e.pageY - startY;
-
-        if (currentY > 0) currentY -= baseHeight;
-        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
-    });
-
-    window.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    reviewSlider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startY = e.touches[0].pageY - currentY;
-    }, { passive: false });
-
-    reviewSlider.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        
-        e.preventDefault(); 
-        
-        currentY = e.touches[0].pageY - startY;
-
-        if (currentY > 0) currentY -= baseHeight;
-        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
-    }, { passive: false });
-
-    window.addEventListener('touchend', () => {
-        isDragging = false;
-    });
-
-    window.addEventListener('blur', () => {
-        isDragging = false;
-    });
-    </script>
-</body>
-</html>
+            currentY -=
