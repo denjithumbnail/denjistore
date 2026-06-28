@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>DENJI STORE - Professional Thumbnails</title>
     
     <link rel="icon" type="image/jpeg" href="denjistore.jpg">
@@ -64,114 +64,11 @@
         }
     }
 
+    /* Đã lược bỏ các chỉnh sửa thay đổi bố cục mobile để giữ nguyên giao diện máy tính */
     @media (max-width: 768px) {
-    body { overflow-x: hidden; }
-
-    .header-nav {
-        position: static;
-        width: 100%;
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        margin: 10px auto;
-    }
-    
-    .nav-links {
-        margin: 0;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .nav-links a {
-        margin: 0 10px;
-        font-size: 16px;
+        body { overflow-x: hidden; }
     }
 
-    .hero-container {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 40px !important;
-        padding: 0 20px !important;
-        gap: 30px;
-    }
-    .hero-text h1 { font-size: 42px !important; line-height: 1.2; }
-    .hero-text p { font-size: 16px; margin-top: 15px; }
-
-    .hero-right {
-        transform: none !important;
-        margin-top: 0;
-    }
-    
-    .stats-grid {
-        gap: 15px;
-    }
-    
-    .stat-box {
-        padding: 20px;
-        text-align: center !important;
-    }
-    
-    .stat-box h2 {
-        font-size: 40px !important;
-    }
-    
-    .stat-box p {
-        font-size: 16px;
-    }
-    
-    .cta-btn {
-        font-size: 22px;
-        padding: 16px;
-    }
-    
-    .title {
-        font-size: 32px !important;
-        margin-bottom: 25px;
-    }
-
-    .product-grid, .showcase-grid { grid-template-columns: 1fr !important; gap: 20px; }
-
-    .review-slider {
-        height: auto;
-        max-height: 500px;
-    }
-
-    .review-item { min-width: 100%; box-sizing: border-box; padding: 20px; }
-    .review-text { font-size: 14px; }
-    
-    .site-footer {
-        padding: 30px 20px;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 20px !important;
-    }
-    
-    .footer-left {
-        order: 2;
-        justify-content: center !important;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .footer-right {
-        order: 1;
-        align-items: center !important; 
-        width: 100%;
-        text-align: center;
-    }
-
-    .social-icons-wrapper {
-        justify-content: center !important;
-        margin-bottom: 5px;
-    }
-
-    .section-container {
-        padding: 0 20px !important;
-        margin: 40px auto;
-    }
-}
         .header-nav { max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-icon { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; }
@@ -480,6 +377,21 @@
     </footer>
 
     <script>
+    // Hàm JavaScript tự động đo chiều rộng màn hình điện thoại và ép tỷ lệ thu nhỏ như máy tính
+    function adjustScale() {
+        var screenWidth = window.screen.width;
+        var designWidth = 1440; // Chiều rộng chuẩn của PC máy tính
+        var scale = screenWidth / designWidth;
+        
+        if (screenWidth < 1024) {
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + designWidth + ', initial-scale=' + scale + ', maximum-scale=2.0, user-scalable=yes');
+        } else {
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0');
+        }
+    }
+    window.onload = adjustScale;
+    window.onresize = adjustScale;
+
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
 
