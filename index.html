@@ -154,6 +154,7 @@
             user-select: none;
             mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
             -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+            touch-action: none;
         }
         .review-slider:active{cursor:grabbing;}
 
@@ -515,15 +516,18 @@
     reviewSlider.addEventListener('touchstart', (e) => {
         isDragging = true;
         startY = e.touches[0].pageY - currentY;
-    }, { passive: true });
+    }, { passive: false });
 
     reviewSlider.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
+        
+        e.preventDefault(); 
+        
         currentY = e.touches[0].pageY - startY;
 
         if (currentY > 0) currentY -= baseHeight;
         if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
-    }, { passive: true });
+    }, { passive: false });
 
     window.addEventListener('touchend', () => {
         isDragging = false;
