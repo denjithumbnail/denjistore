@@ -56,9 +56,13 @@
     .marquee-content{
         display:flex;
         align-items:center;
-        gap:40px;
+        gap: 0px; /* Khít chữ hoàn toàn không khoảng cách xa */
         flex-shrink:0;
-        padding-right:40px;
+        padding-right: 0px;
+    }
+
+    .marquee-content span {
+        padding-right: 15px; /* Giữ khoảng cách nhỏ vừa đủ giữa các chữ nối đuôi */
     }
     
     @keyframes marquee{
@@ -86,8 +90,6 @@
         .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
         .separator { color: #aaaaaa; margin-left: 25px; font-size: 18px; }
         
-        #contact-section { scroll-margin-top: 140px; }
-        #product-section { scroll-margin-top: 140px; }
         #reviews-section { scroll-margin-top: 140px; }
 
         .hero-container { width: 100%; max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
@@ -308,8 +310,15 @@
             opacity: 1;
         }
 
-        /* Tối ưu hóa giao diện hoàn toàn dành riêng cho điện thoại */
+        /* Tối ưu hóa giao diện dành riêng cho điện thoại theo đúng thứ tự yêu cầu */
         @media (max-width: 768px) {
+            .content-wrapper {
+                width: 95%; /* Khớp chiều ngang màn hình điện thoại */
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Căn chỉnh ngay giữa */
+            }
+
             .marquee-wrapper {
                 width: 95%;
                 margin-top: 15px;
@@ -317,17 +326,16 @@
                 padding: 12px 0;
                 font-size: 14px;
             }
-            .marquee-content {
-                gap: 15px;
-                padding-right: 15px;
-            }
 
             .header-nav {
+                width: 100%;
                 margin: 15px auto;
                 padding: 12px 20px;
                 flex-direction: column;
                 gap: 12px;
                 text-align: center;
+                position: relative;
+                top: 0;
             }
             .nav-links {
                 justify-content: center;
@@ -342,23 +350,29 @@
             }
 
             .hero-container {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 gap: 30px;
-                margin-top: 40px;
+                margin-top: 20px;
+                margin-bottom: 20px;
                 text-align: center;
+                width: 100%;
             }
             .hero-text h1 {
-                font-size: 52px;
+                font-size: 42px;
                 line-height: 1.1;
             }
             .hero-text p {
                 font-size: 15px;
                 margin-top: 15px;
+                display: none; /* Ẩn ở đây để tránh trùng lặp nội dung chữ */
             }
 
             .hero-right {
                 transform: none;
                 gap: 20px;
+                width: 100%;
             }
             .stats-grid {
                 width: 100%;
@@ -385,7 +399,8 @@
             }
 
             .section-container {
-                margin: 40px auto;
+                margin: 20px auto;
+                width: 100%;
             }
             .title {
                 font-size: 34px;
@@ -395,7 +410,7 @@
                 margin: 25px auto;
             }
 
-            /* Chuyển các lưới hiển thị sang dạng 1 cột (Chiều dọc) trên Mobile */
+            /* Chuyển video và ảnh showcase hiện theo chiều dọc hoàn toàn trên điện thoại */
             .product-grid, .showcase-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -404,6 +419,7 @@
 
             .review-slider {
                 height: 480px;
+                width: 100%;
             }
             .review-item {
                 padding: 20px;
@@ -418,6 +434,7 @@
                 text-align: center;
                 gap: 25px;
                 padding: 30px 0;
+                width: 100%;
             }
             .footer-right {
                 align-items: center;
@@ -427,9 +444,14 @@
 </head>
 <body>
 
+    <!-- 1. Bảng chữ chạy màu cam -->
     <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
             <div class="marquee-content" id="marquee">
+                <span>• DENJI STORE</span>
+                <span>• THUMBNAIL</span>
+                <span>• DENJI STORE</span>
+                <span>• THUMBNAIL</span>
                 <span>• DENJI STORE</span>
                 <span>• THUMBNAIL</span>
             </div>
@@ -437,6 +459,8 @@
     </div>
 
     <div class="content-wrapper">
+        
+        <!-- 2. Bảng DENJI STORE MINECRAFT STUDIO (Thanh Nav) -->
         <nav class="header-nav">
             <div class="logo-area">
                 <img src="denjistore.jpg" class="logo-icon">
@@ -451,31 +475,34 @@
             </div>
         </nav>
 
-        <section id="contact-section">
-            <main class="hero-container">
-                <div class="hero-text">
-                    <h1>DENJI STORE<br><span class="outline">MINECRAFT</span><br>THUMBNAILS</h1>
-                    <p>We provide professional Minecraft thumbnails!</p>
+        <!-- 3. Bảng Views, Like và Order Here -->
+        <section class="hero-container">
+            <div class="hero-right">
+                <div class="stats-grid">
+                    <div class="stat-box"><h2>92K+</h2><p>Views</p></div>
+                    <div class="stat-box"><h2>1.4K+</h2><p>Likes</p></div>
                 </div>
-                <div class="hero-right">
-                    <div class="stats-grid">
-                        <div class="stat-box"><h2>92K+</h2><p>Views</p></div>
-                        <div class="stat-box"><h2>1.4K+</h2><p>Likes</p></div>
-                    </div>
-                    <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
-                </div>
-            </main>
+                <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
+            </div>
         </section>
 
+        <!-- Khối chứa nội dung Sản phẩm và Showcase -->
         <section id="product-section" class="section-container">
+            
+            <!-- 4. Youtube Viral -->
             <div class="divider"></div>
             <h2 class="title">YOU<span class="youtube-highlight">TUBE</span> VIRAL</h2>
+            
+            <!-- 5. Video link (Chiều dọc trên điện thoại) -->
             <div class="product-grid" id="productGrid">
                 <div data-youtube="io562SY6aFo"></div>
             </div>
 
+            <!-- 6. Showcase -->
             <div class="divider"></div>
             <h2 class="title">SHOWCASE</h2>
+            
+            <!-- 7. Ảnh showcase (Chiều dọc trên điện thoại) -->
             <div class="showcase-grid">
                 <div class="image-card">
                     <img src="https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png" alt="Showcase 1">
@@ -489,9 +516,12 @@
             </div>
         </section>
 
+        <!-- 8. Reviews -->
         <section id="reviews-section" class="section-container">
             <div class="divider"></div>
             <h2 class="title">REVIEWS</h2>
+            
+            <!-- 9. Bảng reviews -->
             <div class="review-slider">
                 <div class="review-track" id="reviewTrack">
                     
@@ -517,18 +547,4 @@
                                 <span>40K+ SUBSCRIBERS</span>
                             </div>
                         </div>
-                        <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
-                        <div class="review-date">
-                            June 25, 2026
-                        </div>
-                    </div>
-
-                    <div class="review-item">
-                        <div class="review-header">
-                            <img src="https://i.postimg.cc/XNzvqTVd/sillyrent.jpg" class="review-avatar" alt="Avatar">
-                            <div class="review-info">
-                                <h4>@sillyrent</h4>
-                                <span>100+ SUBSCRIBERS</span>
-                            </div>
-                        </div>
-                        <p class="review-text">"Very easy to work with, gave me raw version and as
+                        <p class="review-text">"
