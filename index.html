@@ -13,6 +13,7 @@
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
+    /* HIỆU ỨNG VẠCH CHÉO TO CÁCH ĐỀU NHAU CHẠY TỪ PHẢI QUA TRÁI */
     .marquee-wrapper{
         position: relative;
         width: 98%; 
@@ -22,7 +23,25 @@
         margin-right: auto;
         margin-bottom: 40px;
 
-        background: linear-gradient(90deg,#f65602,#ff6a00);
+        /* Phân chia vạch sáng / tối cách đều chặt chẽ bằng % */
+        background: 
+            repeating-linear-gradient(
+                65deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0) 25%, 
+                rgba(255, 255, 255, 0.45) 25%, 
+                rgba(255, 255, 255, 0.45) 50%,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(255, 255, 255, 0) 100%
+            ), 
+            linear-gradient(90deg, #f65602, #ff6a00);
+        
+        /* Chu kỳ 320px giúp đường chéo hiển thị TO HƠN hẳn */
+        background-size: 320px 100%, 100% 100%;
+        
+        /* Dịch chuyển nền mượt mà liên tục ra sau */
+        animation: shine-move 3.5s linear infinite;
+
         color: #000;
         font-family: 'Montserrat', sans-serif;
         font-weight: 900;
@@ -40,6 +59,12 @@
         box-sizing: border-box;
     }
 
+    /* Khớp với background-size (-320px) giúp dải hiệu ứng không bị khựng */
+    @keyframes shine-move {
+        0% { background-position: 0px 0, 0 0; }
+        100% { background-position: -320px 0, 0 0; }
+    }
+
     .content-wrapper {
         width: 97%;
         max-width: 1600px;
@@ -47,26 +72,28 @@
         box-sizing: border-box;
     }
     
+    /* FIX: Thêm display inline-flex để phần track co giãn khít theo khối nội dung */
     .marquee-track{
-        display:flex;
-        width:max-content;
-        animation:marquee 28s linear infinite;
+        display: inline-flex;
+        width: max-content;
+        animation: marquee 16s linear infinite;
     }
     
+    /* FIX: Đồng bộ hóa gap nhất quán giúp nối đuôi mượt mà */
     .marquee-content{
-        display:flex;
-        align-items:center;
-        gap:40px;
-        flex-shrink:0;
-        padding-right:40px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        flex-shrink: 0;
+        padding-right: 40px;
     }
     
     @keyframes marquee{
         from{
-            transform:translateX(0);
+            transform: translateX(0);
         }
         to{
-            transform:translateX(-50%);
+            transform: translateX(-50%);
         }
     }
 
@@ -308,18 +335,18 @@
             opacity: 1;
         }
 
-        /* Tối ưu hóa giao diện hoàn toàn dành riêng cho điện thoại */
         @media (max-width: 768px) {
+            /* TỐI ƯU MARQUEE TRÊN ĐIỆN THOẠI */
             .marquee-wrapper {
                 width: 95%;
                 margin-top: 15px;
                 margin-bottom: 25px;
                 padding: 12px 0;
-                font-size: 14px;
+                font-size: 15px; /* Giữ kích thước chữ cân đối */
             }
             .marquee-content {
-                gap: 15px;
-                padding-right: 15px;
+                gap: 25px; /* Thu nhỏ khoảng cách gap giữa các cụm chữ trên mobile */
+                padding-right: 25px;
             }
 
             .header-nav {
@@ -395,7 +422,6 @@
                 margin: 25px auto;
             }
 
-            /* Chuyển các lưới hiển thị sang dạng 1 cột (Chiều dọc) trên Mobile */
             .product-grid, .showcase-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -515,20 +541,4 @@
                             <div class="review-info">
                                 <h4>@pepetheninja</h4>
                                 <span>40K+ SUBSCRIBERS</span>
-                            </div>
-                        </div>
-                        <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
-                        <div class="review-date">
-                            June 25, 2026
-                        </div>
-                    </div>
-
-                    <div class="review-item">
-                        <div class="review-header">
-                            <img src="https://i.postimg.cc/XNzvqTVd/sillyrent.jpg" class="review-avatar" alt="Avatar">
-                            <div class="review-info">
-                                <h4>@sillyrent</h4>
-                                <span>100+ SUBSCRIBERS</span>
-                            </div>
-                        </div>
-                        <p class="review-text">"Very easy to work with, gave me raw version and as
+                            </di
