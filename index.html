@@ -59,19 +59,6 @@
         box-shadow: 0 0 20px rgba(255, 112, 160, 0.4);
     }
 
-    /* Khung chứa trình phát Spotify nhỏ gọn ở góc màn hình */
-    .spotify-container {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 999;
-        background: #141414;
-        border-radius: 12px;
-        padding: 6px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     .marquee-wrapper{
         position: relative;
         width: 98%; 
@@ -578,12 +565,8 @@
 </head>
 <body>
 
-    <!-- Hidden background audio -->
-<audio id="bgMusic" autoplay loop preload="auto" style="display:none">
-<source src="song.mp3" type="audio/mpeg">
-</audio>
-
-    <div class="marquee-wrapper">
+    <audio id="bgMusic" autoplay loop preload="auto" style="display:none"><source src="song.mp3" type="audio/mpeg"></audio>
+<div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
             <div class="marquee-content" id="marquee">
                 <span>• DENJI STORE</span>
@@ -719,14 +702,12 @@
     </div>
 
     <script>
-    // --- Background music ---
+    // --- BACKGROUND MUSIC ---
 const bgMusic=document.getElementById('bgMusic');
 bgMusic.volume=0.5;
-const tryPlay=()=>bgMusic.play().catch(()=>{});
-window.addEventListener('load',tryPlay);
-document.addEventListener('pointerdown',tryPlay,{once:true});
-bgMusic.addEventListener('ended',()=>{bgMusic.currentTime=0;tryPlay();});
-
+const playMusic=()=>bgMusic.play().catch(()=>{});
+window.addEventListener('load',playMusic);
+document.addEventListener('pointerdown',playMusic,{once:true});
 // --- CÁC ĐOẠN SCRIPT HIỆN TẠI CỦA TRANG WEB ---
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
