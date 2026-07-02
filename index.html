@@ -22,10 +22,11 @@
         margin-right: auto;
         margin-bottom: 40px;
 
-        /* ĐÃ CẬP NHẬT: Màu bên trái đậm hơn (#f472b6) */
         background: linear-gradient(90deg, #ff6699, #ff70a0);
         color: #000;
+        
         font-family: 'Montserrat', sans-serif;
+        
         font-weight: 900;
         font-size: 20px;
         letter-spacing: 2px;
@@ -250,14 +251,11 @@
         .logo-text span { font-size: 13px; color: #ff70a0; letter-spacing: 3px; text-transform: uppercase; display: block; }
         .nav-links { display: flex; align-items: center; }
         
-        /* FIX LỖI NẨY: Tách biệt rõ hiệu ứng di chuột và hiệu ứng Active cố định */
         .nav-links a { color: #aaaaaa; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s ease, transform 0.3s ease; position: relative; padding-bottom: 5px; cursor: pointer; display: inline-block; }
         .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #ff70a0; transition: width 0.3s ease; }
         
-        /* Hiệu ứng hover chuẩn chỉ thay đổi màu và dịch chuyển nhẹ, không tự động mọc thanh gạch */
         .nav-links a:hover { color: #ffffff; transform: translateY(-3px); }
         
-        /* Trạng thái active chuẩn khi cuộn đến đúng vùng hoặc click chọn */
         .nav-links a.active { color: #ffffff; transform: none; }
         .nav-links a.active:after { width: 100%; }
         
@@ -275,24 +273,56 @@
         .hero-right { display: flex; flex-direction: column; justify-content: center; gap: 25px; transform: translateY(-22px); }
         .stats-grid { display: flex; gap: 20px; }
         
-        .stat-box { background: #141414; border: 1px solid #222; padding: 42px; border-radius: 24px; flex: 1; text-align: left; }
-        .stat-box h2 { font-family: 'Montserrat', sans-serif; font-size: 80px; color: #ff70a0; margin: 0; }
+        .stat-box { 
+            background: #141414; 
+            border: 1px solid #222; 
+            padding: 42px; 
+            border-radius: 24px; 
+            flex: 1; 
+            text-align: left; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        .stat-box h2 { font-size: 80px; color: #ff70a0; margin: 0; font-weight: 900; }
         .stat-box p { font-size: 20px; margin: 0; color: #ffffff; font-weight: 500; }
         
-        /* LOẠI BỎ HOÀN TOÀN BÓNG ĐỔ (box-shadow: none) CỦA NÚT */
-        .cta-btn { background: #ff70a0; color: #0d0d0d; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: none; transition: 0.3s; margin: 0; }
+        .cta-btn { 
+            background: #ff70a0; 
+            color: #0d0d0d; 
+            display: block; 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+            text-align: center; 
+            padding: 22px; 
+            border-radius: 16px; 
+            text-decoration: none; 
+            font-weight: 900; 
+            font-size: 30px; 
+            box-shadow: none; 
+            transition: 0.3s; 
+            margin: 0; 
+        }
         .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: none; color: #0d0d0d; }
         
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
         .divider { height: 4px; width: 100%; background-color: #ff70a0; margin: 40px auto; border-radius: 2px; }
-        .title { font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
+        
+        .title { 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+            font-size: 60px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            text-align: center; 
+            margin-bottom: 40px; 
+            line-height: 1;
+        }
 
+        /* ĐÃ CẬP NHẬT: Đặt padding dọc thành 0px, padding ngang thành 4px và kiểm soát line-height để ép khung đỏ thấp lại, ôm sát chữ */
         .youtube-highlight {
             background-color: #ff0000;
-            padding: 2px 10px;
+            padding: 0px 4px;
             border-radius: 8px;
             display: inline-block;
             color: #ffffff;
+            line-height: 0.95;
         }
 
         .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -353,6 +383,8 @@
             margin: 0;
             font-size: 18px;
             color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 700;
         }
 
         .review-info span {
@@ -360,6 +392,7 @@
             color: #ff70a0;
             font-weight: 700;
             display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         .review-text {
