@@ -13,6 +13,65 @@
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
+    /* Màn hình chào hướng dẫn bật nhạc */
+    .music-gate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0d0d0d;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .music-gate.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .music-gate h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #ffffff;
+    }
+    .enter-btn {
+        background: #ff70a0;
+        color: #0d0d0d;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .enter-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 112, 160, 0.4);
+    }
+
+    /* Khung chứa trình phát Spotify nhỏ gọn ở góc màn hình */
+    .spotify-container {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 999;
+        background: #141414;
+        border-radius: 12px;
+        padding: 6px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
     .marquee-wrapper{
         position: relative;
         width: 98%; 
@@ -72,9 +131,6 @@
         }
     }
 
-    /* ==========================================================================
-       BỘ FIX LỖI MOBILE - ÉP TRÀN MÀN HÌNH & CĂN GIỮA TUYỆT ĐỐI
-       ========================================================================== */
     @media (max-width: 768px) {
         body { overflow-x: hidden; }
 
@@ -233,6 +289,14 @@
         }
         .footer-right .site-credit {
             order: 3 !important;
+        }
+        
+        .spotify-container {
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 300px;
         }
     }
 
@@ -402,180 +466,6 @@
             opacity: 0.8;
         }
 
-        /* ==========================================================================
-           CSS TRÌNH PHÁT NHẠC SPOTIFY PLAYER UI 
-           ========================================================================== */
-        .spotify-music-player {
-            width: 100%;
-            max-width: 900px;
-            background-color: #595959;
-            margin: 40px auto 60px auto;
-            padding: 40px 50px;
-            border-radius: 40px;
-            box-sizing: border-box;
-            user-select: none;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-        .sp-label {
-            font-size: 18px;
-            color: #ffffff;
-            font-weight: 700;
-            margin-bottom: 5px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            opacity: 0.9;
-        }
-        .sp-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 72px;
-            font-weight: 900;
-            color: #ffffff;
-            margin: 0 0 10px 0;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-        .sp-subtitle {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 30px;
-            opacity: 0.8;
-        }
-        .sp-divider {
-            height: 4px;
-            background-color: #ffffff;
-            width: 100%;
-            margin-bottom: 25px;
-            border-radius: 2px;
-            opacity: 0.9;
-        }
-        .sp-controls-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 100%;
-            margin-top: 15px;
-        }
-        .sp-time-container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .sp-time {
-            font-size: 16px;
-            color: #ffffff;
-            font-weight: 500;
-            min-width: 45px;
-        }
-        .sp-progress-wrapper {
-            flex: 1;
-            position: relative;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            height: 20px;
-        }
-        .sp-progress-bar {
-            width: 100%;
-            -webkit-appearance: none;
-            appearance: none;
-            background: rgba(255, 255, 255, 0.3);
-            height: 4px;
-            border-radius: 2px;
-            outline: none;
-            margin: 0;
-            cursor: pointer;
-        }
-        .sp-progress-bar::-webkit-slider-runnable-track {
-            height: 4px;
-        }
-        .sp-progress-bar::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ffffff;
-            cursor: pointer;
-            margin-top: -4px;
-            transition: transform 0.1s;
-        }
-        .sp-progress-bar:hover::-webkit-slider-thumb {
-            transform: scale(1.3);
-        }
-        .sp-buttons-group {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 35px;
-            margin-top: 20px;
-        }
-        .sp-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .sp-btn:hover {
-            transform: scale(1.08);
-        }
-        .sp-btn:active {
-            transform: scale(0.95);
-        }
-        .sp-icon-heart {
-            fill: none;
-            stroke: #ffffff;
-            stroke-width: 2;
-            width: 24px;
-            height: 24px;
-            transition: fill 0.2s, stroke 0.2s;
-        }
-        .sp-icon-heart.liked {
-            fill: #ff3b30;
-            stroke: #ff3b30;
-        }
-        .sp-icon-prev, .sp-icon-next {
-            fill: #ffffff;
-            width: 22px;
-            height: 22px;
-        }
-        .sp-btn-play-pause {
-            width: 64px;
-            height: 64px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .sp-btn-play-pause:hover {
-            transform: scale(1.06);
-        }
-        .sp-icon-play-toggle {
-            fill: #000000;
-            width: 22px;
-            height: 22px;
-        }
-
-        /* Responsive cho bảng nhạc trên thiết bị di động */
-        @media (max-width: 768px) {
-            .spotify-music-player {
-                width: calc(100% - 32px) !important;
-                margin: 30px auto !important;
-                padding: 25px 20px !important;
-                border-radius: 25px !important;
-            }
-            .sp-label { font-size: 14px; }
-            .sp-title { font-size: 36px !important; }
-            .sp-subtitle { font-size: 14px; margin-bottom: 20px; }
-            .sp-buttons-group { gap: 20px !important; }
-            .sp-btn-play-pause { width: 50px !important; height: 50px !important; }
-            .sp-icon-play-toggle { width: 18px; height: 18px; }
-        }
-
         .site-footer {
             display: flex;
             justify-content: space-between;
@@ -687,6 +577,13 @@
     </style>
 </head>
 <body>
+    <!-- Trình phát nhạc nền -->
+    <audio id="bgMusic" loop preload="auto">
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+
+        
 
     <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
@@ -801,50 +698,6 @@
                 </div>
             </div>
         </section>
-
-        <div class="spotify-music-player">
-            <div class="sp-label">Sing name:</div>
-            <div class="sp-title">C418 - Sweden</div>
-            <div class="sp-subtitle">Minecraft | C418 - Sweden</div>
-            
-            <div class="sp-divider"></div>
-            
-            <div class="sp-time-container">
-                <span class="sp-time" id="spCurrentTime">0:00</span>
-                <div class="sp-progress-wrapper">
-                    <input type="range" class="sp-progress-bar" id="spProgressBar" min="0" max="100" value="0">
-                </div>
-                <span class="sp-time" id="spTotalTime">0:00</span>
-            </div>
-
-            <div class="sp-buttons-group">
-                <button class="sp-btn" id="spHeartBtn" title="Yêu thích">
-                    <svg class="sp-icon-heart" viewBox="0 0 24 24">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                    </svg>
-                </button>
-
-                <button class="sp-btn" id="spPrevBtn" title="Lùi 10 giây">
-                    <svg class="sp-icon-prev" viewBox="0 0 24 24">
-                        <path d="M6 6h2v12H6zm3.5 6L18 6v12z"/>
-                    </svg>
-                </button>
-
-                <button class="sp-btn sp-btn-play-pause" id="spPlayToggleBtn" title="Phát/Tạm dừng">
-                    <svg class="sp-icon-play-toggle" id="spPlayIcon" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                </button>
-
-                <button class="sp-btn" id="spNextBtn" title="Tiến 10 giây">
-                    <svg class="sp-icon-next" viewBox="0 0 24 24">
-                        <path d="M6 18l8.5-6L6 6zm9-12h2v12h-2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="yt-hidden-player" style="display: none;"></div>
-
     </div>
 
     <footer class="site-footer">
@@ -868,6 +721,14 @@
     </div>
 
     <script>
+    // --- KHỞI TẠO NHẠC ---
+    const bgMusic=document.getElementById('bgMusic');
+    bgMusic.volume=0.5;
+    function startMusic(){bgMusic.play().catch(()=>{});}
+    window.addEventListener('load',startMusic);
+    document.addEventListener('pointerdown',startMusic,{once:true});
+
+    // --- CÁC ĐOẠN SCRIPT HIỆN TẠI CỦA TRANG WEB ---
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
 
@@ -917,11 +778,6 @@
 
             navItems.forEach(n => n.classList.remove('active'));
             this.classList.add('active');
-
-            // --- TỰ ĐỘNG PHÁT NHẠC KHI NGƯỜI DÙNG CLICK VÀO LINK MENU ---
-            if (player && typeof player.playVideo === 'function') {
-                player.playVideo();
-            }
 
             scrollTimeout = setTimeout(() => {
                 isManualScrolling = false;
@@ -1026,141 +882,6 @@
         if (e.target !== lightboxImg && e.target !== lightboxClose) {
             lightboxOverlay.classList.remove('active');
         }
-    });
-
-    /* ==========================================================================
-       LOGIC XỬ LÝ NHẠC QUA YOUTUBE IFRAME API (Tương tác Spotify)
-       ========================================================================== */
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    let player;
-    const videoId = "aBkTkxKDduc"; 
-    
-    const playToggleBtn = document.getElementById('spPlayToggleBtn');
-    const playIcon = document.getElementById('spPlayIcon');
-    const progressBar = document.getElementById('spProgressBar');
-    const currentTimeEl = document.getElementById('spCurrentTime');
-    const totalTimeEl = document.getElementById('spTotalTime');
-    const prevBtn = document.getElementById('spPrevBtn');
-    const nextBtn = document.getElementById('spNextBtn');
-    const heartBtn = document.getElementById('spHeartBtn');
-
-    let updateTimer;
-
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('yt-hidden-player', {
-            height: '0',
-            width: '0',
-            videoId: videoId,
-            playerVars: {
-                'playsinline': 1,
-                'controls': 0,
-                'disablekb': 1
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }
-
-    function onPlayerReady(event) {
-        const totalDuration = player.getDuration();
-        progressBar.max = totalDuration;
-        totalTimeEl.textContent = formatTime(totalDuration);
-
-        // --- ĐOẠN CODE TỰ ĐỘNG PHÁT KHI CÓ CLICK BẤT KỲ ĐÂU TRÊN TRANG ---
-        const autoPlayOnFirstClick = () => {
-            if (player && typeof player.playVideo === 'function') {
-                player.playVideo();
-            }
-            // Xóa sự kiện ngay lập tức để không kích hoạt lại ở những lần click sau
-            document.removeEventListener('click', autoPlayOnFirstClick);
-            document.removeEventListener('touchstart', autoPlayOnFirstClick);
-        };
-        document.addEventListener('click', autoPlayOnFirstClick);
-        document.addEventListener('touchstart', autoPlayOnFirstClick);
-    }
-
-    function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING) {
-            playIcon.innerHTML = `<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>`; 
-            startProgressUpdate();
-        } else {
-            playIcon.innerHTML = `<path d="M8 5v14l11-7z"/>`; 
-            stopProgressUpdate();
-        }
-        
-        if(player.getDuration()) {
-            progressBar.max = player.getDuration();
-            totalTimeEl.textContent = formatTime(player.getDuration());
-        }
-    }
-
-    function startProgressUpdate() {
-        stopProgressUpdate();
-        updateTimer = setInterval(() => {
-            if (player && typeof player.getCurrentTime === 'function') {
-                const current = player.getCurrentTime();
-                progressBar.value = current;
-                currentTimeEl.textContent = formatTime(current);
-            }
-        }, 1000);
-    }
-
-    function stopProgressUpdate() {
-        clearInterval(updateTimer);
-    }
-
-    function formatTime(seconds) {
-        const min = Math.floor(seconds / 60);
-        const sec = Math.floor(seconds % 60);
-        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-    }
-
-    playToggleBtn.addEventListener('click', () => {
-        if (!player) return;
-        const state = player.getPlayerState();
-        if (state == YT.PlayerState.PLAYING) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
-        }
-    });
-
-    nextBtn.addEventListener('click', () => {
-        if (!player) return;
-        const current = player.getCurrentTime();
-        const total = player.getDuration();
-        player.seekTo(Math.min(current + 10, total), true);
-    });
-
-    prevBtn.addEventListener('click', () => {
-        if (!player) return;
-        const current = player.getCurrentTime();
-        player.seekTo(Math.max(current - 10, 0), true);
-    });
-
-    progressBar.addEventListener('input', () => {
-        stopProgressUpdate();
-        currentTimeEl.textContent = formatTime(progressBar.value);
-    });
-
-    progressBar.addEventListener('change', () => {
-        if (!player) return;
-        player.seekTo(progressBar.value, true);
-        const state = player.getPlayerState();
-        if (state == YT.PlayerState.PLAYING) {
-            startProgressUpdate();
-        }
-    });
-
-    heartBtn.addEventListener('click', () => {
-        const heartSvg = heartBtn.querySelector('.sp-icon-heart');
-        heartSvg.classList.toggle('liked');
     });
     </script>
 </body>
