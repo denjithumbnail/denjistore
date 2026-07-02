@@ -577,13 +577,11 @@
     </style>
 </head>
 <body>
-    <!-- Trình phát nhạc nền -->
-    <audio id="bgMusic" loop preload="auto">
-      <source src="song.mp3" type="audio/mpeg">
-    </audio>
 
-
-        
+    <!-- Hidden background audio -->
+<audio id="bgMusic" autoplay loop preload="auto" style="display:none">
+<source src="song.mp3" type="audio/mpeg">
+</audio>
 
     <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
@@ -721,14 +719,15 @@
     </div>
 
     <script>
-    // --- KHỞI TẠO NHẠC ---
-    const bgMusic=document.getElementById('bgMusic');
-    bgMusic.volume=0.5;
-    function startMusic(){bgMusic.play().catch(()=>{});}
-    window.addEventListener('load',startMusic);
-    document.addEventListener('pointerdown',startMusic,{once:true});
+    // --- Background music ---
+const bgMusic=document.getElementById('bgMusic');
+bgMusic.volume=0.5;
+const tryPlay=()=>bgMusic.play().catch(()=>{});
+window.addEventListener('load',tryPlay);
+document.addEventListener('pointerdown',tryPlay,{once:true});
+bgMusic.addEventListener('ended',()=>{bgMusic.currentTime=0;tryPlay();});
 
-    // --- CÁC ĐOẠN SCRIPT HIỆN TẠI CỦA TRANG WEB ---
+// --- CÁC ĐOẠN SCRIPT HIỆN TẠI CỦA TRANG WEB ---
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
 
