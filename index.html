@@ -13,52 +13,6 @@
     
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
     
-    /* Màn hình chào hướng dẫn bật nhạc */
-    .music-gate {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #0d0d0d;
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    .music-gate.hidden {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-    .music-gate h2 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 32px;
-        margin-bottom: 20px;
-        text-align: center;
-        color: #ffffff;
-    }
-    .enter-btn {
-        background: #ff70a0;
-        color: #0d0d0d;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 900;
-        font-size: 20px;
-        padding: 15px 40px;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .enter-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(255, 112, 160, 0.4);
-    }
-
     .marquee-wrapper{
         position: relative;
         width: 98%; 
@@ -118,9 +72,13 @@
         }
     }
 
+    /* ==========================================================================
+       BỘ FIX LỖI MOBILE - ÉP TRÀN MÀN HÌNH & CĂN GIỮA TUYỆT ĐỐI
+       ========================================================================== */
     @media (max-width: 768px) {
         body { overflow-x: hidden; }
 
+        /* Ép tất cả khung chứa chính tràn full chiều ngang điện thoại */
         .content-wrapper, .section-container, .review-slider, .site-footer {
             width: 100% !important;
             max-width: 100% !important;
@@ -129,6 +87,7 @@
             box-sizing: border-box !important;
         }
 
+        /* 1. Bảng cam chữ chạy */
         .marquee-wrapper {
             width: calc(100% - 32px) !important;
             font-size: 14px;
@@ -137,6 +96,7 @@
             margin-bottom: 25px;
         }
 
+        /* 2. Thanh điều hướng DENJI STORE (Sửa lỗi bị thu nhỏ thành hình vuông góc trái) */
         .header-nav {
             width: calc(100% - 32px) !important;
             max-width: 100% !important;
@@ -165,9 +125,10 @@
             margin: 0 10px !important;
         }
         .separator {
-            display: none !important;
+            display: none !important; /* Ẩn gạch chéo để menu mobile rộng rãi */
         }
 
+        /* 3. Phần Hero chữ lớn */
         .hero-container {
             display: flex !important;
             flex-direction: column !important;
@@ -178,7 +139,7 @@
             margin-bottom: 30px !important;
         }
         .hero-text h1 {
-            font-size: 44px !important;
+            font-size: 44px !important; /* Thu nhỏ font chữ để không bị xuống dòng lỗi */
             line-height: 1.1 !important;
         }
         .hero-text p {
@@ -186,6 +147,7 @@
             margin: 15px 0 0 0 !important;
         }
 
+        /* 4. Khối thống kê Likes/Views và Nút Order Here */
         .hero-right {
             transform: none !important;
             width: 100% !important;
@@ -195,7 +157,7 @@
         }
         .stats-grid {
             display: flex !important;
-            flex-direction: row !important;
+            flex-direction: row !important; /* Đặt nằm ngang song song */
             width: 100% !important;
             gap: 15px !important;
         }
@@ -219,19 +181,20 @@
             width: 100% !important;
             box-sizing: border-box !important;
             transform: none !important;
-            box-shadow: none !important;
+            box-shadow: none !important; /* Khóa bỏ bóng đổ hoàn toàn trên Mobile */
         }
         .cta-btn:hover {
             transform: translateY(-2px) !important;
             box-shadow: none !important;
         }
 
+        /* 5 & 6. Lưới ảnh Youtube Viral & Showcase (Sửa lỗi bị vỡ và lệch khung) */
         .title {
             font-size: 32px !important;
             margin-bottom: 25px !important;
         }
         .product-grid, .showcase-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 1fr !important; /* Chuyển thành 1 cột dọc duy nhất */
             gap: 20px !important;
             width: 100% !important;
         }
@@ -239,6 +202,7 @@
             width: 100% !important;
         }
 
+        /* 7. Khung Reviews cuộn vuốt */
         .review-slider {
             height: 400px !important;
             width: 100% !important;
@@ -248,6 +212,7 @@
             padding: 20px !important;
         }
 
+        /* 8. Footer căn giữa xếp lớp dọc */
         .site-footer {
             flex-direction: column !important;
             align-items: center !important;
@@ -276,14 +241,6 @@
         }
         .footer-right .site-credit {
             order: 3 !important;
-        }
-        
-        .spotify-container {
-            left: 50%;
-            bottom: 10px;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 300px;
         }
     }
 
@@ -358,6 +315,7 @@
             line-height: 1;
         }
 
+        /* ĐÃ CẬP NHẬT: Đặt padding dọc thành 0px, padding ngang thành 4px và kiểm soát line-height để ép khung đỏ thấp lại, ôm sát chữ */
         .youtube-highlight {
             background-color: #ff0000;
             padding: 0px 4px;
@@ -564,9 +522,9 @@
     </style>
 </head>
 <body>
+<audio id="bgMusic" loop preload="auto"><source src="song.mp3" type="audio/mpeg"></audio>
 
-    <audio id="bgMusic" autoplay loop preload="auto" style="display:none"><source src="song.mp3" type="audio/mpeg"></audio>
-<div class="marquee-wrapper">
+    <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
             <div class="marquee-content" id="marquee">
                 <span>• DENJI STORE</span>
@@ -702,13 +660,6 @@
     </div>
 
     <script>
-    // --- BACKGROUND MUSIC ---
-const bgMusic=document.getElementById('bgMusic');
-bgMusic.volume=0.5;
-const playMusic=()=>bgMusic.play().catch(()=>{});
-window.addEventListener('load',playMusic);
-document.addEventListener('pointerdown',playMusic,{once:true});
-// --- CÁC ĐOẠN SCRIPT HIỆN TẠI CỦA TRANG WEB ---
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
 
@@ -718,7 +669,7 @@ document.addEventListener('pointerdown',playMusic,{once:true});
 
     document.querySelectorAll('[data-youtube]').forEach(el => {
         const id = el.getAttribute('data-youtube');
-        el.innerHTML = `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="video-card"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail"></a>`;
+        el.innerHTML = `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="video-card youtube-link"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail"></a>`;
     });
 
     const sections = document.querySelectorAll('section[id]');
@@ -863,6 +814,16 @@ document.addEventListener('pointerdown',playMusic,{once:true});
             lightboxOverlay.classList.remove('active');
         }
     });
-    </script>
+    
+const bgMusic=document.getElementById("bgMusic");
+bgMusic.volume=1;
+function playMusic(){bgMusic.play().catch(()=>{});}
+window.addEventListener("load",playMusic);
+document.addEventListener("click",playMusic,{once:true});
+document.addEventListener("touchstart",playMusic,{once:true});
+document.addEventListener("visibilitychange",()=>{if(document.hidden){bgMusic.pause();}else{bgMusic.play().catch(()=>{});}});
+document.querySelectorAll(".youtube-link").forEach(link=>link.addEventListener("click",()=>bgMusic.pause()));
+
+</script>
 </body>
 </html>
