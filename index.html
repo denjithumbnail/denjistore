@@ -1,0 +1,985 @@
+<!DOCTYPE html> 
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DENJI STORE - Professional Thumbnails</title>
+
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/C58vs2D5/AVT-Copy.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background-color: #0d0d0d; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; box-sizing: border-box; }
+
+    ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
+
+    /* Bảo vệ tất cả hình ảnh không cho phép kéo thả để tải xuống */
+    img {
+        -webkit-user-drag: none;
+        khtml-user-drag: none;
+        moz-user-drag: none;
+        o-user-drag: none;
+        user-drag: none;
+    }
+
+    .marquee-wrapper{
+        position: relative;
+        width: 98%; 
+        max-width: 1850px;
+        margin-top: 35px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        
+        background: linear-gradient(90deg, #ff6699, #ff70a0);
+        color: #000;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding: 18px 0;
+
+        text-transform: uppercase;
+        overflow: hidden;
+        white-space: nowrap;
+
+        border-radius: 16px;
+        box-shadow: 0 5px 20px rgba(252, 168, 189, 0.4);
+
+        box-sizing: border-box;
+    }
+
+    .content-wrapper {
+        width: 97%;
+        max-width: 1600px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .marquee-track{
+        display:flex;
+        width:max-content;
+        animation:marquee 28s linear infinite;
+    }
+    
+        .marquee-content{
+        display:flex;
+        align-items:center;
+        gap:40px;
+        flex-shrink:0;
+        padding-right:40px;
+    }
+
+    @keyframes marquee{
+        from{
+            transform:translateX(0);
+        }
+        to{
+            transform:translateX(-50%);
+        }
+    }
+
+    /* ==========================================================================
+       BỘ FIX LỖI MOBILE - ÉP TRÀN MÀN HÌNH & CĂN GIỮA TUYỆT ĐỐI
+       ========================================================================== */
+    @media (max-width: 768px) {
+        body { overflow-x: hidden; }
+
+        .content-wrapper, .section-container, .review-slider, .site-footer {
+            width: 100% !important;
+            max-width: 100% !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            box-sizing: border-box !important;
+        }
+        
+                .marquee-wrapper {
+            width: calc(100% - 32px) !important;
+            font-size: 14px;
+            padding: 12px 0;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header-nav {
+            width: calc(100% - 32px) !important;
+            max-width: 100% !important;
+            margin: 20px auto !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 15px !important;
+            padding: 20px !important;
+            text-align: center;
+            position: relative !important;
+            top: 0 !important;
+        }
+        .logo-area {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        .nav-links {
+            justify-content: center !important;
+            width: 100% !important;
+            margin: 0 !important;
+        }
+        .nav-links a {
+            font-size: 15px !important;
+            margin: 0 10px !important;
+        }
+        .separator {
+            display: none !important;
+        }
+
+        .hero-container {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 30px !important;
+            text-align: center !important;
+            margin-top: 30px !important;
+            margin-bottom: 30px !important;
+        }
+        .hero-text h1 {
+            font-size: 44px !important;
+            line-height: 1.1 !important;
+        }
+        .hero-text p {
+            font-size: 16px !important;
+            margin: 15px 0 0 0 !important;
+        }
+
+        .hero-right {
+            transform: none !important;
+            width: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+                .stats-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            width: 100% !important;
+            gap: 15px !important;
+        }
+        .stat-box {
+            flex: 1 !important;
+            width: 50% !important;
+            padding: 20px 10px !important;
+            text-align: center !important;
+            border-radius: 16px !important;
+            box-sizing: border-box !important;
+        }
+        .stat-box h2 {
+            font-size: 36px !important;
+        }
+        .stat-box p {
+            font-size: 14px !important;
+        }
+        .cta-btn {
+            font-size: 22px !important;
+            padding: 16px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: none !important;
+        }
+                .title {
+            font-size: 32px !important;
+            margin-bottom: 25px !important;
+        }
+        .product-grid, .showcase-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+        .video-card, .image-card {
+            width: 100% !important;
+        }
+
+        .review-slider {
+            height: 400px !important;
+            width: 100% !important;
+        }
+        .review-item {
+            width: 100% !important;
+            padding: 20px !important;
+        }
+
+        .site-footer {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 25px !important;
+            padding-top: 30px !important;
+            padding-bottom: 40px !important;
+        }
+                .footer-left {
+            width: 100% !important;
+            justify-content: center !important;
+            order: 1 !important;
+        }
+        .footer-right {
+            width: 100% !important;
+            align-items: center !important;
+            order: 2 !important;
+            gap: 15px !important;
+        }
+        .social-icons-wrapper {
+            justify-content: center !important;
+        }
+        .social-icon-link img {
+            width: 44px !important;
+            height: 44px !important;
+        }
+        .footer-right .site-credit {
+            order: 3 !important;
+        }
+
+        /* CHỈNH SỬA THEO YÊU CẦU: Thu nhỏ avatar và tăng kích thước chữ tiêu đề trên Mobile */
+        .bottom-avatar-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 20px !important;
+        }
+        .bottom-avatar {
+            width: 100px !important;  /* Thu nhỏ avatar lại vừa vặn */
+            height: 100px !important;
+            border: 5px solid #ffffff !important;
+        }
+                .bottom-avatar-name {
+            font-size: 48px !important; /* Phóng to chữ tên Denj1 lên một chút nổi bật hơn */
+        }
+        .bottom-avatar-subtext {
+            font-size: 14px !important; /* Tăng nhẹ font subtext */
+        }
+        .bottom-letter-box {
+            padding: 40px 24px 30px 24px !important;
+            /* Thiết lập lằn gạch nền lặp lại sắc nét cố định mỗi 34px cho giao diện điện thoại */
+            background: #fcfcfc repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.08) 33px, rgba(0, 0, 0, 0.08) 34px) !important;
+            background-position: 0 12px !important;
+        }
+        .bottom-avatar-bio {
+            font-size: 15px !important;
+            line-height: 34px !important; /* Khóa chiều cao dòng trùng khít 34px lằn gạch mobile */
+        }
+    }
+
+        .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; }
+        .logo-text h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 26px; letter-spacing: -0.5px; }
+        .logo-text span { font-size: 13px; color: #ff70a0; letter-spacing: 3px; text-transform: uppercase; display: block; }
+        .nav-links { display: flex; align-items: center; }
+
+        .nav-links a { color: #aaaaaa; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s ease, transform 0.3s ease; position: relative; padding-bottom: 5px; cursor: pointer; display: inline-block; }
+        .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #ff70a0; transition: width 0.3s ease; }
+
+        .nav-links a:hover { color: #ffffff; transform: translateY(-3px); }
+
+        .nav-links a.active { color: #ffffff; transform: none; }
+        .nav-links a.active:after { width: 100%; }
+                .separator { color: #aaaaaa; margin-left: 25px; font-size: 18px; }
+
+        #contact-section { scroll-margin-top: 140px; }
+        #product-section { scroll-margin-top: 140px; }
+        #reviews-section { scroll-margin-top: 140px; }
+
+        .hero-container { width: 100%; max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 120px; font-weight: 900; line-height: 1.05; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
+        .hero-text .outline { color: #0d0d0d; text-shadow: -2px -2px 0 #ff70a0, 2px -2px 0 #ff70a0, -2px 2px 0 #ff70a0, 2px 2px 0 #ff70a0; }
+        .hero-text p { margin: 25px 0 0 0; font-size: 18px; color: #aaaaaa; }
+
+        .hero-right { display: flex; flex-direction: column; justify-content: center; gap: 25px; transform: translateY(-22px); }
+        .stats-grid { display: flex; gap: 20px; }
+
+        .stat-box { background: #141414; border: 1px solid #222; padding: 42px; border-radius: 24px; flex: 1; text-align: left; }
+        .stat-box h2 { font-family: 'Montserrat', sans-serif; font-size: 80px; color: #ff70a0; margin: 0; }
+        .stat-box p { font-size: 20px; margin: 0; color: #ffffff; font-weight: 500; }
+
+        .cta-btn { background: #ff70a0; color: #0d0d0d; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: none; transition: 0.3s; margin: 0; }
+        .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: none; color: #0d0d0d; }
+
+        .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
+        .divider { height: 4px; width: 100%; background-color: #ff70a0; margin: 40px auto; border-radius: 2px; }
+        .title { font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
+
+        .youtube-highlight {
+            background-color: #ff0000;
+            padding: 0px 5px;
+            border-radius: 8px;
+            display: inline-block;
+            color: #ffffff;
+        }
+                .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .video-card, .image-card { background: #141414; border-radius: 16px; overflow: hidden; display: block; text-decoration: none; transition: 0.3s; cursor: pointer; }
+        .video-card:hover, .image-card:hover { transform: translateY(-10px); }
+        .video-card img, .image-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+
+        .review-slider {
+            overflow: hidden;
+            display: block;
+            width: 100%;              
+            max-width: 1600px;      
+            height: 450px;          
+            margin: 0 auto; 
+            position: relative;
+            cursor: grab;
+            user-select: none;
+            mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+            touch-action: none;
+        }
+        .review-slider:active{cursor:grabbing;}
+
+        .review-track {
+            display: flex;
+            flex-direction: column; 
+            gap: 30px;
+            width: 100%;
+            will-change: transform; 
+        }
+                .review-item {
+            width: 100%;
+            background: #141414;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-sizing: border-box;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .review-info h4 {
+            margin: 0;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .review-info span {
+            font-size: 13px;
+            color: #ff70a0;
+            font-weight: 700;
+            display: block;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #aaaaaa;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .review-date {
+            margin-top: auto;
+            font-size: 11px;
+            color: #aaaaaa;
+            text-align: right;
+            font-style: normal;
+            opacity: 0.8;
+        }
+                .site-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; 
+            width: 96%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 0; 
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            gap: 15px; 
+        }
+
+        .site-credit {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #aaaaaa;   
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
+
+        .social-icons-wrapper { display: flex; align-items: center; gap: 18px; }
+        .social-icon-link { display: inline-block; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .social-icon-link img { 
+            width: 50px; 
+            height: 50px; 
+            object-fit: contain; 
+            filter: grayscale(100%) brightness(0.5); 
+            opacity: 0.4; 
+            transition: filter 0.3s ease, opacity 0.3s ease; 
+        }
+
+        .social-icon-link:hover { transform: translateY(-5px); }
+
+        .social-icon-link:hover img { 
+            filter: grayscale(0%) brightness(1); 
+            opacity: 1; 
+        }
+                .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-img {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .lightbox-overlay.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 52px;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 300;
+            cursor: pointer;
+            line-height: 1;
+            user-select: none;
+            transition: transform 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+            opacity: 0.7;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.08);
+            color: #ff70a0;
+            opacity: 1;
+        }
+
+        .bottom-avatar-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 40px;
+            width: 100%;
+            gap: 30px;
+        }
+        .bottom-avatar-header-block {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            width: 100%;
+        }
+        .bottom-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #ffffff;
+            flex-shrink: 0;
+        }
+        .bottom-avatar-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+                .bottom-avatar-name {
+            font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            font-size: 64px;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .bottom-avatar-subtext {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #aaaaaa;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Giao diện Desktop của nền giấy tập học sinh */
+        .bottom-letter-box {
+            background-color: #fcfcfc;
+            border-radius: 24px;
+            padding: 55px 45px 40px 45px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            position: relative;
+
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 39px,
+                rgba(0, 0, 0, 0.08) 39px,
+                rgba(0, 0, 0, 0.08) 40px
+            );
+            background-position: 0 15px; 
+        }
+
+        .bottom-avatar-bio {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a; 
+            line-height: 40px; 
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            white-space: pre-line;
+            background: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bottom-letter-signature {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #0d0d0d;
+            text-align: right;
+            margin: 0;
+            align-self: flex-end;
+            padding-right: 10px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* KHUNG CHỨA VIDEO GIỮ NGUYÊN TỈ LỆ 16:9 VÀ CHẶN HOÀN TOÀN TƯƠNG TÁC */
+        .bottom-video-container {
+            width: 100%;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin-top: -10px;
+        }
+                /* Lớp phủ trong suốt nằm đè lên iframe để chặn click chuột phát sinh bảng điều khiển */
+        .video-overlay-blocker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            cursor: default;
+        }
+
+        .bottom-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-track" id="marqueeTrack">
+            <div class="marquee-content" id="marquee">
+                <span>• DENJI STORE</span>
+                <span>• THUMBNAIL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <nav class="header-nav">
+            <div class="logo-area">
+                <img src="https://i.postimg.cc/C58vs2D5/AVT-Copy.png" class="logo-icon">
+                <div class="logo-text"><h3>DENJI STORE</h3><span>Minecraft Studio</span></div>
+            </div>
+            <div class="nav-links">
+                <a href="#reviews-section" class="nav-item">Reviews</a> 
+                <span class="separator">/</span> 
+                <a href="#product-section" class="nav-item">Works</a> 
+                <span class="separator">/</span> 
+                <a href="#contact-section" class="nav-item active">Contact</a>
+            </div>
+        </nav>
+
+        <section id="contact-section">
+            <main class="hero-container">
+                <div class="hero-text">
+                    <h1>DENJI STORE<br><span class="outline">MINECRAFT</span><br>THUMBNAILS</h1>
+                    <p>We provide professional Minecraft thumbnails!</p>
+                </div>
+                <div class="hero-right">
+                    <div class="stats-grid">
+                        <div class="stat-box"><h2>100K+</h2><p>Views</p></div>
+                        <div class="stat-box"><h2>1.5K+</h2><p>Likes</p></div>
+                    </div>
+                    <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
+                </div>
+            </main>
+        </section>
+
+        <section id="product-section" class="section-container">
+            <div class="divider"></div>
+            <h2 class="title">YOU<span class="youtube-highlight">TUBE</span> VIRAL</h2>
+            <div class="product-grid" id="productGrid">
+                <div data-youtube="T0-9U4oV-T0"></div>
+                <div data-youtube="io562SY6aFo"></div>
+            </div>
+
+            <div class="divider"></div>
+            <h2 class="title">SHOWCASE</h2>
+            <div class="showcase-grid">
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/kXw2LDcH/SHOWCASE-V3.png" alt="Showcase">
+                </div>               
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png" alt="Showcase">
+                </div>
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/J4kbK30Q/ducktai.png" alt="Showcase">
+                </div>
+                <div class="image-card">
+                    <img src="https://i.postimg.cc/rwwY26xd/SHOWCASE-V36.png" alt="Showcase">
+                </div>
+            </div>
+        </section>
+                <section id="reviews-section" class="section-container">
+            <div class="divider"></div>
+            <h2 class="title">REVIEWS</h2>
+            <div class="review-slider">
+                <div class="review-track" id="reviewTrack">
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/cLLnhpqc/image.png" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@@notthekillermc2008</h4>
+                                <span>1K+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"Denji is an incredibly hard worker he always finishes ahead of schedule and never fails to surprise me with the quality of his work. Every little detail is carefully crafted and polished."</p>
+                        <div class="review-date">
+                            July 03, 2026
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/bv17rMHx/channels4-profile.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@Orbitzmc</h4>
+                                <span>2K+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"The thumbnail looked professional and definitely stood out compared to others. Communication was easy throughout the process, and I’d happily use this service again. If you’re looking for high-quality Minecraft thumbnails that grab attention, I’d definitely recommend them."</p>
+                        <div class="review-date">
+                            June 27, 2026
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/2Sp8FhLm/pepe.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@pepetheninja</h4>
+                                <span>40K+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"Denji was great to work with. He was always kind, quick to respond, and very easy to communicate with. His thumbnails are good, though I think there’s still some room for improvement. I’d rate him 4.5/5 for professionalism and 3.5/5 for the quality of his work. Overall, I’d definitely recommend working with him!"</p>
+                        <div class="review-date">
+                            June 25, 2026
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <img src="https://i.postimg.cc/XNzvqTVd/sillyrent.jpg" class="review-avatar" alt="Avatar">
+                            <div class="review-info">
+                                <h4>@sillyrent</h4>
+                                <span>100+ SUBSCRIBERS</span>
+                            </div>
+                        </div>
+                        <p class="review-text">"Very easy to work with, gave me raw version and asked for any changes. Would highly recommend!"</p>
+                        <div class="review-date">
+                            June 25, 2026
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="divider"></div>
+                        <div class="bottom-avatar-container">
+                <div class="bottom-avatar-header-block">
+                    <img src="https://i.postimg.cc/05C4N8MD/IMG-20260701-174818.jpg" class="bottom-avatar" alt="Avatar">
+                    <div class="bottom-avatar-text-group">
+                        <h3 class="bottom-avatar-name">Denj1</h3>
+                        <p class="bottom-avatar-subtext">hoagnguyn.bii</p>
+                    </div>
+                </div>
+                
+                <div class="bottom-letter-box">
+                    <p class="bottom-avatar-bio">Hello! I'm Denji — The founder of DENJI STORE and the developer of the website you're currently visiting.
+
+                    With my skills, dedication and passion for my work, I'm committed to delivering the highest-quality products and the best results I can possibly create.
+
+                    Your satisfaction is what motivates me the most. Of course, I'm not perfect and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I'll always listen, learn, and do my best to improve.
+
+                    Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
+                    
+                    <h5 class="bottom-letter-signature">Denj1</h5>
+                </div>
+
+                <div class="bottom-video-container">
+                    <div class="video-overlay-blocker"></div>
+                    <iframe 
+                        src="https://www.youtube.com/embed/FqnAV6tkwzA?autoplay=1&mute=1&loop=1&playlist=FqnAV6tkwzA&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1" 
+                        title="Introduction Video" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <p class="site-credit">&copy; 2026 Denji Store | June 25, 2026</p>
+        </div>
+
+        <div class="footer-right">
+            <div class="social-icons-wrapper">
+                <a href="https://discordapp.com/users/925391448243847189" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/kXGthQ55/discord.png" alt="Discord"></a>
+                <a href="https://x.com/_hoagnguynbii" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/6q3TgKtD/x.png" alt="X"></a>
+                <a href="https://www.youtube.com/@Denjiontop" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/fbfLbyLs/youtube.png" alt="YouTube"></a>
+            </div>
+            <p class="site-credit">&copy; Developer: Denji</p>
+        </div>
+    </footer>
+
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Showcase">
+    </div>
+        <script>
+    /* JavaScript chặn hoàn toàn menu chuột phải đối với TẤT CẢ hình ảnh trên trang web */
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    const marquee = document.getElementById("marquee");
+    const marqueeTrack = document.getElementById("marqueeTrack");
+
+    while (marqueeTrack.scrollWidth < window.innerWidth * 3) {
+        marqueeTrack.innerHTML += marquee.outerHTML;
+    }
+
+    document.querySelectorAll('[data-youtube]').forEach(el => {
+        const id = el.getAttribute('data-youtube');
+        el.innerHTML = `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="video-card"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail"></a>`;
+    });
+
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-links .nav-item');
+
+    let isManualScrolling = false;
+    let scrollTimeout;
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        if (isManualScrolling) return;
+
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${id}`) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            isManualScrolling = true;
+            clearTimeout(scrollTimeout);
+
+            navItems.forEach(n => n.classList.remove('active'));
+            this.classList.add('active');
+
+            scrollTimeout = setTimeout(() => {
+                isManualScrolling = false;
+            }, 800);
+        });
+    });
+
+    const reviewSlider = document.querySelector('.review-slider');
+    const reviewTrack = document.getElementById('reviewTrack');
+
+    const originalContent = reviewTrack.innerHTML;
+    reviewTrack.innerHTML = originalContent + originalContent;
+        let currentY = 0;            
+    let speed = 0.6;              
+    let isDragging = false;       
+    let startY = 0;               
+    let baseHeight = 0;          
+
+    function updateDimensions() {
+        baseHeight = (reviewTrack.scrollHeight / 2) + 15;
+    }
+    window.addEventListener('load', updateDimensions);
+    window.addEventListener('resize', updateDimensions);
+    updateDimensions();
+
+    function renderLoop() {
+        if (!isDragging) {
+            currentY -= speed; 
+
+            if (Math.abs(currentY) >= baseHeight) {
+                currentY += baseHeight;
+            }
+        }
+
+        reviewTrack.style.transform = `translateY(${currentY}px)`;
+        requestAnimationFrame(renderLoop);
+    }
+
+    setTimeout(renderLoop, 200);
+
+    reviewSlider.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startY = e.pageY - currentY;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        currentY = e.pageY - startY;
+
+        if (currentY > 0) currentY -= baseHeight;
+        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+    });
+
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    reviewSlider.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startY = e.touches[0].pageY - currentY;
+    }, { passive: false });
+
+    reviewSlider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+
+        e.preventDefault(); 
+
+        currentY = e.touches[0].pageY - startY;
+
+        if (currentY > 0) currentY -= baseHeight;
+        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+    }, { passive: false });
+
+    window.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    window.addEventListener('blur', () => {
+        isDragging = false;
+    });
+
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
+
+    showcaseImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxOverlay.classList.add('active');
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightboxOverlay.classList.remove('active');
+    });
+        lightboxOverlay.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg && e.target !== lightboxClose) {
+            lightboxOverlay.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>
+ 
