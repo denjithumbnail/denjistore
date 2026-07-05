@@ -22,7 +22,6 @@
         margin-right: auto;
         margin-bottom: 40px;
 
-        /* ĐÃ CẬP NHẬT: Màu bên trái đậm hơn (#f472b6) */
         background: linear-gradient(90deg, #ff6699, #ff70a0);
         color: #000;
         font-family: 'Montserrat', sans-serif;
@@ -77,7 +76,6 @@
     @media (max-width: 768px) {
         body { overflow-x: hidden; }
 
-        /* Ép tất cả khung chứa chính tràn full chiều ngang điện thoại */
         .content-wrapper, .section-container, .review-slider, .site-footer {
             width: 100% !important;
             max-width: 100% !important;
@@ -86,7 +84,6 @@
             box-sizing: border-box !important;
         }
 
-        /* 1. Bảng cam chữ chạy */
         .marquee-wrapper {
             width: calc(100% - 32px) !important;
             font-size: 14px;
@@ -95,7 +92,6 @@
             margin-bottom: 25px;
         }
 
-        /* 2. Thanh điều hướng DENJI STORE (Sửa lỗi bị thu nhỏ thành hình vuông góc trái) */
         .header-nav {
             width: calc(100% - 32px) !important;
             max-width: 100% !important;
@@ -124,10 +120,9 @@
             margin: 0 10px !important;
         }
         .separator {
-            display: none !important; /* Ẩn gạch chéo để menu mobile rộng rãi */
+            display: none !important;
         }
 
-        /* 3. Phần Hero chữ lớn */
         .hero-container {
             display: flex !important;
             flex-direction: column !important;
@@ -138,7 +133,7 @@
             margin-bottom: 30px !important;
         }
         .hero-text h1 {
-            font-size: 44px !important; /* Thu nhỏ font chữ để không bị xuống dòng lỗi */
+            font-size: 44px !important;
             line-height: 1.1 !important;
         }
         .hero-text p {
@@ -146,7 +141,6 @@
             margin: 15px 0 0 0 !important;
         }
 
-        /* 4. Khối thống kê Likes/Views và Nút Order Here */
         .hero-right {
             transform: none !important;
             width: 100% !important;
@@ -156,7 +150,7 @@
         }
         .stats-grid {
             display: flex !important;
-            flex-direction: row !important; /* Đặt nằm ngang song song */
+            flex-direction: row !important;
             width: 100% !important;
             gap: 15px !important;
         }
@@ -180,20 +174,19 @@
             width: 100% !important;
             box-sizing: border-box !important;
             transform: none !important;
-            box-shadow: none !important; /* Khóa bỏ bóng đổ hoàn toàn trên Mobile */
+            box-shadow: none !important;
         }
         .cta-btn:hover {
             transform: translateY(-2px) !important;
             box-shadow: none !important;
         }
 
-        /* 5 & 6. Lưới ảnh Youtube Viral & Showcase (Sửa lỗi bị vỡ và lệch khung) */
         .title {
             font-size: 32px !important;
             margin-bottom: 25px !important;
         }
         .product-grid, .showcase-grid {
-            grid-template-columns: 1fr !important; /* Chuyển thành 1 cột dọc duy nhất */
+            grid-template-columns: 1fr !important;
             gap: 20px !important;
             width: 100% !important;
         }
@@ -201,7 +194,6 @@
             width: 100% !important;
         }
 
-        /* 7. Khung Reviews cuộn vuốt */
         .review-slider {
             height: 400px !important;
             width: 100% !important;
@@ -211,7 +203,6 @@
             padding: 20px !important;
         }
 
-        /* 8. Footer căn giữa xếp lớp dọc */
         .site-footer {
             flex-direction: column !important;
             align-items: center !important;
@@ -241,6 +232,34 @@
         .footer-right .site-credit {
             order: 3 !important;
         }
+
+        /* CHỈNH SỬA THEO YÊU CẦU: Thu nhỏ avatar và tăng kích thước chữ tiêu đề trên Mobile */
+        .bottom-avatar-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 20px !important;
+        }
+        .bottom-avatar {
+            width: 100px !important;  /* Thu nhỏ avatar lại vừa vặn */
+            height: 100px !important;
+            border: 5px solid #ffffff !important;
+        }
+        .bottom-avatar-name {
+            font-size: 48px !important; /* Phóng to chữ tên Denj1 lên một chút nổi bật hơn */
+        }
+        .bottom-avatar-subtext {
+            font-size: 14px !important; /* Tăng nhẹ font subtext */
+        }
+        .bottom-letter-box {
+            padding: 40px 24px 30px 24px !important;
+            /* Thiết lập lằn gạch nền lặp lại sắc nét cố định mỗi 34px cho giao diện điện thoại */
+            background: #fcfcfc repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.08) 33px, rgba(0, 0, 0, 0.08) 34px) !important;
+            background-position: 0 12px !important;
+        }
+        .bottom-avatar-bio {
+            font-size: 15px !important;
+            line-height: 34px !important; /* Khóa chiều cao dòng trùng khít 34px lằn gạch mobile */
+        }
     }
 
         .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
@@ -250,14 +269,11 @@
         .logo-text span { font-size: 13px; color: #ff70a0; letter-spacing: 3px; text-transform: uppercase; display: block; }
         .nav-links { display: flex; align-items: center; }
 
-        /* FIX LỖI NẨY: Tách biệt rõ hiệu ứng di chuột và hiệu ứng Active cố định */
         .nav-links a { color: #aaaaaa; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s ease, transform 0.3s ease; position: relative; padding-bottom: 5px; cursor: pointer; display: inline-block; }
         .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #ff70a0; transition: width 0.3s ease; }
 
-        /* Hiệu ứng hover chuẩn chỉ thay đổi màu và dịch chuyển nhẹ, không tự động mọc thanh gạch */
         .nav-links a:hover { color: #ffffff; transform: translateY(-3px); }
 
-        /* Trạng thái active chuẩn khi cuộn đến đúng vùng hoặc click chọn */
         .nav-links a.active { color: #ffffff; transform: none; }
         .nav-links a.active:after { width: 100%; }
 
@@ -279,7 +295,6 @@
         .stat-box h2 { font-family: 'Montserrat', sans-serif; font-size: 80px; color: #ff70a0; margin: 0; }
         .stat-box p { font-size: 20px; margin: 0; color: #ffffff; font-weight: 500; }
 
-        /* LOẠI BỎ HOÀN TOÀN BÓNG ĐỔ (box-shadow: none) CỦA NÚT */
         .cta-btn { background: #ff70a0; color: #0d0d0d; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: none; transition: 0.3s; margin: 0; }
         .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: none; color: #0d0d0d; }
 
@@ -486,6 +501,103 @@
             color: #ff70a0;
             opacity: 1;
         }
+
+        .bottom-avatar-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 40px;
+            width: 100%;
+            gap: 30px;
+        }
+        .bottom-avatar-header-block {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            width: 100%;
+        }
+        .bottom-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #ffffff;
+            flex-shrink: 0;
+        }
+        .bottom-avatar-text-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .bottom-avatar-name {
+            font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            font-size: 64px;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .bottom-avatar-subtext {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #aaaaaa;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Giao diện Desktop của nền giấy tập học sinh */
+        .bottom-letter-box {
+            background-color: #fcfcfc;
+            border-radius: 24px;
+            padding: 55px 45px 40px 45px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            position: relative;
+
+            background-image: repeating-linear-gradient(
+                transparent,
+                transparent 39px,
+                rgba(0, 0, 0, 0.08) 39px,
+                rgba(0, 0, 0, 0.08) 40px
+            );
+            background-position: 0 15px; 
+        }
+
+        .bottom-avatar-bio {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a; 
+            line-height: 40px; 
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            white-space: pre-line;
+            background: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bottom-letter-signature {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #0d0d0d;
+            text-align: right;
+            margin: 0;
+            align-self: flex-end;
+            padding-right: 10px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 <body>
@@ -618,6 +730,29 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+            <div class="divider"></div>
+            
+            <div class="bottom-avatar-container">
+                <div class="bottom-avatar-header-block">
+                    <img src="https://i.postimg.cc/05C4N8MD/IMG-20260701-174818.jpg" class="bottom-avatar" alt="Avatar">
+                    <div class="bottom-avatar-text-group">
+                        <h3 class="bottom-avatar-name">Denj1</h3>
+                        <p class="bottom-avatar-subtext">hoagnguyn.bii</p>
+                    </div>
+                </div>
+                
+                <div class="bottom-letter-box">
+                    <p class="bottom-avatar-bio">Hello! I'm Denji — The founder of DENJI STORE and the developer of the website you're currently visiting.
+
+                    With my skills, dedication and passion for my work, I'm committed to delivering the highest-quality products and the best results I can possibly create.
+
+                    Your satisfaction is what motivates me the most. Of course, I'm not perfect and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I'll always listen, learn, and do my best to improve.
+
+                    Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
+                    
+                    <h5 class="bottom-letter-signature">Denj1</h5>
                 </div>
             </div>
         </section>
