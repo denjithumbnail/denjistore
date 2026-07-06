@@ -9,11 +9,16 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'SF Pro Rounded';
+            src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/SFProRounded-Black.otf') format('opentype');
+            font-weight: 900;
+        }
+
         body { margin: 0; padding: 0; background-color: #0d0d0d; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; box-sizing: border-box; }
 
     ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#bdbdbd; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
 
-    /* Bảo vệ tất cả hình ảnh không cho phép kéo thả để tải xuống */
     img {
         -webkit-user-drag: none;
         khtml-user-drag: none;
@@ -33,7 +38,7 @@
         
         background: linear-gradient(90deg, #ff6699, #ff70a0);
         color: #000;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'SF Pro Rounded', sans-serif;
         font-weight: 900;
         font-size: 20px;
         letter-spacing: 2px;
@@ -79,9 +84,6 @@
         }
     }
 
-    /* ==========================================================================
-       BỘ FIX LỖI MOBILE - ÉP TRÀN MÀN HÌNH & CĂN GIỮA TUYỆT ĐỐI
-       ========================================================================== */
     @media (max-width: 768px) {
         body { overflow-x: hidden; }
 
@@ -241,39 +243,51 @@
             order: 3 !important;
         }
 
-        /* CHỈNH SỬA THEO YÊU CẦU: Thu nhỏ avatar và tăng kích thước chữ tiêu đề trên Mobile */
         .bottom-avatar-container {
             flex-direction: column !important;
             align-items: flex-start !important;
             gap: 20px !important;
         }
         .bottom-avatar {
-            width: 100px !important;  /* Thu nhỏ avatar lại vừa vặn */
+            width: 100px !important;
             height: 100px !important;
             border: 5px solid #ffffff !important;
         }
                 .bottom-avatar-name {
-            font-size: 48px !important; /* Phóng to chữ tên Denj1 lên một chút nổi bật hơn */
+            font-size: 48px !important; 
         }
         .bottom-avatar-subtext {
-            font-size: 14px !important; /* Tăng nhẹ font subtext */
+            font-size: 14px !important; 
         }
+
         .bottom-letter-box {
-            padding: 40px 24px 30px 24px !important;
-            /* Thiết lập lằn gạch nền lặp lại sắc nét cố định mỗi 34px cho giao diện điện thoại */
-            background: #fcfcfc repeating-linear-gradient(transparent, transparent 33px, rgba(0, 0, 0, 0.08) 33px, rgba(0, 0, 0, 0.08) 34px) !important;
-            background-position: 0 12px !important;
+            padding: 34px 24px 34px 24px !important;
+            background: #fcfcfc repeating-linear-gradient(
+                transparent, 
+                transparent 33px, 
+                rgba(0, 0, 0, 0.4) 33px, 
+                rgba(0, 0, 0, 0.4) 34px
+            ) !important;
+            background-position: 0 25px !important;
         }
-        .bottom-avatar-bio {
+        .bottom-avatar-bio p {
             font-size: 15px !important;
-            line-height: 34px !important; /* Khóa chiều cao dòng trùng khít 34px lằn gạch mobile */
+            line-height: 34px !important;
+            margin: 0 0 34px 0 !important;
+        }
+        .bottom-avatar-bio p:last-child {
+            margin-bottom: 34px !important;
+        }
+        .bottom-letter-signature {
+            line-height: 34px !important;
+            margin: 0 !important;
         }
     }
 
         .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-icon { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; }
-        .logo-text h3 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 26px; letter-spacing: -0.5px; }
+        .logo-text h3 { margin: 0; font-family: 'SF Pro Rounded', sans-serif; font-size: 26px; letter-spacing: -0.5px; }
         .logo-text span { font-size: 13px; color: #ff70a0; letter-spacing: 3px; text-transform: uppercase; display: block; }
         .nav-links { display: flex; align-items: center; }
 
@@ -291,7 +305,7 @@
         #reviews-section { scroll-margin-top: 140px; }
 
         .hero-container { width: 100%; max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
-        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 120px; font-weight: 900; line-height: 1.05; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
+        .hero-text h1 { font-family: 'SF Pro Rounded', sans-serif; font-size: 120px; font-weight: 900; line-height: 1.05; margin: 0; text-transform: uppercase; letter-spacing: -2px; }
         .hero-text .outline { color: #0d0d0d; text-shadow: -2px -2px 0 #ff70a0, 2px -2px 0 #ff70a0, -2px 2px 0 #ff70a0, 2px 2px 0 #ff70a0; }
         .hero-text p { margin: 25px 0 0 0; font-size: 18px; color: #aaaaaa; }
 
@@ -299,15 +313,15 @@
         .stats-grid { display: flex; gap: 20px; }
 
         .stat-box { background: #141414; border: 1px solid #222; padding: 42px; border-radius: 24px; flex: 1; text-align: left; }
-        .stat-box h2 { font-family: 'Montserrat', sans-serif; font-size: 80px; color: #ff70a0; margin: 0; }
-        .stat-box p { font-size: 20px; margin: 0; color: #ffffff; font-weight: 500; }
+        .stat-box h2 { font-family: 'SF Pro Rounded', sans-serif; font-size: 80px; color: #ff70a0; margin: 0; }
+        .stat-box p { font-size: 20px; margin: 0; color: #ffffff; font-weight: 500; font-family: 'SF Pro Rounded', sans-serif; }
 
-        .cta-btn { background: #ff70a0; color: #0d0d0d; display: block; font-family: 'Montserrat', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: none; transition: 0.3s; margin: 0; }
+        .cta-btn { background: #ff70a0; color: #0d0d0d; display: block; font-family: 'SF Pro Rounded', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: none; transition: 0.3s; margin: 0; }
         .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: none; color: #0d0d0d; }
 
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
         .divider { height: 4px; width: 100%; background-color: #ff70a0; margin: 40px auto; border-radius: 2px; }
-        .title { font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
+        .title { font-family: 'SF Pro Rounded', sans-serif; font-size: 60px; font-weight: 900; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
 
         .youtube-highlight {
             background-color: #ff0000;
@@ -373,6 +387,7 @@
             margin: 0;
             font-size: 18px;
             color: #ffffff;
+            font-family: 'SF Pro Rounded', sans-serif;
         }
 
         .review-info span {
@@ -380,6 +395,7 @@
             color: #ff70a0;
             font-weight: 700;
             display: block;
+            font-family: 'SF Pro Rounded', sans-serif;
         }
 
         .review-text {
@@ -396,6 +412,7 @@
             text-align: right;
             font-style: normal;
             opacity: 0.8;
+            font-family: 'SF Pro Rounded', sans-serif;
         }
                 .site-footer {
             display: flex;
@@ -422,7 +439,7 @@
         }
 
         .site-credit {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'SF Pro Rounded', sans-serif;
             font-size: 14px;
             font-weight: 700;
             color: #aaaaaa;   
@@ -534,7 +551,7 @@
             gap: 6px;
         }
                 .bottom-avatar-name {
-            font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'SF Pro Rounded', sans-serif;
             font-weight: 900;
             font-size: 64px;
             color: #ffffff;
@@ -543,7 +560,7 @@
             line-height: 1;
         }
         .bottom-avatar-subtext {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'SF Pro Rounded', sans-serif;
             font-size: 14px;
             font-weight: 500;
             color: #aaaaaa;
@@ -551,45 +568,46 @@
             letter-spacing: 0.5px;
         }
 
-        /* Giao diện Desktop của nền giấy tập học sinh */
         .bottom-letter-box {
             background-color: #fcfcfc;
             border-radius: 24px;
-            padding: 55px 45px 40px 45px;
+            padding: 40px 45px 40px 45px;
             width: 100%;
             box-sizing: border-box;
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.05), inset 0 2px 4px rgba(255, 255, 255, 0.9);
             display: flex;
             flex-direction: column;
-            gap: 35px;
             position: relative;
 
             background-image: repeating-linear-gradient(
                 transparent,
                 transparent 39px,
-                rgba(0, 0, 0, 0.08) 39px,
-                rgba(0, 0, 0, 0.08) 40px
+                rgba(0, 0, 0, 0.4) 39px,
+                rgba(0, 0, 0, 0.4) 40px
             );
-            background-position: 0 15px; 
+            background-position: 0 30px;
         }
 
         .bottom-avatar-bio {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-            color: #1a1a1a; 
-            line-height: 40px; 
-            margin: 0;
             width: 100%;
-            max-width: 100%;
-            white-space: pre-line;
-            background: transparent;
             position: relative;
             z-index: 2;
         }
 
+        .bottom-avatar-bio p {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a; 
+            line-height: 40px;
+            margin: 0 0 40px 0;
+        }
+
+        .bottom-avatar-bio p:last-child {
+            margin-bottom: 40px;
+        }
+
         .bottom-letter-signature {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'SF Pro Rounded', sans-serif;
             font-weight: 900;
             font-size: 28px;
             color: #0d0d0d;
@@ -600,9 +618,9 @@
             letter-spacing: -0.5px;
             position: relative;
             z-index: 2;
+            line-height: 40px;
         }
 
-        /* KHUNG CHỨA VIDEO GIỮ NGUYÊN TỈ LỆ 16:9 VÀ CHẶN HOÀN TOÀN TƯƠNG TÁC */
         .bottom-video-container {
             width: 100%;
             position: relative;
@@ -612,8 +630,7 @@
             box-sizing: border-box;
             margin-top: -10px;
         }
-                /* Lớp phủ trong suốt nằm đè lên iframe để chặn click chuột phát sinh bảng điều khiển */
-        .video-overlay-blocker {
+                .video-overlay-blocker {
             position: absolute;
             top: 0;
             left: 0;
@@ -648,14 +665,14 @@
         <nav class="header-nav">
             <div class="logo-area">
                 <img src="https://i.postimg.cc/C58vs2D5/AVT-Copy.png" class="logo-icon">
-                <div class="logo-text"><h3>DENJI STORE</h3><span>Minecraft Studio</span></div>
+                <div class="logo-text"><h3>✦ DENJI STORE</h3><span>Minecraft Studio</span></div>
             </div>
             <div class="nav-links">
                 <a href="#reviews-section" class="nav-item">Reviews</a> 
                 <span class="separator">/</span> 
                 <a href="#product-section" class="nav-item">Works</a> 
                 <span class="separator">/</span> 
-                <a href="#contact-section" class="nav-item active">Contact</a>
+                <a href="#contact-section" class="nav-item">Contact</a>
             </div>
         </nav>
 
@@ -667,8 +684,8 @@
                 </div>
                 <div class="hero-right">
                     <div class="stats-grid">
-                        <div class="stat-box"><h2>100K+</h2><p>Views</p></div>
-                        <div class="stat-box"><h2>1.5K+</h2><p>Likes</p></div>
+                        <div class="stat-box"><h2>100K+</h2><p style="font-family: 'SF Pro Rounded', sans-serif;">Views</p></div>
+                        <div class="stat-box"><h2>1.5K+</h2><p style="font-family: 'SF Pro Rounded', sans-serif;">Likes</p></div>
                     </div>
                     <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
                 </div>
@@ -700,7 +717,8 @@
                 </div>
             </div>
         </section>
-                <section id="reviews-section" class="section-container">
+
+        <section id="reviews-section" class="section-container">
             <div class="divider"></div>
             <h2 class="title">REVIEWS</h2>
             <div class="review-slider">
@@ -765,7 +783,10 @@
                 </div>
             </div>
             <div class="divider"></div>
-                        <div class="bottom-avatar-container">
+        </section>
+
+        <section id="profile-section" class="section-container">
+            <div class="bottom-avatar-container">
                 <div class="bottom-avatar-header-block">
                     <img src="https://i.postimg.cc/05C4N8MD/IMG-20260701-174818.jpg" class="bottom-avatar" alt="Avatar">
                     <div class="bottom-avatar-text-group">
@@ -775,13 +796,18 @@
                 </div>
                 
                 <div class="bottom-letter-box">
-                    <p class="bottom-avatar-bio">Hello! I'm Denji — The founder of DENJI STORE and the developer of the website you're currently visiting.
+                    
+                    <div class="bottom-avatar-bio">
+                        <p>Dear Customer!</p>
 
-                    With my skills, dedication and passion for my work, I'm committed to delivering the highest-quality products and the best results I can possibly create.
-
-                    Your satisfaction is what motivates me the most. Of course, I'm not perfect and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I'll always listen, learn, and do my best to improve.
-
-                    Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
+                        <p>Hello! I'm Denji — The founder of DENJI STORE and the developer of the website you're currently visiting.</p>
+                        
+                        <p>With my skills, dedication and passion for my work, I'm committed to delivering the highest-quality products and the best results I can possibly create.</p>
+                        
+                        <p>Your satisfaction is what motivates me the most. Of course, I'm not perfect and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I'll always listen, learn, and do my best to improve.</p>
+                        
+                        <p>Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
+                    </div>
                     
                     <h5 class="bottom-letter-signature">Denj1</h5>
                 </div>
@@ -802,7 +828,7 @@
 
     <footer class="site-footer">
         <div class="footer-left">
-            <p class="site-credit">&copy; 2026 Denji Store | June 25, 2026</p>
+            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; 2026 Denji Store | June 25, 2026</p>
         </div>
 
         <div class="footer-right">
@@ -811,7 +837,7 @@
                 <a href="https://x.com/_hoagnguynbii" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/6q3TgKtD/x.png" alt="X"></a>
                 <a href="https://www.youtube.com/@Denjiontop" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/fbfLbyLs/youtube.png" alt="YouTube"></a>
             </div>
-            <p class="site-credit">&copy; Developer: Denji</p>
+            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; Developer: Denji</p>
         </div>
     </footer>
 
@@ -820,7 +846,6 @@
         <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Showcase">
     </div>
         <script>
-    /* JavaScript chặn hoàn toàn menu chuột phải đối với TẤT CẢ hình ảnh trên trang web */
     document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
@@ -847,7 +872,7 @@
 
     const observerOptions = {
         root: null,
-        rootMargin: '-30% 0px -60% 0px',
+        rootMargin: '-30% 0px -30% 0px',
         threshold: 0
     };
 
@@ -982,4 +1007,3 @@
     </script>
 </body>
 </html>
- 
