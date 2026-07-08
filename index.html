@@ -230,6 +230,10 @@
                 width: 100% !important;
                 justify-content: center !important;
                 order: 1 !important;
+                text-align: center !important;
+            }
+            .footer-left p {
+                justify-content: center !important;
             }
             .footer-right {
                 width: 100% !important;
@@ -250,7 +254,7 @@
 
             .bottom-avatar-container {
                 flex-direction: column !important;
-                align-items: flex-start !important;
+                align-items: center !important;
                 gap: 20px !important;
                 margin-bottom: 20px !important;
             }
@@ -263,6 +267,10 @@
             }
             .bottom-avatar-name {
                 font-size: 48px !important; 
+            }
+            .bottom-avatar-name img {
+                height: 26px !important;
+                margin-left: 6px !important;
             }
             .bottom-avatar-subtext {
                 font-size: 14px !important; 
@@ -280,14 +288,15 @@
             }
 
             .bottom-avatar-bio p {
-                font-size: 15px !important;
+                font-size: 32px !important; /* Điều chỉnh kích thước chữ viết tay trên mobile */
                 line-height: 34px !important;
                 margin: 0 0 34px 0 !important;
             }
             
             .bottom-letter-signature {
-                line-height: 34px !important;
-                font-size: 36px !important; /* Điều chỉnh font chữ kí cho mobile */
+                line-height: 50px !important;
+                font-size: 36px !important;
+                margin-bottom: 5px !important;
             }
         }
 
@@ -589,6 +598,8 @@
         .bottom-avatar-text-group {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
             gap: 6px;
         }
         
@@ -601,6 +612,8 @@
             letter-spacing: -1px;
             line-height: 1;
             text-shadow: none;
+            display: flex;
+            align-items: center;
         }
         
         .bottom-avatar-subtext {
@@ -641,10 +654,11 @@
             z-index: 2;
         }
 
+        /* Thay đổi toàn bộ font chữ trong bảng sang font chữ kí tay Reenie Beanie giống hệt signature */
         .bottom-avatar-bio p {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
+            font-family: 'Reenie Beanie', cursive;
+            font-size: 38px; /* Tăng kích cỡ chữ lên một chút để nét chữ kí tay dễ đọc hơn */
+            font-weight: normal;
             color: #1a1a1a; 
             line-height: 40px;
             margin: 0 0 40px 0;
@@ -655,20 +669,20 @@
             margin-bottom: 40px;
         }
 
-        /* Chỉnh sửa font chữ kí tay cho Denj1 */
         .bottom-letter-signature {
-            font-family: 'Reenie Beanie', cursive;
+            font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
             font-weight: normal;
-            font-size: 56px; /* Tăng size để font nét chữ kí trông rõ nét và đẹp hơn */
+            font-size: 56px; 
             color: #0d0d0d;
             text-align: right;
             margin: 0;
             align-self: flex-end;
-            padding-right: 10px;
+            padding-right: 25px;
+            margin-bottom: 15px;
             letter-spacing: 0px;
             position: relative;
             z-index: 2;
-            line-height: 40px;
+            line-height: 60px;
             text-shadow: none;
         }
     </style>
@@ -708,7 +722,7 @@
                 <div class="hero-right">
                     <div class="stats-grid">
                         <div class="stat-box"><h2>100K+</h2><p>Views</p></div>
-                        <div class="stat-box"><h2>1.6K+</h2><p>Likes</p></div>
+                        <div class="stat-box"><h2>1.5K+</h2><p>Likes</p></div>
                     </div>
                     <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn"><img src="https://i.postimg.cc/DwgKvgd6/gold-coin-money-symbol-icon-png.webp" alt="coin" style="vertical-align: middle; margin-right: 12px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">ORDER HERE!</a>
                 </div>
@@ -813,7 +827,7 @@
                 <div class="bottom-avatar-header-block">
                     <img src="https://i.postimg.cc/05C4N8MD/IMG-20260701-174818.jpg" class="bottom-avatar" alt="Avatar">
                     <div class="bottom-avatar-text-group">
-                        <h3 class="bottom-avatar-name">!   denj1</h3>
+                        <h3 class="bottom-avatar-name">!   denj1<img src="https://i.postimg.cc/BbVvTQQ3/Verified-Tiktok-Emoji-Copy-and-Paste.png" alt="TikTok Verified" style="height: 36px; width: auto; margin-left: 10px; flex-shrink: 0;"></h3>
                         <p class="bottom-avatar-subtext">_hoagnguyn.bii</p>
                     </div>
                 </div>
@@ -840,7 +854,7 @@
 
     <footer class="site-footer">
         <div class="footer-left">
-            <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
                 <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none;">Vietnam</p>
                 <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | June 25, 2026</p>
             </div>
