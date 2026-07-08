@@ -9,15 +9,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
-        /* Nhúng font gốc VNI 08 Springtime2 BoldOblique bằng mã hóa Web mã tối ưu hóa dung lượng */
-        @font-face {
-            font-family: 'VNI 08 Springtime2 BoldOblique';
-            src: url('https://raw.githubusercontent.com/thevni-project/fonts/main/vni08springtime2bo.woff2') format('woff2'),
-                 url('https://raw.githubusercontent.com/thevni-project/fonts/main/vni08springtime2bo.woff') format('woff');
-            font-weight: normal;
-            font-style: italic;
-        }
-
         @font-face {
             font-family: 'SF Pro Rounded';
             src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/SFProRounded-Black.otf') format('opentype');
@@ -91,6 +82,14 @@
             gap:40px;
             flex-shrink:0;
             padding-right:40px;
+        }
+
+        @font-face {
+            font-family: 'VNI 08 Springtime2'; /* Đặt tên cho font chữ này trên web */
+            src: url('https://github.com/denjithumbnail/denjistore/blob/main/VNIA6BoldOblique.woff2') format('woff2'); /* Thay link URL font của bạn vào đây */
+            font-weight: bold;
+            font-style: italic;
+            font-display: swap; /* Giúp trang web hiển thị chữ ký ngay lập tức trong lúc đợi tải font */
         }
 
         @keyframes marquee{
@@ -308,7 +307,7 @@
             
             .bottom-letter-signature {
                 line-height: 50px !important;
-                font-size: 52px !important;
+                font-size: 36px !important;
                 margin-bottom: 5px !important;
             }
         }
@@ -700,9 +699,9 @@
         }
 
         .bottom-letter-signature {
-            font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
+            font-family: 'VNI 08 Springtime2', cursive;
             font-weight: normal;
-            font-size: 68px; /* Tăng kích thước font một chút cho rõ nét hơn */
+            font-size: 56px; 
             color: #0d0d0d;
             text-align: right;
             margin: 0;
