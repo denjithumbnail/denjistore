@@ -9,6 +9,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
+        /* Nhúng font gốc VNI 08 Springtime2 BoldOblique bằng mã hóa Web mã tối ưu hóa dung lượng */
+        @font-face {
+            font-family: 'VNI 08 Springtime2 BoldOblique';
+            src: url('https://raw.githubusercontent.com/thevni-project/fonts/main/vni08springtime2bo.woff2') format('woff2'),
+                 url('https://raw.githubusercontent.com/thevni-project/fonts/main/vni08springtime2bo.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
         @font-face {
             font-family: 'SF Pro Rounded';
             src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/SFProRounded-Black.otf') format('opentype');
@@ -299,12 +308,8 @@
             
             .bottom-letter-signature {
                 line-height: 50px !important;
-                height: 45px !important;
+                font-size: 52px !important;
                 margin-bottom: 5px !important;
-            }
-            .bottom-letter-signature svg {
-                height: 45px !important;
-                width: auto !important;
             }
         }
 
@@ -695,23 +700,20 @@
         }
 
         .bottom-letter-signature {
+            font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
+            font-weight: normal;
+            font-size: 68px; /* Tăng kích thước font một chút cho rõ nét hơn */
+            color: #0d0d0d;
             text-align: right;
             margin: 0;
             align-self: flex-end;
             padding-right: 25px;
             margin-bottom: 15px;
+            letter-spacing: 0px;
             position: relative;
             z-index: 2;
-            height: 60px;
+            line-height: 60px;
             text-shadow: none;
-            display: inline-flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .bottom-letter-signature svg {
-            height: 60px;
-            width: auto;
-            fill: #0d0d0d;
         }
     </style>
 </head>
@@ -878,11 +880,7 @@
                         <p>Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
                     </div>
                     
-                    <div class="bottom-letter-signature">
-                        <svg viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
-                            <text x="10" y="45" font-family="'Brush Script MT', 'cursive', 'Bickham Script Pro', 'Apple Chancery'" font-size="52" font-style="italic" font-weight="bold" letter-spacing="1">Denj1</text>
-                        </svg>
-                    </div>
+                    <h5 class="bottom-letter-signature">Denj1</h5>
                 </div>
             </div>
         </section>
