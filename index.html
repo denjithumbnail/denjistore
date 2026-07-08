@@ -7,12 +7,21 @@
 
     <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/C58vs2D5/AVT-Copy.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&family=Alex+Brush&family=Caveat:wght@700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'SF Pro Rounded';
             src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/SFProRounded-Black.otf') format('opentype');
             font-weight: 900;
+        }
+
+        /* Khai báo Font VNI Springtime dự phòng từ nguồn CDN Web để thiết bị di động có thể tải về tự động */
+        @font-face {
+            font-family: 'VNI 08 Springtime2 BoldOblique';
+            src: url('https://db.onlinewebfonts.com/t/21516ebc51724f3c05060f64af14f9d2.woff2') format('woff2'),
+                 url('https://db.onlinewebfonts.com/t/21516ebc51724f3c05060f64af14f9d2.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
 
         body { 
@@ -691,7 +700,8 @@
         }
 
         .bottom-letter-signature {
-            font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
+            /* Tích hợp các font viết tay nghệ thuật an toàn của Google Fonts làm phương án dự phòng (Alex Brush, Caveat) trong trường hợp thiết bị di động cũ không tải được CDN */
+            font-family: 'VNI 08 Springtime2 BoldOblique', 'Alex Brush', 'Caveat', cursive;
             font-weight: normal;
             font-size: 56px; 
             color: #0d0d0d;
