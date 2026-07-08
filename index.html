@@ -7,7 +7,7 @@
 
     <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/C58vs2D5/AVT-Copy.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'SF Pro Rounded';
@@ -287,6 +287,7 @@
             
             .bottom-letter-signature {
                 line-height: 34px !important;
+                font-size: 36px !important; /* Điều chỉnh font chữ kí cho mobile */
             }
         }
 
@@ -324,7 +325,6 @@
 
         .stat-box { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.05); padding: 42px; border-radius: 24px; flex: 1; text-align: left; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1); }
         
-        /* ĐÃ LOẠI BỎ TOÀN BỘ BLUR (TEXT-SHADOW) CHO SỐ LƯỢT XEM VÀ LƯỢT LIKE */
         .stat-box h2 { 
             font-family: 'SF Pro Rounded', sans-serif; 
             font-size: 80px; 
@@ -655,16 +655,17 @@
             margin-bottom: 40px;
         }
 
+        /* Chỉnh sửa font chữ kí tay cho Denj1 */
         .bottom-letter-signature {
-            font-family: 'SF Pro Rounded', sans-serif;
-            font-weight: 900;
-            font-size: 28px;
+            font-family: 'Reenie Beanie', cursive;
+            font-weight: normal;
+            font-size: 56px; /* Tăng size để font nét chữ kí trông rõ nét và đẹp hơn */
             color: #0d0d0d;
             text-align: right;
             margin: 0;
             align-self: flex-end;
             padding-right: 10px;
-            letter-spacing: -0.5px;
+            letter-spacing: 0px;
             position: relative;
             z-index: 2;
             line-height: 40px;
@@ -707,7 +708,7 @@
                 <div class="hero-right">
                     <div class="stats-grid">
                         <div class="stat-box"><h2>100K+</h2><p>Views</p></div>
-                        <div class="stat-box"><h2>1.5K+</h2><p>Likes</p></div>
+                        <div class="stat-box"><h2>1.6K+</h2><p>Likes</p></div>
                     </div>
                     <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn"><img src="https://i.postimg.cc/DwgKvgd6/gold-coin-money-symbol-icon-png.webp" alt="coin" style="vertical-align: middle; margin-right: 12px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">ORDER HERE!</a>
                 </div>
@@ -839,7 +840,10 @@
 
     <footer class="site-footer">
         <div class="footer-left">
-            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; 2026 Denji Store | June 25, 2026</p>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none;">Vietnam</p>
+                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | June 25, 2026</p>
+            </div>
         </div>
 
         <div class="footer-right">
