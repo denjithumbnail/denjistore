@@ -83,13 +83,13 @@
             flex-shrink:0;
             padding-right:40px;
         }
-
+        
         @font-face {
-            font-family: 'VNI 08 Springtime2'; /* Đặt tên cho font chữ này trên web */
-            src: url('https://github.com/denjithumbnail/denjistore/blob/main/VNIA6BoldOblique.woff2') format('woff2'); /* Thay link URL font của bạn vào đây */
-            font-weight: bold;
+            font-family: 'VNI 08 Springtime2 BoldOblique';
+            src: url('https://cdn.jsdelivr.net/gh/denjithumbnail/denjistore@main/VNIA6BoldOblique.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/denjithumbnail/denjistore@main/VNIA6BoldOblique.woff') format('woff');
+            font-weight: normal;
             font-style: italic;
-            font-display: swap; /* Giúp trang web hiển thị chữ ký ngay lập tức trong lúc đợi tải font */
         }
 
         @keyframes marquee{
@@ -699,7 +699,7 @@
         }
 
         .bottom-letter-signature {
-            font-family: 'VNI 08 Springtime2', cursive;
+            font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
             font-weight: normal;
             font-size: 56px; 
             color: #0d0d0d;
