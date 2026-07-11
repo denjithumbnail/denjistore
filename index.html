@@ -35,6 +35,16 @@
             moz-user-drag: none;
             o-user-drag: none;
             user-drag: none;
+            -webkit-touch-callout: none; /* Chặn menu tải ảnh khi nhấn giữ trên Mobile */
+        }
+
+        /* FIX HOÀN TOÀN TRẠNG THÁI HIỆN MÀU / NẨY LÊN TRÊN MOBILE KHI ẤN CHO CÁC ICON */
+        .social-icon-link:active {
+            transform: translateY(-5px) !important;
+        }
+        .social-icon-link:active img {
+            filter: grayscale(0%) brightness(1) !important;
+            opacity: 1 !important;
         }
 
         .marquee-wrapper{
@@ -717,7 +727,7 @@
         }
     </style>
 </head>
-<body>
+<body ontouchstart="">
 
     <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
@@ -754,7 +764,7 @@
                         <div class="stat-box"><h2>100K+</h2><p>Views</p></div>
                         <div class="stat-box"><h2>1.5K+</h2><p>Likes</p></div>
                     </div>
-                    <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn"><img src="https://i.postimg.cc/DwgKvgd6/gold-coin-money-symbol-icon-png.webp" alt="coin" style="vertical-align: middle; margin-right: 12px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">ORDER HERE!</a>
+                    <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
                 </div>
             </main>
         </section>
