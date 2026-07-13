@@ -17,7 +17,6 @@
 
         @font-face {
             font-family: 'Reenie Beanie';
-            /* Link trực tiếp đến file raw trên GitHub */
             src: url('https://raw.githubusercontent.com/denjithumbnail/denjistore/main/reenie-beanie.regular.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
@@ -43,10 +42,9 @@
             moz-user-drag: none;
             o-user-drag: none;
             user-drag: none;
-            -webkit-touch-callout: none; /* Chặn menu tải ảnh khi nhấn giữ trên Mobile */
+            -webkit-touch-callout: none;
         }
 
-        /* FIX HOÀN TOÀN TRẠNG THÁI HIỆN MÀU / NẨY LÊN TRÊN MOBILE KHI ẤN CHO CÁC ICON */
         .social-icon-link:active {
             transform: translateY(-5px) !important;
         }
@@ -156,22 +154,26 @@
                 justify-content: center !important;
                 width: 100% !important;
                 margin: 0 !important;
+                gap: 5px !important;
             }
             
-            /* SỬA LỖI NẨY LÊN VÀ TỰ HIỆN MÀU KHI CUỘN/ẤN TRÊN MOBILE */
             .nav-links a {
                 font-size: 15px !important;
-                margin: 0 10px !important;
-            }
-            .nav-links a:hover {
-                transform: none !important;
+                margin: 0 !important;
+                background: transparent !important;
+                padding: 6px 16px !important;
+                /* Thêm các dòng dưới đây */
                 color: #aaaaaa !important;
+                pointer-events: none !important;
+                text-decoration: none !important;
+                cursor: default !important;
             }
+            
             .nav-links a.active {
-                color: #ff70a0 !important;
-            }
-            .nav-links a.active:after {
-                width: 100% !important;
+                /* Ghi đè trạng thái active để luôn là màu xám */
+                background: transparent !important;
+                color: #aaaaaa !important;
+                text-decoration: none !important;
             }
 
             .separator {
@@ -351,16 +353,37 @@
         .logo-text h3 { margin: 0; font-family: 'SF Pro Rounded', sans-serif; font-size: 26px; letter-spacing: -0.5px; color: #000000; text-shadow: none; }
         .logo-text span { font-size: 13px; color: #ff508b; letter-spacing: 3px; text-transform: uppercase; display: block; text-shadow: none; font-weight: bold; }
         
-        .nav-links { display: flex; align-items: center; }
+        .nav-links { display: flex; align-items: center; gap: 5px; }
 
-        .nav-links a { color: #aaaaaa; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s ease, transform 0.3s ease; position: relative; padding-bottom: 5px; cursor: pointer; display: inline-block; text-shadow: none; }
-        .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: #ff70a0; transition: width 0.3s ease; }
-
-        .nav-links a:hover { transform: translateY(-3px); opacity: 0.9; color: #ff70a0; }
-        .nav-links a.active { color: #ff70a0; }
-        .nav-links a.active:after { width: 100%; }
+        .nav-links a { 
+            color: #aaaaaa; 
+            text-decoration: none; 
+            padding: 8px 20px; 
+            border-radius: 999px; 
+            transition: all 0.3s ease; 
+            font-size: 18px; 
+            text-shadow: none;
+            display: inline-block;
+            border: 1px solid transparent; 
+        }
         
-        .separator { color: #aaaaaa; margin-left: 25px; font-size: 18px; opacity: 0.7; text-shadow: none; }
+        .nav-links a:hover { 
+            color: #000000;
+            transform: translateY(-3px); 
+            text-decoration: none;
+        }
+        
+        .nav-links a.active { 
+            background: #ff70a0; 
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 8px 20px;
+            text-decoration: underline;      /* Tạo dấu gạch chân */
+            text-decoration-color: #ffffff;  /* Màu gạch chân là trắng */
+            text-underline-offset: 6px;      /* Khoảng cách từ chữ xuống gạch chân */
+        }
+        
+        .separator { color: #aaaaaa; margin: 0 5px; font-size: 18px; opacity: 0.7; text-shadow: none; }
 
         #contact-section { scroll-margin-top: 140px; }
         #product-section { scroll-margin-top: 140px; }
@@ -391,7 +414,7 @@
             margin: 0; 
             color: #000000; 
             font-weight: 700; 
-            font-family: 'SF Pro Rounded', sans-serif; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             text-shadow: none; 
         }
 
@@ -480,7 +503,7 @@
             color: #ff508b;
             font-weight: 700;
             display: block;
-            font-family: 'SF Pro Rounded', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             text-shadow: none;
         }
 
@@ -629,7 +652,6 @@
             gap: 30px;
         }
 
-        /* Tỷ lệ 16 / 4 giúp thu hẹp chiều dọc, làm banner dẹt gọn gàng hơn */
         .bottom-profile-banner {
             width: 100%;
             aspect-ratio: 16 / 4;
@@ -980,12 +1002,11 @@
     };
 
     const updateActiveNav = () => {
-        if (isManualScrolling) return; // Không tự cập nhật khi đang nhấn scroll thủ công
+        if (isManualScrolling) return;
 
         let currentSectionId = "";
         let pageAtTop = window.scrollY === 0;
 
-        // Nếu trang ở trên cùng và người dùng chưa cuộn xuống, giữ nguyên Contact hoạt động
         if (pageAtTop) {
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -1025,7 +1046,6 @@
 
             scrollTimeout = setTimeout(() => {
                 isManualScrolling = false;
-                // Gọi cập nhật nhưng loại trừ nếu là lần đầu ở top
                 if(window.scrollY !== 0) updateActiveNav();
             }, 850);
         });
