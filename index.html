@@ -9,6 +9,52 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght=500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
+        /* CSS cho Welcome Screen - Cập nhật khoảng cách, kích thước và font chữ */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease;
+        }
+        #welcome-text {
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 130px;
+            font-weight: 900;
+            color: #0162fc;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: slideInLeft 1.5s ease-out forwards;
+            margin: 0; /* Đảm bảo không có margin thừa */
+        }
+        #welcome-subtext {
+            font-family: 'Plus Jakarta Sans', sans-serif; /* Font giống phần mô tả hero */
+            font-size: 24px; /* Nhỏ hơn so với trước */
+            font-weight: 700;
+            color: #ffffff; /* Màu giống mô tả hero */
+            text-transform: uppercase;
+            margin-top: 5px; /* Khoảng cách gần hơn */
+            animation: slideUp 1.5s ease-out forwards;
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; } /* Trồi lên khoảng cách ngắn hơn */
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
         @font-face {
             font-family: 'SF Pro Rounded';
             src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/SFProRounded-Black.otf') format('opentype');
@@ -114,6 +160,8 @@
         }
 
         @media (max-width: 768px) {
+            #welcome-text { font-size: 30px; }
+            #welcome-subtext { font-size: 14px; }
             body { overflow-x: hidden; }
 
             .content-wrapper, .section-container, .review-slider, .site-footer {
@@ -162,7 +210,6 @@
                 margin: 0 !important;
                 background: transparent !important;
                 padding: 6px 16px !important;
-                /* Thêm các dòng dưới đây */
                 color: #aaaaaa !important;
                 pointer-events: none !important;
                 text-decoration: none !important;
@@ -170,7 +217,6 @@
             }
             
             .nav-links a.active {
-                /* Ghi đè trạng thái active để luôn là màu xám */
                 background: transparent !important;
                 color: #aaaaaa !important;
                 text-decoration: none !important;
@@ -378,9 +424,9 @@
             color: #ffffff;
             border-radius: 999px;
             padding: 8px 20px;
-            text-decoration: underline;      /* Tạo dấu gạch chân */
-            text-decoration-color: #ffffff;  /* Màu gạch chân là trắng */
-            text-underline-offset: 6px;      /* Khoảng cách từ chữ xuống gạch chân */
+            text-decoration: underline;      
+            text-decoration-color: #ffffff;  
+            text-underline-offset: 6px;      
         }
         
         .separator { color: #aaaaaa; margin: 0 5px; font-size: 18px; opacity: 0.7; text-shadow: none; }
@@ -438,6 +484,58 @@
         .video-card, .image-card { background: rgba(0, 0, 0, 0.03); border-radius: 16px; overflow: hidden; display: block; text-decoration: none; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.02); }
         .video-card:hover, .image-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); }
         .video-card img, .image-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+
+        /* Pagination Styles */
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 40px; }
+        
+        .page-num { 
+            background: #0162fc; 
+            border: none; 
+            width: 45px; 
+            height: 45px; 
+            border-radius: 50%; /* Chuyển thành hình tròn */
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-weight: 900; 
+            font-size: 20px; 
+            color: #ffffff; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+        }
+
+        .page-arrow { 
+            background: transparent;
+            border: none; /* Bỏ viền */
+            width: 45px; 
+            height: 45px; 
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-weight: 900; 
+            font-size: 30px; /* Tăng kích thước mũi tên */
+            color: #0162fc; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            text-shadow: none;
+        }
+
+        .page-num.active { 
+            background: #0050d1;
+            transform: scale(1.1);
+        }
+
+        .page-num:hover { 
+            background: #0050d1; 
+            transform: translateY(-3px); 
+        }
+
+        .page-arrow:hover { 
+            color: #0050d1; /* Màu xanh đậm hơn khi di chuột */
+            transform: translateY(-5px) scale(1.2); /* Nổi lên và to hơn */
+        }
 
         .review-slider {
             overflow: hidden;
@@ -776,7 +874,13 @@
     </style>
 </head>
 <body ontouchstart="">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <h1 id="welcome-text"><span style="color: #ffffff;">WELCOME TO</span> <span style="color: #0162fc;">DENJI STORE</span></h1>
+        <h2 id="welcome-subtext">- PROFESSIONAL MINECRAFT THUMBNAIL -</h2>
+    </div>
 
+    <!-- [Phần còn lại của mã nguồn được giữ nguyên hoàn toàn như trước] -->
     <div class="marquee-wrapper">
         <div class="marquee-track" id="marqueeTrack">
             <div class="marquee-content" id="marquee">
@@ -827,25 +931,14 @@
 
             <div class="divider"></div>
             <h2 class="title">SHOWCASE</h2>
-            <div class="showcase-grid">
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/wMr7Frdv/SHOWCASE-V3.png" alt="Showcase">
-                </div>   
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/kXw2LDcH/SHOWCASE-V3.png" alt="Showcase">
-                </div>               
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png" alt="Showcase">
-                </div>
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/J4kbK30Q/ducktai.png" alt="Showcase">
-                </div>
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/rwwY26xd/SHOWCASE-V36.png" alt="Showcase">
-                </div>
-                <div class="image-card">
-                    <img src="https://i.postimg.cc/6qWbNTH0/SHOWCASE-V3.png" alt="Showcase">
-                </div>
+            <div class="showcase-grid" id="showcaseGrid">
+                <!-- Nội dung ảnh sẽ được render bởi JS -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <button class="page-arrow" onclick="changePage(-1)">◀</button>
+                <div id="pageNumbers" style="display: flex; gap: 10px;"></div>
+                <button class="page-arrow" onclick="changePage(1)">▶</button>
             </div>
         </section>
 
@@ -954,7 +1047,7 @@
         <div class="footer-left">
             <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
                 <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none;">Vietnam</p>
-                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | June 25, 2026</p>
+                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | July 21, 2026</p>
             </div>
         </div>
 
@@ -974,6 +1067,15 @@
     </div>
 
     <script>
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.getElementById('welcome-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.display = 'none';
+            }, 500);
+        }, 3000); 
+    });
+
     document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') {
             e.preventDefault();
@@ -992,17 +1094,73 @@
         el.innerHTML = `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="video-card"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail"></a>`;
     });
 
+    const showcasePages = {
+        1: [
+            "https://i.postimg.cc/6qWbNTH0/SHOWCASE-V3.png",
+            "https://i.postimg.cc/rwwY26xd/SHOWCASE-V36.png",
+            "https://i.postimg.cc/J4kbK30Q/ducktai.png",
+            "https://i.postimg.cc/m2jFmd4q/SHOWCASE-V3.png",
+            "https://i.postimg.cc/kXw2LDcH/SHOWCASE-V3.png",
+            "https://i.postimg.cc/wMr7Frdv/SHOWCASE-V3.png"
+        ],
+        2: [
+
+        ],
+        3: [
+
+        ]
+    };
+
+    let currentPage = 1;
+    const showcaseGrid = document.getElementById('showcaseGrid');
+    const pageNumbersContainer = document.getElementById('pageNumbers');
+
+    function renderPage(page) {
+        if (page < 1 || page > 3) return;
+        currentPage = page;
+        showcaseGrid.innerHTML = showcasePages[page].map(src => `
+            <div class="image-card">
+                <img src="${src}" alt="Showcase">
+            </div>
+        `).join('');
+        
+        updatePaginationUI();
+        initLightboxEvents();
+        document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updatePaginationUI() {
+        pageNumbersContainer.innerHTML = [1, 2, 3].map(num => `
+            <button class="page-num ${currentPage === num ? 'active' : ''}" onclick="renderPage(${num})">${num}</button>
+        `).join('');
+    }
+
+    function changePage(direction) {
+        let newPage = currentPage + direction;
+        if (newPage >= 1 && newPage <= 3) renderPage(newPage);
+    }
+
+    function initLightboxEvents() {
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
+
+        showcaseImages.forEach(img => {
+            img.onclick = (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightboxOverlay.classList.add('active');
+            };
+        });
+    }
+
+    renderPage(1);
+
     const sections = document.querySelectorAll('section[id]');
     const navItems = document.querySelectorAll('.nav-links .nav-item');
 
     let isManualScrolling = false;
     let scrollTimeout;
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '-30% 0px -30% 0px',
-        threshold: 0
-    };
 
     const updateActiveNav = () => {
         if (isManualScrolling) return;
@@ -1075,16 +1233,13 @@
     function renderLoop() {
         if (!isDragging) {
             currentY -= speed; 
-
             if (Math.abs(currentY) >= baseHeight) {
                 currentY += baseHeight;
             }
         }
-
         reviewTrack.style.transform = `translateY(${currentY}px)`;
         requestAnimationFrame(renderLoop);
     }
-
     setTimeout(renderLoop, 200);
 
     reviewSlider.addEventListener('mousedown', (e) => {
@@ -1096,14 +1251,11 @@
         if (!isDragging) return;
         e.preventDefault();
         currentY = e.pageY - startY;
-
         if (currentY > 0) currentY -= baseHeight;
         if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
     });
 
-    window.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
+    window.addEventListener('mouseup', () => { isDragging = false; });
 
     reviewSlider.addEventListener('touchstart', (e) => {
         isDragging = true;
@@ -1112,45 +1264,17 @@
 
     reviewSlider.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
-
         e.preventDefault(); 
-
         currentY = e.touches[0].pageY - startY;
-
         if (currentY > 0) currentY -= baseHeight;
         if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
     }, { passive: false });
 
-    window.addEventListener('touchend', () => {
-        isDragging = false;
-    });
+    window.addEventListener('touchend', () => { isDragging = false; });
+    window.addEventListener('blur', () => { isDragging = false; });
 
-    window.addEventListener('blur', () => {
-        isDragging = false;
-    });
-
-    const lightboxOverlay = document.getElementById('lightboxOverlay');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
-
-    showcaseImages.forEach(img => {
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            lightboxImg.src = img.src;
-            lightboxOverlay.classList.add('active');
-        });
-    });
-
-    lightboxClose.addEventListener('click', () => {
-        lightboxOverlay.classList.remove('active');
-    });
-
-    lightboxOverlay.addEventListener('click', (e) => {
-        if (e.target === lightboxClose) {
-            lightboxOverlay.classList.remove('active');
-        }
-    });
+    lightboxClose.addEventListener('click', () => { lightboxOverlay.classList.remove('active'); });
+    lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxClose) lightboxOverlay.classList.remove('active'); });
     </script>
 </body>
 </html>
