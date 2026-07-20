@@ -1072,6 +1072,8 @@
             document.getElementById('welcome-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
+                // Điều hướng về đầu trang khi kết thúc Welcome Screen
+                window.scrollTo({ top: 0, behavior: 'instant' });
             }, 500);
         }, 3000); 
     });
@@ -1126,7 +1128,10 @@
         
         updatePaginationUI();
         initLightboxEvents();
-        document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });
+        // Giữ hành vi cuộn cũ cho nút phân trang
+        if (page !== 1) {
+            document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function updatePaginationUI() {
