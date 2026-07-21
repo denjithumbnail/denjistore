@@ -294,8 +294,7 @@
                 box-shadow: none !important;
             }
             .cta-btn:hover {
-                transform: translateY(-2px) !important;
-                box-shadow: none !important;
+                animation: hoverBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
             }
             .title {
                 font-size: 32px !important;
@@ -456,7 +455,7 @@
         
         .hero-text p { margin: 25px 0 0 0; font-size: 18px; color: #aaaaaa; opacity: 0.95; text-shadow: none; }
 
-        .hero-right { display: flex; flex-direction: column; justify-content: center; gap: 25px; transform: translateY(-22px); }
+        .hero-right { display: flex; flex-direction: column; justify-content: center; gap: 25px; }
         .stats-grid { display: flex; gap: 20px; }
 
         .stat-box { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.05); padding: 42px; border-radius: 24px; flex: 1; text-align: left; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1); }
@@ -476,10 +475,64 @@
             font-weight: 700; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             text-shadow: none; 
+            display: inline-block;
+            opacity: 0; /* Ban đầu ẩn chữ like/view đi */
         }
 
-        .cta-btn { background: #0162fc; color: #ffffff; display: block; font-family: 'SF Pro Rounded', sans-serif; text-align: center; padding: 22px; border-radius: 16px; text-decoration: none; font-weight: 900; font-size: 30px; box-shadow: 0 8px 25px rgba(1, 98, 252, 0.3); transition: 0.3s; margin: 0; }
-        .cta-btn:hover { transform: translateY(-4px) translateY(-22px); box-shadow: 0 12px 30px rgba(1, 98, 252, 0.4); color: #ffffff; }
+        /* Định nghĩa hiệu ứng nảy lên cho chữ like và view */
+        @keyframes popUpBounce {
+            0% { transform: translateY(20px); opacity: 0; }
+            50% { transform: translateY(-8px); opacity: 1; }
+            75% { transform: translateY(4px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .stat-box p.show-label {
+            animation: popUpBounce 0.5s ease-out forwards;
+        }
+
+        /* Định nghĩa hiệu ứng nảy lên cho nút ORDER HERE sau khi like và view kết thúc */
+        @keyframes orderButtonPopUp {
+            0% { transform: translateY(25px) scale(0.9); opacity: 0; }
+            50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
+            75% { transform: translateY(4px) scale(0.98); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* Định nghĩa hiệu ứng nảy lên (pop-up bounce) khi rê chuột (hover) vào toàn bộ bảng nút ORDER HERE */
+        @keyframes hoverBounce {
+            0% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-12px) scale(1.03); }
+            70% { transform: translateY(-4px) scale(0.99); }
+            100% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        .cta-btn { 
+            background: #0162fc; 
+            color: #ffffff; 
+            display: block; 
+            font-family: 'SF Pro Rounded', sans-serif; 
+            text-align: center; 
+            padding: 22px; 
+            border-radius: 16px; 
+            text-decoration: none; 
+            font-weight: 900; 
+            font-size: 30px; 
+            box-shadow: none; 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, color 0.3s ease; 
+            margin: 0; 
+            opacity: 0; /* Ban đầu ẩn nút ORDER HERE */
+        }
+
+        .cta-btn.show-order-btn {
+            animation: orderButtonPopUp 0.6s ease-out forwards;
+        }
+
+        .cta-btn.show-order-btn:hover { 
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: none; 
+            color: #ffffff; 
+        }
 
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
         .divider { height: 4px; width: 100%; background-color: #0162fc; margin: 40px auto; border-radius: 2px; }
@@ -871,7 +924,10 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16), 0 5px 15px rgba(0, 0, 0, 0.12);
+            
+            /* ĐÃ CHỈNH SỬA: Giảm blur (35px -> 8px, 15px -> 3px) và tăng nhẹ độ đậm */
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.15);
+            
             border: 1px solid rgba(0, 0, 0, 0.05);
 
             background-image: repeating-linear-gradient(
@@ -960,8 +1016,8 @@
                 </div>
                 <div class="hero-right">
                     <div class="stats-grid">
-                        <div class="stat-box"><h2>120K+</h2><p>Views</p></div>
-                        <div class="stat-box"><h2>1.7K+</h2><p>Likes</p></div>
+                        <div class="stat-box"><h2 class="counter" data-target="120" data-suffix="K+">0K+</h2><p class="stat-label">Views</p></div>
+                        <div class="stat-box"><h2 class="counter" data-target="1.7" data-suffix="K+" data-dec="1">0.0K+</h2><p class="stat-label">Likes</p></div>
                     </div>
                     <a href="https://discord.gg/fZkWkShtp6" target="_blank" class="cta-btn">ORDER HERE!</a>
                 </div>
@@ -1059,9 +1115,6 @@
 
         <section id="profile-section" class="section-container">
             <div class="bottom-avatar-container">
-                <div class="bottom-profile-banner">
-                    <img src="https://i.postimg.cc/YjcyvZL0/5a983007-58a3-49f1-964b-4ae36165c1ee.png" alt="Profile Banner">
-                </div>
 
                 <div class="bottom-avatar-header-block">
                     <img src="https://i.postimg.cc/05C4N8MD/IMG-20260701-174818.jpg" class="bottom-avatar" alt="Avatar">
@@ -1326,6 +1379,57 @@
 
     lightboxClose.addEventListener('click', () => { lightboxOverlay.classList.remove('active'); });
     lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxClose) lightboxOverlay.classList.remove('active'); });
+
+    // Hiệu ứng số chạy từ 0 cho các giá trị thống kê, sau đó hiển thị chữ like và view, cuối cùng là nút ORDER HERE nảy lên
+    function initCounters() {
+        const counters = document.querySelectorAll('.counter');
+        let completedCount = 0;
+        
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const decimals = parseInt(counter.getAttribute('data-dec')) || 0;
+            const duration = 2000; // 2 giây
+            let startTime = null;
+
+            function updateCount(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const current = Math.min(progress / duration, 1) * target;
+                
+                counter.textContent = current.toFixed(decimals) + suffix;
+
+                if (progress < duration) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.textContent = target.toFixed(decimals) + suffix;
+                    completedCount++;
+                    
+                    // Khi tất cả các hiệu ứng đếm số (120k+ và 1.7k+) hoàn thành
+                    if (completedCount === counters.length) {
+                        const labels = document.querySelectorAll('.stat-label');
+                        labels.forEach(label => {
+                            label.classList.add('show-label');
+                        });
+
+                        // Sau khi like và view kết thúc, nút order here xuất hiện với hiệu ứng nảy lên
+                        setTimeout(() => {
+                            const ctaBtn = document.querySelector('.cta-btn');
+                            if (ctaBtn) {
+                                ctaBtn.classList.add('show-order-btn');
+                            }
+                        }, 300); // Độ trễ nhỏ tạo cảm giác nối tiếp mượt mà
+                    }
+                }
+            }
+            requestAnimationFrame(updateCount);
+        });
+    }
+
+    // Kích hoạt hiệu ứng đếm số khi trang đã tải xong
+    window.addEventListener('load', () => {
+        setTimeout(initCounters, 500);
+    });
     </script>
 </body>
 </html>
