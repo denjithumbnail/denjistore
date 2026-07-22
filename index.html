@@ -1221,7 +1221,7 @@
         ],
         2: [
             "https://i.postimg.cc/dVgQP0F2/SHOWCASE-V3.png"
-        ],
+        ]
     };
 
     let currentPage = 1;
@@ -1229,7 +1229,7 @@
     const pageNumbersContainer = document.getElementById('pageNumbers');
 
     function renderPage(page) {
-        if (page < 1 || page > 3) return;
+        if (page < 1 || page > 2) return;
         currentPage = page;
         showcaseGrid.innerHTML = showcasePages[page].map(src => `
             <div class="image-card">
@@ -1245,14 +1245,14 @@
     }
 
     function updatePaginationUI() {
-        pageNumbersContainer.innerHTML = [1, 2, 3].map(num => `
+        pageNumbersContainer.innerHTML = [1, 2].map(num => `
             <button class="page-num ${currentPage === num ? 'active' : ''}" onclick="renderPage(${num})">${num}</button>
         `).join('');
     }
 
     function changePage(direction) {
         let newPage = currentPage + direction;
-        if (newPage >= 1 && newPage <= 3) renderPage(newPage);
+        if (newPage >= 1 && newPage <= 2) renderPage(newPage);
     }
 
     function initLightboxEvents() {
