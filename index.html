@@ -9,6 +9,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
+        /* Khóa tương tác toàn bộ phần nền khi bật Lightbox */
+        body.lightbox-open {
+            overflow: hidden !important;
+            pointer-events: none !important;
+        }
+
         /* CSS cho Welcome Screen - Cập nhật khoảng cách, kích thước và font chữ */
         #welcome-screen {
             position: fixed;
@@ -32,15 +38,15 @@
             text-transform: uppercase;
             white-space: nowrap;
             animation: slideInLeft 1.5s ease-out forwards;
-            margin: 0; /* Đảm bảo không có margin thừa */
+            margin: 0;
         }
         #welcome-subtext {
-            font-family: 'Plus Jakarta Sans', sans-serif; /* Font giống phần mô tả hero */
-            font-size: 24px; /* Nhỏ hơn so với trước */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
             font-weight: 700;
-            color: #ffffff; /* Màu giống mô tả hero */
+            color: #ffffff;
             text-transform: uppercase;
-            margin-top: 5px; /* Khoảng cách gần hơn */
+            margin-top: 5px;
             animation: slideUp 1.5s ease-out forwards;
             animation-delay: 0.5s;
             opacity: 0;
@@ -51,7 +57,7 @@
             100% { transform: translateX(0); opacity: 1; }
         }
         @keyframes slideUp {
-            0% { transform: translateY(20px); opacity: 0; } /* Trồi lên khoảng cách ngắn hơn */
+            0% { transform: translateY(20px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
@@ -68,6 +74,12 @@
             font-style: normal;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #aaaaaa transparent;
+        }
+
         body { 
             margin: 0; 
             padding: 0; 
@@ -75,12 +87,14 @@
             font-family: 'Plus Jakarta Sans', sans-serif; 
             color: #ffffff; 
             overflow-x: hidden; 
-            scroll-behavior: smooth; 
             box-sizing: border-box; 
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
-        ::-webkit-scrollbar{ width:10px; } ::-webkit-scrollbar-track{ background:transparent; } ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } ::-webkit-scrollbar-thumb:hover{ background:#888888; } html{ scrollbar-width:thin; scrollbar-color:#aaaaaa transparent; }
+        ::-webkit-scrollbar{ width:10px; } 
+        ::-webkit-scrollbar-track{ background:transparent; } 
+        ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } 
+        ::-webkit-scrollbar-thumb:hover{ background:#888888; }
 
         img {
             -webkit-user-drag: none;
@@ -482,10 +496,9 @@
             font-family: 'Plus Jakarta Sans', sans-serif; 
             text-shadow: none; 
             display: inline-block;
-            opacity: 0; /* Ban đầu ẩn chữ like/view đi */
+            opacity: 0;
         }
 
-        /* Định nghĩa hiệu ứng nảy lên cho chữ like và view */
         @keyframes popUpBounce {
             0% { transform: translateY(20px); opacity: 0; }
             50% { transform: translateY(-8px); opacity: 1; }
@@ -497,7 +510,6 @@
             animation: popUpBounce 0.5s ease-out forwards;
         }
 
-        /* Định nghĩa hiệu ứng nảy lên cho nút ORDER HERE sau khi like và view kết thúc */
         @keyframes orderButtonPopUp {
             0% { transform: translateY(25px) scale(0.9); opacity: 0; }
             50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
@@ -505,7 +517,6 @@
             100% { transform: translateY(0) scale(1); opacity: 1; }
         }
 
-        /* Định nghĩa hiệu ứng nảy lên (pop-up bounce) khi rê chuột (hover) vào toàn bộ bảng nút ORDER HERE */
         @keyframes hoverBounce {
             0% { transform: translateY(0) scale(1); }
             40% { transform: translateY(-12px) scale(1.03); }
@@ -527,7 +538,7 @@
             box-shadow: none; 
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, color 0.3s ease; 
             margin: 0; 
-            opacity: 0; /* Ban đầu ẩn nút ORDER HERE */
+            opacity: 0;
         }
 
         .cta-btn.show-order-btn {
@@ -543,14 +554,13 @@
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
         .divider { height: 4px; width: 100%; background-color: #0162fc; margin: 40px auto; border-radius: 2px; }
         
-        /* Căn giữa tuyệt đối và cân bằng hoàn hảo cho các thẻ tiêu đề (YouTube Viral, Showcase, Reviews) */
         .title { 
             font-family: 'SF Pro Rounded', sans-serif; 
             font-size: 60px; 
             font-weight: 900; 
             text-transform: uppercase; 
             text-align: center !important; 
-            margin: 0 auto 40px auto !important; 
+            margin: 0 auto 20px auto !important; 
             color: #000000; 
             text-shadow: none; 
             width: 100%;
@@ -560,31 +570,17 @@
             line-height: 1.2;
         }
 
-        .youtube-highlight {
-            background-color: #ff0000;
-            padding: 2px 10px;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1;
-            vertical-align: middle;
-            margin: 0 4px;
-        }
         .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .video-card, .image-card { background: rgba(0, 0, 0, 0.03); border-radius: 16px; overflow: hidden; display: block; text-decoration: none; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.02); }
         .video-card:hover, .image-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); }
         .video-card img, .image-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 
-        /* Đồng bộ và căn giữa hoàn toàn cho khối Pagination (Biểu tượng hai tam giác & nút số 123) */
         .pagination { 
             display: flex !important; 
             justify-content: center !important; 
             align-items: center !important; 
             gap: 16px; 
-            margin: 40px auto 0 auto !important; 
+            margin: 30px auto 0 auto !important; 
             width: 100%;
             max-width: 1600px;
             box-sizing: border-box;
@@ -823,6 +819,7 @@
 
         .lightbox-overlay.active {
             opacity: 1;
+            pointer-events: auto !important;
         }
 
         .lightbox-img {
@@ -846,7 +843,6 @@
             100% { transform: translateY(-8px) rotate(-360deg); }
         }
 
-        /* Định vị nút đóng dịch sang trái sát sát mép cạnh bên phải của ảnh */
         .lightbox-close {
             position: absolute;
             top: calc(7.5% + 0px);
@@ -1071,7 +1067,7 @@
 
         <section id="product-section" class="section-container">
             <div class="divider"></div>
-            <h2 class="title">YOU<span class="youtube-highlight">TUBE</span> VIRAL</h2>
+            <h2 class="title">YOUTUBE VIRAL</h2>
             <div class="product-grid" id="productGrid">
                 <div data-youtube="io562SY6aFo"></div>
             </div>
@@ -1081,7 +1077,6 @@
             <div class="showcase-grid" id="showcaseGrid">
                 <!-- Nội dung ảnh sẽ được render bởi JS -->
             </div>
-            
             <div class="pagination" id="pagination">
                 <button class="page-arrow" onclick="changePage(-1)"><span>◄</span></button>
                 <div id="pageNumbers" style="display: flex; gap: 16px; align-items: center; justify-content: center;"></div>
@@ -1211,6 +1206,54 @@
     </div>
 
     <script>
+    /* Hiệu ứng cuộn chuột tăng độ nặng và ma sát tối đa (Extra Heavy Scroll) */
+    (function() {
+        let currentScrollY = window.scrollY;
+        let targetScrollY = window.scrollY;
+        let isSmoothScrolling = false;
+
+        window.addEventListener('wheel', (e) => {
+            if (document.body.classList.contains('lightbox-open')) return;
+            e.preventDefault();
+            
+            // Giảm độ nhạy cuộn xuống 0.65 giúp cuộn ít hơn & nặng hơn
+            const scrollSensitivity = 0.65; 
+            targetScrollY += e.deltaY * scrollSensitivity;
+            targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
+
+            if (!isSmoothScrolling) {
+                isSmoothScrolling = true;
+                requestAnimationFrame(updateScroll);
+            }
+        }, { passive: false });
+
+        function updateScroll() {
+            if (!isSmoothScrolling) return;
+
+            // Hạ độ ghì xuống 0.045 để gia tăng lực cản quán tính (nặng tay)
+            const ease = 0.045;
+            const diff = targetScrollY - currentScrollY;
+            
+            currentScrollY += diff * ease;
+            window.scrollTo(0, currentScrollY);
+
+            if (Math.abs(diff) > 0.5) {
+                requestAnimationFrame(updateScroll);
+            } else {
+                currentScrollY = targetScrollY;
+                window.scrollTo(0, currentScrollY);
+                isSmoothScrolling = false;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!isSmoothScrolling) {
+                currentScrollY = window.scrollY;
+                targetScrollY = window.scrollY;
+            }
+        });
+    })();
+
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.getElementById('welcome-screen').style.opacity = '0';
@@ -1293,6 +1336,7 @@
                 lightboxImg.src = img.src;
                 lightboxClose.classList.remove('ready');
                 lightboxOverlay.classList.add('active');
+                document.body.classList.add('lightbox-open');
             };
         });
     }
@@ -1306,18 +1350,22 @@
         }
     });
 
+    function closeLightbox() {
+        lightboxClose.classList.remove('ready');
+        lightboxOverlay.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+    }
+
     lightboxClose.addEventListener('click', (e) => { 
         if (!lightboxClose.classList.contains('ready')) return;
         e.stopPropagation();
-        lightboxClose.classList.remove('ready');
-        lightboxOverlay.classList.remove('active'); 
+        closeLightbox();
     });
 
     lightboxOverlay.addEventListener('click', (e) => { 
         if (!lightboxClose.classList.contains('ready')) return;
         if (e.target === lightboxClose) {
-            lightboxClose.classList.remove('ready');
-            lightboxOverlay.classList.remove('active'); 
+            closeLightbox();
         }
     });
 
@@ -1440,7 +1488,6 @@
     window.addEventListener('touchend', () => { isDragging = false; });
     window.addEventListener('blur', () => { isDragging = false; });
 
-    // Hiệu ứng số chạy từ 0 cho các giá trị thống kê, sau đó hiển thị chữ like và view, cuối cùng là nút ORDER HERE nảy lên
     function initCounters() {
         const counters = document.querySelectorAll('.counter');
         let completedCount = 0;
@@ -1449,7 +1496,7 @@
             const target = parseFloat(counter.getAttribute('data-target'));
             const suffix = counter.getAttribute('data-suffix') || '';
             const decimals = parseInt(counter.getAttribute('data-dec')) || 0;
-            const duration = 2000; // 2 giây
+            const duration = 2000;
             let startTime = null;
 
             function updateCount(timestamp) {
@@ -1465,20 +1512,18 @@
                     counter.textContent = target.toFixed(decimals) + suffix;
                     completedCount++;
                     
-                    // Khi tất cả các hiệu ứng đếm số (120k+ và 1.7k+) hoàn thành
                     if (completedCount === counters.length) {
                         const labels = document.querySelectorAll('.stat-label');
                         labels.forEach(label => {
                             label.classList.add('show-label');
                         });
 
-                        // Sau khi like và view kết thúc, nút order here xuất hiện với hiệu ứng nảy lên
                         setTimeout(() => {
                             const ctaBtn = document.querySelector('.cta-btn');
                             if (ctaBtn) {
                                 ctaBtn.classList.add('show-order-btn');
                             }
-                        }, 300); // Độ trễ nhỏ tạo cảm giác nối tiếp mượt mà
+                        }, 300);
                     }
                 }
             }
@@ -1486,7 +1531,6 @@
         });
     }
 
-    // Kích hoạt hiệu ứng đếm số khi trang đã tải xong
     window.addEventListener('load', () => {
         setTimeout(initCounters, 500);
     });
