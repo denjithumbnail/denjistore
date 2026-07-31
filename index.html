@@ -1133,7 +1133,7 @@
         <div class="toast-icon">✓</div>
         <div class="toast-content">
             <div class="toast-title">Success!</div>
-            <div class="toast-desc">Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail</span></div>
+            <div class="toast-desc">Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail. Click again to restore the original aspect ratio</span></div>
         </div>
     </div>
 
@@ -1577,7 +1577,7 @@
                 const toastDesc = orderToast.querySelector('.toast-desc');
 
                 if (toastTitle) toastTitle.textContent = "Success!";
-                if (toastDesc) toastDesc.innerHTML = 'Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail</span>';
+                if (toastDesc) toastDesc.innerHTML = 'Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail. Click again to restore the original aspect ratio</span>';
 
                 orderToast.classList.add('show');
 
