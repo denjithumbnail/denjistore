@@ -430,6 +430,9 @@
                 right: 15px !important;
                 max-width: none !important;
             }
+            #order-toast .toast-single-line {
+                white-space: normal !important;
+            }
         }
 
         .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(0, 0, 0, 0.05); padding: 18px 40px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); }
@@ -579,7 +582,7 @@
             transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
             font-family: 'Plus Jakarta Sans', sans-serif;
             text-shadow: none;
-            max-width: 400px;
+            max-width: fit-content;
         }
 
         #order-toast.show {
@@ -623,6 +626,11 @@
             opacity: 0.95;
             color: #ffffff;
             text-shadow: none;
+            line-height: 1.4;
+        }
+
+        #order-toast .toast-single-line {
+            white-space: nowrap;
         }
 
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
@@ -889,11 +897,26 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            overflow: hidden;
         }
 
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto !important;
+        }
+
+        .lightbox-img-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: grab;
+        }
+
+        .lightbox-img-wrapper:active {
+            cursor: grabbing;
         }
 
         .lightbox-img {
@@ -902,12 +925,10 @@
             object-fit: contain;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            transform: scale(0.9);
+            transform-origin: center center;
+            will-change: transform;
             transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .lightbox-overlay.active .lightbox-img {
-            transform: scale(1);
+            user-select: none;
         }
 
         @keyframes closeHoverBounce {
@@ -1103,8 +1124,8 @@
     <div id="order-toast">
         <div class="toast-icon">✓</div>
         <div class="toast-content">
-            <div class="toast-title">Successful!</div>
-            <div class="toast-desc">Redirecting...</div>
+            <div class="toast-title">Success!</div>
+            <div class="toast-desc">Thumbnail expanded.<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail</span></div>
         </div>
     </div>
 
@@ -1285,7 +1306,9 @@
 
     <div class="lightbox-overlay" id="lightboxOverlay">
         <span class="lightbox-close" id="lightboxClose">&#10005;</span>
-        <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Showcase">
+        <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Zoomed Showcase">
+        </div>
     </div>
 
     <script>
@@ -1361,21 +1384,16 @@
             const targetUrl = this.getAttribute('href');
 
             if (orderToast) {
-                // Đặt lại văn bản dành cho việc Order (Tiếng Anh)
                 const toastTitle = orderToast.querySelector('.toast-title');
                 const toastDesc = orderToast.querySelector('.toast-desc');
-                if (toastTitle) toastTitle.textContent = "Successful!";
-                if (toastDesc) toastDesc.textContent = "Redirecting to DENJI STORE...";
+                if (toastTitle) toastTitle.textContent = "Success!";
+                if (toastDesc) toastDesc.innerHTML = "Redirecting to DENJI STORE...";
 
-                // 1. Hiển thị Toast thông báo thành công
                 orderToast.classList.add('show');
                 
-                // 2. Chờ 3 giây để người dùng đọc thông báo
                 setTimeout(function() {
-                    // 3. Cho bảng xanh hạ xuống (mất 0.4 giây theo animation CSS)
                     orderToast.classList.remove('show'); 
                     
-                    // 4. Khi bảng đã hạ xuống hoàn toàn, tạo link ẩn và kích hoạt click để mở tab mới
                     setTimeout(function() {
                         const tempLink = document.createElement('a');
                         tempLink.href = targetUrl;
@@ -1405,7 +1423,6 @@
         const id = el.getAttribute('data-youtube');
         const videoUrl = `https://www.youtube.com/watch?v=${id}`;
 
-        // Render HTML với hàm onclick xử lý Toast
         el.innerHTML = `
             <a href="${videoUrl}" class="video-card" onclick="openYoutubeWithToast(event, '${videoUrl}')">
                 <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail">
@@ -1413,27 +1430,21 @@
         `;
     });
 
-    // Hàm xử lý đếm ngược Toast cho Youtube Viral
     function openYoutubeWithToast(e, targetUrl) {
-        e.preventDefault(); // Ngăn trình duyệt nhảy link ngay lập tức
+        e.preventDefault();
 
         if (orderToast) {
-            // Đổi văn bản Toast cho việc xem Video (Tiếng Anh)
             const toastTitle = orderToast.querySelector('.toast-title');
             const toastDesc = orderToast.querySelector('.toast-desc');
 
-            if (toastTitle) toastTitle.textContent = "Successful!";
-            if (toastDesc) toastDesc.textContent = "Redirecting to YouTube...";
+            if (toastTitle) toastTitle.textContent = "Success!";
+            if (toastDesc) toastDesc.innerHTML = "Redirecting to YouTube...";
 
-            // 1. Hiển thị Toast thông báo
             orderToast.classList.add('show');
 
-            // 2. Chờ 3 giây cho người dùng xem
             setTimeout(function() {
-                // 3. Hạ bảng Toast xuống
                 orderToast.classList.remove('show');
 
-                // 4. Khi bảng hạ hoàn toàn (0.4s), tạo link ẩn để mở tab mới
                 setTimeout(function() {
                     const tempLink = document.createElement('a');
                     tempLink.href = targetUrl;
@@ -1492,10 +1503,37 @@
         if (newPage >= 1 && newPage <= 2) renderPage(newPage);
     }
 
+    /* Variables điều khiển Phóng to / Thu nhỏ & Kéo di chuyển Ảnh Showcase */
+    let imgScale = 1;
+    let imgPosX = 0;
+    let imgPosY = 0;
+    let isDraggingImg = false;
+    let startX = 0;
+    let startY = 0;
+    let toastTimeout = null;
+
+    const lightboxOverlay = document.getElementById('lightboxOverlay');
+    const lightboxImgWrapper = document.getElementById('lightboxImgWrapper');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function updateImgTransform(withTransition = false) {
+        if (withTransition) {
+            lightboxImg.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+        } else {
+            lightboxImg.style.transition = 'none';
+        }
+        lightboxImg.style.transform = `translate(${imgPosX}px, ${imgPosY}px) scale(${imgScale})`;
+    }
+
+    function resetImgTransform() {
+        imgScale = 1;
+        imgPosX = 0;
+        imgPosY = 0;
+        updateImgTransform(true);
+    }
+
     function initLightboxEvents() {
-        const lightboxOverlay = document.getElementById('lightboxOverlay');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
         const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
 
         showcaseImages.forEach(img => {
@@ -1503,18 +1541,75 @@
                 e.stopPropagation();
                 lightboxImg.src = img.src;
                 lightboxClose.classList.remove('ready');
+                resetImgTransform();
                 lightboxOverlay.classList.add('active');
                 document.body.classList.add('lightbox-open');
             };
         });
     }
 
-    const lightboxOverlay = document.getElementById('lightboxOverlay');
-    const lightboxClose = document.getElementById('lightboxClose');
-
     lightboxOverlay.addEventListener('transitionend', (e) => {
         if (e.propertyName === 'opacity' && lightboxOverlay.classList.contains('active')) {
             lightboxClose.classList.add('ready');
+
+            // Bật Toast xanh thông báo thành công bằng Tiếng Anh sau khi ảnh đã phóng to
+            if (orderToast) {
+                const toastTitle = orderToast.querySelector('.toast-title');
+                const toastDesc = orderToast.querySelector('.toast-desc');
+
+                if (toastTitle) toastTitle.textContent = "Success!";
+                if (toastDesc) toastDesc.innerHTML = 'Thumbnail expanded.<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail</span>';
+
+                orderToast.classList.add('show');
+
+                clearTimeout(toastTimeout);
+                toastTimeout = setTimeout(() => {
+                    orderToast.classList.remove('show');
+                }, 3000);
+            }
+        }
+    });
+
+    /* Con lăn chuột Zoom Ảnh */
+    lightboxOverlay.addEventListener('wheel', (e) => {
+        if (!lightboxOverlay.classList.contains('active')) return;
+        e.preventDefault();
+
+        const zoomFactor = 0.15;
+        if (e.deltaY < 0) {
+            imgScale = Math.min(imgScale + zoomFactor, 4); // Max Zoom 4x
+        } else {
+            imgScale = Math.max(imgScale - zoomFactor, 1); // Min Zoom 1x
+            if (imgScale === 1) {
+                imgPosX = 0;
+                imgPosY = 0;
+            }
+        }
+        updateImgTransform(true);
+    }, { passive: false });
+
+    /* Drag & Pan (Giữ chuột trái kéo ảnh) */
+    lightboxImgWrapper.addEventListener('mousedown', (e) => {
+        if (!lightboxOverlay.classList.contains('active')) return;
+        if (e.target === lightboxClose || e.target.classList.contains('lightbox-close')) return;
+        
+        isDraggingImg = true;
+        startX = e.clientX - imgPosX;
+        startY = e.clientY - imgPosY;
+        lightboxImg.style.transition = 'none';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isDraggingImg) return;
+        e.preventDefault();
+        imgPosX = e.clientX - startX;
+        imgPosY = e.clientY - startY;
+        updateImgTransform(false);
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDraggingImg) {
+            isDraggingImg = false;
         }
     });
 
@@ -1522,6 +1617,10 @@
         lightboxClose.classList.remove('ready');
         lightboxOverlay.classList.remove('active');
         document.body.classList.remove('lightbox-open');
+        resetImgTransform();
+        if (orderToast) {
+            orderToast.classList.remove('show');
+        }
     }
 
     lightboxClose.addEventListener('click', (e) => { 
@@ -1532,7 +1631,7 @@
 
     lightboxOverlay.addEventListener('click', (e) => { 
         if (!lightboxClose.classList.contains('ready')) return;
-        if (e.target === lightboxClose) {
+        if (e.target === lightboxClose || e.target === lightboxOverlay) {
             closeLightbox();
         }
     });
@@ -1603,7 +1702,7 @@
     let currentY = 0;            
     let speed = 0.6;              
     let isDragging = false;       
-    let startY = 0;               
+    let startYDrag = 0;               
     let baseHeight = 0;          
 
     function updatedDimensions() {
@@ -1627,13 +1726,13 @@
 
     reviewSlider.addEventListener('mousedown', (e) => {
         isDragging = true;
-        startY = e.pageY - currentY;
+        startYDrag = e.pageY - currentY;
     });
 
     window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        currentY = e.pageY - startY;
+        currentY = e.pageY - startYDrag;
         if (currentY > 0) currentY -= baseHeight;
         if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
     });
@@ -1642,13 +1741,13 @@
 
     reviewSlider.addEventListener('touchstart', (e) => {
         isDragging = true;
-        startY = e.touches[0].pageY - currentY;
+        startYDrag = e.touches[0].pageY - currentY;
     }, { passive: false });
 
     reviewSlider.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault(); 
-        currentY = e.touches[0].pageY - startY;
+        currentY = e.touches[0].pageY - startYDrag;
         if (currentY > 0) currentY -= baseHeight;
         if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
     }, { passive: false });
