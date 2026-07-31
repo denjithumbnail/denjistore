@@ -942,8 +942,8 @@
             position: absolute;
             top: calc(7.5% + 0px);
             right: calc(7.5% + 100px);
-            width: 44px;
-            height: 44px;
+            width: 66px;
+            height: 66px;
             border-radius: 50%;
             background-color: #1d2022;
             border: 2px solid #aaaaaa;
@@ -959,11 +959,19 @@
             padding: 0;
             margin: 0;
             line-height: 0;
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
             opacity: 1;
+            transform: translateY(0);
             box-sizing: border-box;
             pointer-events: none;
             z-index: 10000;
+        }
+
+        /* Class ẩn nút X có hiệu ứng hạ xuống và mờ dần */
+        .lightbox-close.hide-btn {
+            opacity: 0 !important;
+            transform: translateY(20px) !important;
+            pointer-events: none !important;
         }
 
         .lightbox-close.ready {
@@ -1510,6 +1518,7 @@
     let isDraggingImg = false;
     let startX = 0;
     let startY = 0;
+    let dragDistance = 0;
     let toastTimeout = null;
 
     const lightboxOverlay = document.getElementById('lightboxOverlay');
@@ -1524,6 +1533,13 @@
             lightboxImg.style.transition = 'none';
         }
         lightboxImg.style.transform = `translate(${imgPosX}px, ${imgPosY}px) scale(${imgScale})`;
+
+        // Điều khiển ẩn/hiện nút tròn X khi thay đổi tỉ lệ scale
+        if (imgScale > 1) {
+            lightboxClose.classList.add('hide-btn');
+        } else {
+            lightboxClose.classList.remove('hide-btn');
+        }
     }
 
     function resetImgTransform() {
@@ -1549,10 +1565,13 @@
     }
 
     lightboxOverlay.addEventListener('transitionend', (e) => {
+        // Chỉ kích hoạt Toast khi chính lightboxOverlay kết thúc transition mở (tránh bị kích hoạt bởi nút X)
+        if (e.target !== lightboxOverlay) return;
+
         if (e.propertyName === 'opacity' && lightboxOverlay.classList.contains('active')) {
             lightboxClose.classList.add('ready');
 
-            // Bật Toast xanh thông báo thành công bằng Tiếng Anh sau khi ảnh đã phóng to
+            // Bật Toast xanh thông báo thành công bằng Tiếng Anh sau khi mở lightbox
             if (orderToast) {
                 const toastTitle = orderToast.querySelector('.toast-title');
                 const toastDesc = orderToast.querySelector('.toast-desc');
@@ -1594,6 +1613,7 @@
         if (e.target === lightboxClose || e.target.classList.contains('lightbox-close')) return;
         
         isDraggingImg = true;
+        dragDistance = 0;
         startX = e.clientX - imgPosX;
         startY = e.clientY - imgPosY;
         lightboxImg.style.transition = 'none';
@@ -1602,14 +1622,27 @@
     window.addEventListener('mousemove', (e) => {
         if (!isDraggingImg) return;
         e.preventDefault();
-        imgPosX = e.clientX - startX;
-        imgPosY = e.clientY - startY;
+        const nextX = e.clientX - startX;
+        const nextY = e.clientY - startY;
+
+        dragDistance += Math.hypot(nextX - imgPosX, nextY - imgPosY);
+
+        imgPosX = nextX;
+        imgPosY = nextY;
         updateImgTransform(false);
     });
 
     window.addEventListener('mouseup', () => {
         if (isDraggingImg) {
             isDraggingImg = false;
+        }
+    });
+
+    /* Click 1 lần vào ảnh để khôi phục tỉ lệ ảnh ban đầu khi đang zoom */
+    lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (imgScale > 1 && dragDistance < 5) {
+            resetImgTransform();
         }
     });
 
