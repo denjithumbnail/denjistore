@@ -1103,8 +1103,8 @@
     <div id="order-toast">
         <div class="toast-icon">✓</div>
         <div class="toast-content">
-            <div class="toast-title">Thành công!</div>
-            <div class="toast-desc">Đang chuẩn bị chuyển hướng...</div>
+            <div class="toast-title">Successful!</div>
+            <div class="toast-desc">Redirecting...</div>
         </div>
     </div>
 
@@ -1361,6 +1361,12 @@
             const targetUrl = this.getAttribute('href');
 
             if (orderToast) {
+                // Đặt lại văn bản dành cho việc Order (Tiếng Anh)
+                const toastTitle = orderToast.querySelector('.toast-title');
+                const toastDesc = orderToast.querySelector('.toast-desc');
+                if (toastTitle) toastTitle.textContent = "Successful!";
+                if (toastDesc) toastDesc.textContent = "Redirecting to DENJI STORE...";
+
                 // 1. Hiển thị Toast thông báo thành công
                 orderToast.classList.add('show');
                 
@@ -1392,10 +1398,57 @@
         marqueeTrack.innerHTML += marquee.outerHTML;
     }
 
+    /* =========================================================
+       LOGIC YOUTUBE VIRAL: Hiện Toast -> Hạ Toast -> Mở Tab mới
+       ========================================================= */
     document.querySelectorAll('[data-youtube]').forEach(el => {
         const id = el.getAttribute('data-youtube');
-        el.innerHTML = `<a href="https://www.youtube.com/watch?v=${id}" target="_blank" class="video-card"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail"></a>`;
+        const videoUrl = `https://www.youtube.com/watch?v=${id}`;
+
+        // Render HTML với hàm onclick xử lý Toast
+        el.innerHTML = `
+            <a href="${videoUrl}" class="video-card" onclick="openYoutubeWithToast(event, '${videoUrl}')">
+                <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail">
+            </a>
+        `;
     });
+
+    // Hàm xử lý đếm ngược Toast cho Youtube Viral
+    function openYoutubeWithToast(e, targetUrl) {
+        e.preventDefault(); // Ngăn trình duyệt nhảy link ngay lập tức
+
+        if (orderToast) {
+            // Đổi văn bản Toast cho việc xem Video (Tiếng Anh)
+            const toastTitle = orderToast.querySelector('.toast-title');
+            const toastDesc = orderToast.querySelector('.toast-desc');
+
+            if (toastTitle) toastTitle.textContent = "Successful!";
+            if (toastDesc) toastDesc.textContent = "Redirecting to YouTube...";
+
+            // 1. Hiển thị Toast thông báo
+            orderToast.classList.add('show');
+
+            // 2. Chờ 3 giây cho người dùng xem
+            setTimeout(function() {
+                // 3. Hạ bảng Toast xuống
+                orderToast.classList.remove('show');
+
+                // 4. Khi bảng hạ hoàn toàn (0.4s), tạo link ẩn để mở tab mới
+                setTimeout(function() {
+                    const tempLink = document.createElement('a');
+                    tempLink.href = targetUrl;
+                    tempLink.target = '_blank';
+                    tempLink.rel = 'noopener noreferrer';
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                }, 400);
+
+            }, 3000);
+        } else {
+            window.open(targetUrl, '_blank');
+        }
+    }
 
     const showcasePages = {
         1: [
