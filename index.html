@@ -1133,7 +1133,7 @@
         <div class="toast-icon">✓</div>
         <div class="toast-content">
             <div class="toast-title">Success!</div>
-            <div class="toast-desc">Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail. Click again to restore the original aspect ratio</span></div>
+            <div class="toast-desc">You have successfully accessed the DENJI STORE website!</div>
         </div>
     </div>
 
@@ -1372,6 +1372,19 @@
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
                 window.scrollTo({ top: 0, behavior: 'instant' });
+
+                // Hiện bảng xanh thông báo truy cập thành công sau khi load xong welcome screen
+                if (orderToast) {
+                    const toastTitle = orderToast.querySelector('.toast-title');
+                    const toastDesc = orderToast.querySelector('.toast-desc');
+                    if (toastTitle) toastTitle.textContent = "Success!";
+                    if (toastDesc) toastDesc.innerHTML = "You have successfully accessed the DENJI STORE website!";
+
+                    orderToast.classList.add('show');
+                    setTimeout(() => {
+                        orderToast.classList.remove('show');
+                    }, 4000);
+                }
             }, 500);
         }, 2000); 
     });
