@@ -15,7 +15,7 @@
             pointer-events: none !important;
         }
 
-        /* CSS cho Welcome Screen */
+        /* ================= Welcome Screen Chuẩn & Tối Ưu Mượt Mà ================= */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -28,37 +28,100 @@
             justify-content: center;
             align-items: center;
             z-index: 99999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity;
         }
-        #welcome-text {
+
+        .welcome-title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 0;
+        }
+
+        /* WELCOME TO - Đã giảm 20% kích thước (112px) + Bóng sắc nét KHÔNG BLUR */
+        #welcome-text-left {
             font-family: 'SF Pro Rounded', sans-serif;
-            font-size: 130px;
+            font-size: 112px;
             font-weight: 900;
             color: #0162fc;
             text-transform: uppercase;
             white-space: nowrap;
-            animation: slideInLeft 1.5s ease-out forwards;
+            text-shadow: 0px 4px 0px #000000; /* Không blur */
+            animation: slideInLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             margin: 0;
+            will-change: transform, opacity;
         }
-        #welcome-subtext {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
+
+        /* DENJI STORE - Đã giảm 20% kích thước (112px) + Bóng sắc nét KHÔNG BLUR */
+        #welcome-text-right {
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 112px;
+            font-weight: 900;
             color: #ffffff;
+            background: #0162fc;
+            padding: 8px 32px;
+            border-radius: 26px;
             text-transform: uppercase;
-            margin-top: 5px;
-            animation: slideUp 1.5s ease-out forwards;
-            animation-delay: 0.5s;
+            white-space: nowrap;
+            text-shadow: 0px 4px 0px #000000; /* Không blur */
+            box-shadow: none; 
+            animation: slideInRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            margin: 0;
+            will-change: transform, opacity;
+        }
+
+        /* Subtext: Khối xanh siêu bo tròn + Bóng chữ sắc nét không blur */
+        #welcome-subtext {
+            font-family: 'SF Pro Rounded', 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            color: #ffffff;
+            background: #0162fc;
+            padding: 10px 28px;
+            border-radius: 999px; /* Khối xanh siêu bo tròn */
+            text-transform: uppercase;
+            margin-top: 24px;
+            letter-spacing: 2px;
+            text-shadow: 0px 4px 0px #000000; /* Bóng đen sát chữ KHÔNG BLUR */
+            animation: slideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.35s;
             opacity: 0;
+            will-change: transform, opacity;
         }
 
         @keyframes slideInLeft {
-            0% { transform: translateX(-100px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+            0% { 
+                transform: translateX(-180px) scale(0.95); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateX(0) scale(1); 
+                opacity: 1; 
+            }
         }
+
+        @keyframes slideInRight {
+            0% { 
+                transform: translateX(180px) scale(0.95); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateX(0) scale(1); 
+                opacity: 1; 
+            }
+        }
+
         @keyframes slideUp {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% { 
+                transform: translateY(25px); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
         }
 
         @font-face {
@@ -173,22 +236,39 @@
             to{ transform:translateX(-50%); }
         }
 
+        @media (max-width: 1400px) {
+            #welcome-text-left, #welcome-text-right {
+                font-size: 90px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            #welcome-text-left, #welcome-text-right {
+                font-size: 65px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .welcome-title-wrapper {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #welcome-text-left, #welcome-text-right {
+                font-size: 30px !important;
+                padding: 6px 18px;
+            }
+            #welcome-subtext {
+                font-size: 12px !important;
+                padding: 6px 16px;
+                text-align: center;
+            }
+        }
+
         @media (max-width: 768px) {
             #welcome-screen {
                 padding: 0 20px !important;
                 box-sizing: border-box !important;
                 text-align: center !important;
-            }
-            #welcome-text { 
-                font-size: 28px !important; 
-                white-space: normal !important; 
-                line-height: 1.3 !important;
-            }
-            #welcome-subtext { 
-                font-size: 13px !important; 
-                white-space: normal !important;
-                text-align: center !important;
-                line-height: 1.4 !important;
             }
             body { overflow-x: hidden; }
 
@@ -1122,9 +1202,12 @@
     </style>
 </head>
 <body ontouchstart="">
-    <!-- Welcome Screen -->
+    <!-- Welcome Screen được cập nhật cấu trúc mới -->
     <div id="welcome-screen">
-        <h1 id="welcome-text"><span style="color: #ffffff;">WELCOME TO</span> <span style="color: #0162fc;">DENJI STORE</span></h1>
+        <div class="welcome-title-wrapper">
+            <h1 id="welcome-text-left">WELCOME TO</h1>
+            <h1 id="welcome-text-right">DENJI STORE</h1>
+        </div>
         <h2 id="welcome-subtext">- PROFESSIONAL MINECRAFT THUMBNAIL -</h2>
     </div>
 
@@ -1330,7 +1413,7 @@
             if (document.body.classList.contains('lightbox-open')) return;
             e.preventDefault();
             
-            const scrollSensitivity = 0.65; 
+            const scrollSensitivity = 0.45; 
             targetScrollY += e.deltaY * scrollSensitivity;
             targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
 
@@ -1385,8 +1468,8 @@
                         orderToast.classList.remove('show');
                     }, 4000);
                 }
-            }, 500);
-        }, 2000); 
+            }, 600);
+        }, 2200); 
     });
 
     document.addEventListener('contextmenu', function(e) {
