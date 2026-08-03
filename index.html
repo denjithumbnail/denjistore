@@ -9,13 +9,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
-        /* Khóa tương tác toàn bộ phần nền khi bật Lightbox */
         body.lightbox-open {
             overflow: hidden !important;
             pointer-events: none !important;
         }
 
-        /* ================= Welcome Screen Chuẩn & Tối Ưu Mượt Mà ================= */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -40,7 +38,6 @@
             margin: 0;
         }
 
-        /* WELCOME TO - Đã giảm 20% kích thước (112px) + Bóng sắc nét KHÔNG BLUR */
         #welcome-text-left {
             font-family: 'SF Pro Rounded', sans-serif;
             font-size: 112px;
@@ -48,13 +45,12 @@
             color: #0162fc;
             text-transform: uppercase;
             white-space: nowrap;
-            text-shadow: 0px 4px 0px #000000; /* Không blur */
+            text-shadow: 0px 4px 0px #000000;
             animation: slideInLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             margin: 0;
             will-change: transform, opacity;
         }
 
-        /* DENJI STORE - Đã giảm 20% kích thước (112px) + Bóng sắc nét KHÔNG BLUR */
         #welcome-text-right {
             font-family: 'SF Pro Rounded', sans-serif;
             font-size: 112px;
@@ -65,14 +61,13 @@
             border-radius: 26px;
             text-transform: uppercase;
             white-space: nowrap;
-            text-shadow: 0px 4px 0px #000000; /* Không blur */
+            text-shadow: 0px 4px 0px #000000;
             box-shadow: none; 
             animation: slideInRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             margin: 0;
             will-change: transform, opacity;
         }
 
-        /* Subtext: Khối xanh siêu bo tròn + Bóng chữ sắc nét không blur */
         #welcome-subtext {
             font-family: 'SF Pro Rounded', 'Plus Jakarta Sans', sans-serif;
             font-size: 20px;
@@ -80,11 +75,11 @@
             color: #ffffff;
             background: #0162fc;
             padding: 10px 28px;
-            border-radius: 999px; /* Khối xanh siêu bo tròn */
+            border-radius: 999px;
             text-transform: uppercase;
             margin-top: 24px;
             letter-spacing: 2px;
-            text-shadow: 0px 4px 0px #000000; /* Bóng đen sát chữ KHÔNG BLUR */
+            text-shadow: 0px 4px 0px #000000;
             animation: slideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             animation-delay: 0.35s;
             opacity: 0;
@@ -642,7 +637,6 @@
             color: #ffffff; 
         }
 
-        /* CSS cho Toast Thông Báo Thành Công */
         #order-toast {
             position: fixed;
             bottom: 30px;
@@ -1031,7 +1025,7 @@
             font-size: 24px;
             font-family: 'SF Pro Rounded', sans-serif;
             font-weight: 900;
-            -webkit-text-stroke: 2px #aaaaaa;           /* Tạo nét viền dày cho chữ X (Chrome/Safari/Edge) */
+            -webkit-text-stroke: 2px #aaaaaa;
             paint-order: stroke fill;
             cursor: pointer;
             user-select: none;
@@ -1049,7 +1043,6 @@
             z-index: 10000;
         }
 
-        /* Class ẩn nút X có hiệu ứng hạ xuống và mờ dần */
         .lightbox-close.hide-btn {
             opacity: 0 !important;
             transform: translateY(20px) !important;
@@ -1186,7 +1179,6 @@
             margin-bottom: 40px;
         }
 
-        /* Styling cho Highlight Background Text trong lá thư */
         mark.highlight {
             background-image: url('https://i.postimg.cc/8kWcXZm5/highlight-png-6.png');
             background-size: 100% 100%;
@@ -1217,7 +1209,6 @@
     </style>
 </head>
 <body ontouchstart="">
-    <!-- Welcome Screen được cập nhật cấu trúc mới -->
     <div id="welcome-screen">
         <div class="welcome-title-wrapper">
             <h1 id="welcome-text-left">WELCOME TO</h1>
@@ -1226,7 +1217,6 @@
         <h2 id="welcome-subtext">- PROFESSIONAL MINECRAFT THUMBNAIL -</h2>
     </div>
 
-    <!-- Toast Thông Báo Thành Công -->
     <div id="order-toast">
         <div class="toast-icon">✓</div>
         <div class="toast-content">
@@ -1285,7 +1275,6 @@
             <div class="divider"></div>
             <h2 class="title">SHOWCASE</h2>
             <div class="showcase-grid" id="showcaseGrid">
-                <!-- Nội dung ảnh sẽ được render bởi JS -->
             </div>
             <div class="pagination" id="pagination">
                 <button class="page-arrow" onclick="changePage(-1)"><span>◄</span></button>
@@ -1368,22 +1357,22 @@
                     <img src="https://i.postimg.cc/4x4TcL0h/AVT-Copy.jpg" class="bottom-avatar" alt="Avatar">
                     <div class="bottom-avatar-text-group">
                         <h3 class="bottom-avatar-name">!   denj1<img src="https://i.postimg.cc/BbVvTQQ3/Verified-Tiktok-Emoji-Copy-and-Paste.png" alt="TikTok Verified" style="height: 36px; width: auto; margin-left: 10px; flex-shrink: 0;"></h3>
-                        <p class="bottom-avatar-subtext">_hoagnguyn.bii</p>
+                        <p class="bottom-avatar-subtext">zhyuan.bii</p>
                     </div>
                 </div>
                 
                 <div class="bottom-letter-box">
                     
                     <div class="bottom-avatar-bio">
-                        <p><mark class="highlight">Dear Customer,</mark></p>
+                        <p>Dear Customer,</p>
 
-                        <p>Hello! I'm Denj1 - <mark class="highlight">The founder of DENJI STORE</mark>.</p>
+                        <p>Hello! I'm Denj1 - The founder of DENJI STORE.</p>
                         
-                        <p>With <mark class="highlight">2 years of experience</mark>, along with <mark class="highlight">my skills</mark>, <mark class="highlight">dedication</mark>, and <mark class="highlight">passion</mark> for my work, I am committed to delivering the <mark class="highlight">highest-quality products</mark> and the <mark class="highlight">best results</mark> I can possibly create.</p>
+                        <p>With 2 years of experience, along with my skills, dedication, and passion for my work, I am committed to delivering the highest-quality products and the best results I can possibly create.</p>
                         
-                        <p><mark class="highlight">Your satisfaction is what motivates me the most.</mark> Of course, I'm not perfect, and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I will always listen, learn, and do my best to improve.</p>
+                        <p>Your satisfaction is what motivates me the most. Of course, I'm not perfect, and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I will always listen, learn, and do my best to improve.</p>
                         
-                        <p><mark class="highlight">Thank you for visiting. I hope we'll have the opportunity to work together in the future.</mark></p>
+                        <p>Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
                     </div>
                     
                     <h5 class="bottom-letter-signature">Denj1</h5>
@@ -1418,7 +1407,6 @@
     </div>
 
     <script>
-    /* Hiệu ứng cuộn chuột tăng độ nặng và ma sát tối đa (Extra Heavy Scroll) */
     (function() {
         let currentScrollY = window.scrollY;
         let targetScrollY = window.scrollY;
@@ -1471,7 +1459,6 @@
                 document.getElementById('welcome-screen').style.display = 'none';
                 window.scrollTo({ top: 0, behavior: 'instant' });
 
-                // Hiện bảng xanh thông báo truy cập thành công sau khi load xong welcome screen
                 if (orderToast) {
                     const toastTitle = orderToast.querySelector('.toast-title');
                     const toastDesc = orderToast.querySelector('.toast-desc');
@@ -1493,7 +1480,6 @@
         }
     });
 
-    /* Logic Nút ORDER HERE: Hiện Toast -> Hạ Toast xuống -> Tự động kích hoạt thẻ ẩn mở Tab mới */
     const orderBtn = document.getElementById('order-btn');
     const orderToast = document.getElementById('order-toast');
 
@@ -1535,9 +1521,6 @@
         marqueeTrack.innerHTML += marquee.outerHTML;
     }
 
-    /* =========================================================
-       LOGIC YOUTUBE VIRAL: Hiện Toast -> Hạ Toast -> Mở Tab mới
-       ========================================================= */
     document.querySelectorAll('[data-youtube]').forEach(el => {
         const id = el.getAttribute('data-youtube');
         const videoUrl = `https://www.youtube.com/watch?v=${id}`;
@@ -1622,7 +1605,6 @@
         if (newPage >= 1 && newPage <= 2) renderPage(newPage);
     }
 
-    /* Variables điều khiển Phóng to / Thu nhỏ & Kéo di chuyển Ảnh Showcase */
     let imgScale = 1;
     let imgPosX = 0;
     let imgPosY = 0;
@@ -1645,7 +1627,6 @@
         }
         lightboxImg.style.transform = `translate(${imgPosX}px, ${imgPosY}px) scale(${imgScale})`;
 
-        // Điều khiển ẩn/hiện nút tròn X khi thay đổi tỉ lệ scale
         if (imgScale > 1) {
             lightboxClose.classList.add('hide-btn');
         } else {
@@ -1676,13 +1657,11 @@
     }
 
     lightboxOverlay.addEventListener('transitionend', (e) => {
-        // Chỉ kích hoạt Toast khi chính lightboxOverlay kết thúc transition mở (tránh bị kích hoạt bởi nút X)
         if (e.target !== lightboxOverlay) return;
 
         if (e.propertyName === 'opacity' && lightboxOverlay.classList.contains('active')) {
             lightboxClose.classList.add('ready');
 
-            // Bật Toast xanh thông báo thành công bằng Tiếng Anh sau khi mở lightbox
             if (orderToast) {
                 const toastTitle = orderToast.querySelector('.toast-title');
                 const toastDesc = orderToast.querySelector('.toast-desc');
@@ -1700,16 +1679,15 @@
         }
     });
 
-    /* Con lăn chuột Zoom Ảnh */
     lightboxOverlay.addEventListener('wheel', (e) => {
         if (!lightboxOverlay.classList.contains('active')) return;
         e.preventDefault();
 
         const zoomFactor = 0.15;
         if (e.deltaY < 0) {
-            imgScale = Math.min(imgScale + zoomFactor, 4); // Max Zoom 4x
+            imgScale = Math.min(imgScale + zoomFactor, 4);
         } else {
-            imgScale = Math.max(imgScale - zoomFactor, 1); // Min Zoom 1x
+            imgScale = Math.max(imgScale - zoomFactor, 1);
             if (imgScale === 1) {
                 imgPosX = 0;
                 imgPosY = 0;
@@ -1718,7 +1696,6 @@
         updateImgTransform(true);
     }, { passive: false });
 
-    /* Drag & Pan (Giữ chuột trái kéo ảnh) */
     lightboxImgWrapper.addEventListener('mousedown', (e) => {
         if (!lightboxOverlay.classList.contains('active')) return;
         if (e.target === lightboxClose || e.target.classList.contains('lightbox-close')) return;
@@ -1749,7 +1726,6 @@
         }
     });
 
-    /* Click 1 lần vào ảnh để khôi phục tỉ lệ ảnh ban đầu khi đang zoom */
     lightboxImg.addEventListener('click', (e) => {
         e.stopPropagation();
         if (imgScale > 1 && dragDistance < 5) {
