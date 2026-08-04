@@ -944,7 +944,8 @@
         .social-icon-link img { 
             width: 50px; 
             height: 50px; 
-            object-fit: contain; 
+            border-radius: 50%; /* Bo tròn 100% thành hình tròn */
+            object-fit: cover; /* Đảm bảo hình ảnh không bị méo/móp */
             filter: grayscale(100%) brightness(0.2); 
             opacity: 0.3; 
             transition: filter 0.3s ease, opacity 0.3s ease; 
@@ -1098,12 +1099,13 @@
         .bottom-avatar {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 50%; /* Tạo hình tròn */
+            object-fit: cover;  /* Cắt ảnh vừa vặn khuôn tròn mà không bị dãn */
             border: 8px solid #ffffff;
             flex-shrink: 0;
             box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
         }
+        
         .bottom-avatar-text-group {
             display: flex;
             flex-direction: column;
@@ -1391,11 +1393,10 @@
 
         <div class="footer-right">
             <div class="social-icons-wrapper">
-                <a href="https://discordapp.com/users/925391448243847189" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/kXGthQ55/discord.png" alt="Discord"></a>
-                <a href="https://x.com/_hoagnguynbii" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/6q3TgKtD/x.png" alt="X"></a>
-                <a href="https://www.youtube.com/@Denjiontop" target="_blank" class="social-icon-link"><img src="https://i.postimg.cc/fbfLbyLs/youtube.png" alt="YouTube"></a>
+                <a href="https://discordapp.com/users/925391448243847189" class="social-icon-link social-toast-link" data-msg="Success! You are now contacting Denj1..."><img src="https://i.postimg.cc/kXGthQ55/discord.png" alt="Discord"></a>
+                <a href="https://discord.gg/fZkWkShtp6" class="social-icon-link social-toast-link" data-msg="Success! Redirecting to DENJI STORE..."><img src="https://i.postimg.cc/kGXggtCW/DSA.png" alt="Store"></a>
             </div>
-            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; Developer: Denji</p>
+            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; Developer: Denj1</p>
         </div>
     </footer>
 
@@ -1514,6 +1515,40 @@
         });
     }
 
+    document.querySelectorAll('.social-toast-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            const customMsg = this.getAttribute('data-msg');
+
+            if (orderToast) {
+                const toastTitle = orderToast.querySelector('.toast-title');
+                const toastDesc = orderToast.querySelector('.toast-desc');
+                if (toastTitle) toastTitle.textContent = "Success!";
+                if (toastDesc) toastDesc.innerHTML = customMsg;
+
+                orderToast.classList.add('show');
+                
+                setTimeout(function() {
+                    orderToast.classList.remove('show'); 
+                    
+                    setTimeout(function() {
+                        const tempLink = document.createElement('a');
+                        tempLink.href = targetUrl;
+                        tempLink.target = '_blank';
+                        tempLink.rel = 'noopener noreferrer';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                    }, 400); 
+
+                }, 3000);
+            } else {
+                window.open(targetUrl, '_blank');
+            }
+        });
+    });
+
     const marquee = document.getElementById("marquee");
     const marqueeTrack = document.getElementById("marqueeTrack");
 
@@ -1568,7 +1603,7 @@
             "https://i.postimg.cc/bv7KQ643/1-1.png",
             "https://i.postimg.cc/fLQr3V0K/2-2.png",
             "https://i.postimg.cc/2ycGxyVf/3-3.png",
-            "https://i.postimg.cc/Kjzr4bJX/4.png"
+            "https://i.postimg.cc/Bb395rxN/SHOWCASE-V3.png"
         ],
         2: [
         ]
