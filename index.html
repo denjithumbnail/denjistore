@@ -510,7 +510,7 @@
             }
         }
 
-        .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(0, 0, 0, 0.05); padding: 18px 40px; border-radius: 90px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); }
+        .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(0, 0, 0, 0.05); padding: 18px 40px; border-radius: 30px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-icon { width: 60px; height: 60px; border-radius: 15px; object-fit: cover; }
         
@@ -708,7 +708,7 @@
         }
 
         .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
-        .divider { height: 15px; width: 100%; background-color: #0162fc; margin: 40px auto; border-radius: 2px; }
+        .divider { height: 15px; width: 100%; background-color: #0162fc; margin: 40px auto; border-radius: 90px; }
         
         .title { 
             font-family: 'SF Pro Rounded', sans-serif; 
@@ -1208,6 +1208,79 @@
             line-height: 60px;
             text-shadow: none;
         }
+
+
+        /* Keep the avatar, name, and introduction card outside the blue footer treatment. */
+        #profile-section {
+            background: transparent;
+        }
+
+        #profile-section .bottom-avatar-header-block {
+            background: transparent !important;
+            width: 100% !important;
+            margin-left: 0 !important;
+            padding: 0 !important;
+            justify-content: flex-start !important;
+            text-align: left !important;
+        }
+
+        #profile-section .bottom-avatar-name,
+        #profile-section .bottom-avatar-subtext {
+            color: #000000 !important;
+        }
+
+        #profile-section .bottom-letter-box {
+            background-color: #fcfcfc;
+        }
+
+        /* Blue gradient belongs only to the bottom footer with its text and social logos. */
+        .site-footer {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 34px max(2%, calc((100% - 1600px) / 2)) 38px;
+            box-sizing: border-box;
+            background: linear-gradient(180deg, #0162fc 0%, #0750b5 48%, #07377d 100%);
+            align-items: center;
+            min-height: 150px;
+        }
+
+        .site-footer .footer-left,
+        .site-footer .footer-right {
+            min-height: 76px;
+            justify-content: center;
+        }
+
+        .site-footer .footer-right {
+            align-items: flex-end;
+        }
+
+        .site-footer .site-credit {
+            color: #ffffff !important;
+            opacity: 1;
+        }
+
+        .site-footer .footer-left,
+        .site-footer .footer-right,
+        .site-footer .footer-left p,
+        .site-footer .footer-right p {
+            color: #ffffff !important;
+        }
+
+        @media (max-width: 768px) {
+            .site-footer {
+                min-height: 0 !important;
+                padding: 28px 16px 34px !important;
+                gap: 24px !important;
+            }
+
+            .site-footer .footer-left,
+            .site-footer .footer-right {
+                min-height: 0 !important;
+                align-items: center !important;
+            }
+        }
+
     </style>
 </head>
 <body ontouchstart="">
@@ -1216,7 +1289,7 @@
             <h1 id="welcome-text-left">WELCOME TO</h1>
             <h1 id="welcome-text-right">DENJI STORE</h1>
         </div>
-        <h2 id="welcome-subtext">- PROFESSIONAL THUMBNAIL -</h2>
+        <h2 id="welcome-subtext">- PROFESSIONAL YOUTUBE THUMBNAIL -</h2>
     </div>
 
     <div id="order-toast">
@@ -1240,7 +1313,7 @@
         <nav class="header-nav">
             <div class="logo-area">
                 <img src="https://i.postimg.cc/kGXggtCW/DSA.png" class="logo-icon">
-                <div class="logo-text"><h3>✦ DENJI STORE</h3><span>Thumbnail Studio</span></div>
+                <div class="logo-text"><h3>✦ DENJI STORE</h3><span>Youtube Thumbnail Studio</span></div>
             </div>
             <div class="nav-links">
                 <a href="#reviews-section" class="nav-item">Reviews</a> 
@@ -1334,9 +1407,9 @@
             <div class="bottom-avatar-container">
 
                 <div class="bottom-avatar-header-block">
-                    <img src="https://i.postimg.cc/4x4TcL0h/AVT-Copy.jpg" class="bottom-avatar" alt="Avatar">
+                    <img src="https://i.postimg.cc/mkMQw9xq/retouch-2026090201371966.jpg" class="bottom-avatar" alt="Avatar">
                     <div class="bottom-avatar-text-group">
-                        <h3 class="bottom-avatar-name">!   denj1<img src="https://i.postimg.cc/BbVvTQQ3/Verified-Tiktok-Emoji-Copy-and-Paste.png" alt="TikTok Verified" style="height: 36px; width: auto; margin-left: 10px; flex-shrink: 0;"></h3>
+                        <h3 class="bottom-avatar-name">!   dewj1<img src="https://i.postimg.cc/BbVvTQQ3/Verified-Tiktok-Emoji-Copy-and-Paste.png" alt="TikTok Verified" style="height: 36px; width: auto; margin-left: 10px; flex-shrink: 0;"></h3>
                         <p class="bottom-avatar-subtext">zhyuan.bii</p>
                     </div>
                 </div>
@@ -1364,7 +1437,7 @@
     <footer class="site-footer">
         <div class="footer-left">
             <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
-                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none;">Vietnam</p>
+                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none; filter: brightness(0) invert(1);">Vietnam</p>
                 <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | July 21, 2026</p>
             </div>
         </div>
