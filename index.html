@@ -1,14 +1,12 @@
-
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DENJI STORE | Professional Thumbnails</title>
-
     <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/kGXggtCW/DSA.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Plus+Jakarta+Sans:wght@500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+
     <style>
         body.lightbox-open {
             overflow: hidden !important;
@@ -63,7 +61,7 @@
             text-transform: uppercase;
             white-space: nowrap;
             text-shadow: 0px 4px 0px #000000;
-            box-shadow: none; 
+            box-shadow: none;
             animation: slideInRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             margin: 0;
             will-change: transform, opacity;
@@ -88,35 +86,35 @@
         }
 
         @keyframes slideInLeft {
-            0% { 
-                transform: translateX(-180px) scale(0.95); 
-                opacity: 0; 
+            0% {
+                transform: translateX(-180px) scale(0.95);
+                opacity: 0;
             }
-            100% { 
-                transform: translateX(0) scale(1); 
-                opacity: 1; 
+            100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
             }
         }
 
         @keyframes slideInRight {
-            0% { 
-                transform: translateX(180px) scale(0.95); 
-                opacity: 0; 
+            0% {
+                transform: translateX(180px) scale(0.95);
+                opacity: 0;
             }
-            100% { 
-                transform: translateX(0) scale(1); 
-                opacity: 1; 
+            100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
             }
         }
 
         @keyframes slideUp {
-            0% { 
-                transform: translateY(25px); 
-                opacity: 0; 
+            0% {
+                transform: translateY(25px);
+                opacity: 0;
             }
-            100% { 
-                transform: translateY(0); 
-                opacity: 1; 
+            100% {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -139,21 +137,33 @@
             scrollbar-color: #aaaaaa transparent;
         }
 
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: #ffffff; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            color: #ffffff; 
-            overflow-x: hidden; 
-            box-sizing: border-box; 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            box-sizing: border-box;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
-        ::-webkit-scrollbar{ width:10px; } 
-        ::-webkit-scrollbar-track{ background:transparent; } 
-        ::-webkit-scrollbar-thumb{ background:#aaaaaa; border-radius:999px; } 
-        ::-webkit-scrollbar-thumb:hover{ background:#888888; }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #aaaaaa;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888888;
+        }
 
         img {
             -webkit-user-drag: none;
@@ -167,20 +177,20 @@
         .social-icon-link:active {
             transform: translateY(-5px) !important;
         }
+
         .social-icon-link:active img {
             filter: grayscale(0%) brightness(1) !important;
             opacity: 1 !important;
         }
 
-        .marquee-wrapper{
+        .marquee-wrapper {
             position: relative;
-            width: 98%; 
+            width: 98%;
             max-width: 1850px;
             margin-top: 35px;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 40px;
-            
             background: linear-gradient(90deg, #0050d1, #0162fc);
             color: #ffffff;
             font-family: 'SF Pro Rounded', sans-serif;
@@ -188,11 +198,9 @@
             font-size: 20px;
             letter-spacing: 2px;
             padding: 18px 0;
-
             text-transform: uppercase;
             overflow: hidden;
             white-space: nowrap;
-
             border-radius: 16px;
             box-sizing: border-box;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -205,20 +213,20 @@
             box-sizing: border-box;
         }
 
-        .marquee-track{
-            display:flex;
-            width:max-content;
-            animation:marquee 28s linear infinite;
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 28s linear infinite;
         }
-        
-        .marquee-content{
-            display:flex;
-            align-items:center;
-            gap:40px;
-            flex-shrink:0;
-            padding-right:40px;
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-shrink: 0;
+            padding-right: 40px;
         }
-        
+
         @font-face {
             font-family: 'VNI 08 Springtime2 BoldOblique';
             src: url('https://cdn.jsdelivr.net/gh/denjithumbnail/denjistore@main/VNIA6BoldOblique.woff2') format('woff2'),
@@ -227,19 +235,25 @@
             font-style: italic;
         }
 
-        @keyframes marquee{
-            from{ transform:translateX(0); }
-            to{ transform:translateX(-50%); }
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         @media (max-width: 1400px) {
-            #welcome-text-left, #welcome-text-right {
+            #welcome-text-left,
+            #welcome-text-right {
                 font-size: 90px;
             }
         }
 
         @media (max-width: 1100px) {
-            #welcome-text-left, #welcome-text-right {
+            #welcome-text-left,
+            #welcome-text-right {
                 font-size: 65px;
             }
         }
@@ -249,10 +263,13 @@
                 flex-direction: column;
                 gap: 10px;
             }
-            #welcome-text-left, #welcome-text-right {
+
+            #welcome-text-left,
+            #welcome-text-right {
                 font-size: 30px !important;
                 padding: 6px 18px;
             }
+
             #welcome-subtext {
                 font-size: 12px !important;
                 padding: 6px 16px;
@@ -266,16 +283,22 @@
                 box-sizing: border-box !important;
                 text-align: center !important;
             }
-            body { overflow-x: hidden; }
 
-            .content-wrapper, .section-container, .review-slider, .site-footer {
+            body {
+                overflow-x: hidden;
+            }
+
+            .content-wrapper,
+            .section-container,
+            .review-slider,
+            .site-footer {
                 width: 100% !important;
                 max-width: 100% !important;
                 padding-left: 16px !important;
                 padding-right: 16px !important;
                 box-sizing: border-box !important;
             }
-            
+
             .marquee-wrapper {
                 width: calc(100% - 32px) !important;
                 font-size: 14px;
@@ -297,18 +320,20 @@
                 position: relative !important;
                 top: 0 !important;
             }
+
             .logo-area {
                 flex-direction: column !important;
                 align-items: center !important;
                 gap: 8px !important;
             }
+
             .nav-links {
                 justify-content: center !important;
                 width: 100% !important;
                 margin: 0 !important;
                 gap: 5px !important;
             }
-            
+
             .nav-links a {
                 font-size: 15px !important;
                 margin: 0 !important;
@@ -319,7 +344,7 @@
                 text-decoration: none !important;
                 cursor: default !important;
             }
-            
+
             .nav-links a.active {
                 background: transparent !important;
                 color: #aaaaaa !important;
@@ -339,10 +364,12 @@
                 margin-top: 30px !important;
                 margin-bottom: 30px !important;
             }
+
             .hero-text h1 {
                 font-size: 44px !important;
                 line-height: 1.1 !important;
             }
+
             .hero-text p {
                 font-size: 16px !important;
                 margin: 15px 0 0 0 !important;
@@ -355,12 +382,14 @@
                 flex-direction: column !important;
                 gap: 20px !important;
             }
+
             .stats-grid {
                 display: flex !important;
                 flex-direction: row !important;
                 width: 100% !important;
                 gap: 15px !important;
             }
+
             .stat-box {
                 flex: 1 !important;
                 width: 50% !important;
@@ -369,12 +398,15 @@
                 border-radius: 16px !important;
                 box-sizing: border-box !important;
             }
+
             .stat-box h2 {
                 font-size: 36px !important;
             }
+
             .stat-box p {
                 font-size: 14px !important;
             }
+
             .cta-btn {
                 font-size: 22px !important;
                 padding: 16px !important;
@@ -383,20 +415,26 @@
                 transform: none !important;
                 box-shadow: none !important;
             }
+
             .cta-btn:hover {
                 animation: hoverBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
             }
+
             .title {
                 font-size: 32px !important;
                 margin-bottom: 25px !important;
                 text-align: center !important;
             }
-            .product-grid, .showcase-grid {
+
+            .product-grid,
+            .showcase-grid {
                 grid-template-columns: 1fr !important;
                 gap: 20px !important;
                 width: 100% !important;
             }
-            .video-card, .image-card {
+
+            .video-card,
+            .image-card {
                 width: 100% !important;
             }
 
@@ -404,6 +442,7 @@
                 height: 400px !important;
                 width: 100% !important;
             }
+
             .review-item {
                 width: 100% !important;
                 padding: 20px !important;
@@ -417,28 +456,34 @@
                 padding-top: 30px !important;
                 padding-bottom: 40px !important;
             }
+
             .footer-left {
                 width: 100% !important;
                 justify-content: center !important;
                 order: 1 !important;
                 text-align: center !important;
             }
+
             .footer-left p {
                 justify-content: center !important;
             }
+
             .footer-right {
                 width: 100% !important;
                 align-items: center !important;
                 order: 2 !important;
                 gap: 15px !important;
             }
+
             .social-icons-wrapper {
                 justify-content: center !important;
             }
+
             .social-icon-link img {
                 width: 44px !important;
                 height: 44px !important;
             }
+
             .footer-right .site-credit {
                 order: 3 !important;
             }
@@ -453,41 +498,44 @@
             .bottom-profile-banner {
                 aspect-ratio: 16 / 4.5 !important;
             }
-            
+
             .bottom-avatar {
                 width: 100px !important;
                 height: 100px !important;
                 border: 5px solid #ffffff !important;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 3px 8px rgba(0, 0, 0, 0.15) !important;
             }
+
             .bottom-avatar-name {
-                font-size: 48px !important; 
+                font-size: 48px !important;
             }
+
             .bottom-avatar-name img {
                 height: 26px !important;
                 margin-left: 6px !important;
             }
+
             .bottom-avatar-subtext {
-                font-size: 14px !important; 
+                font-size: 14px !important;
             }
-            
+
             .bottom-letter-box {
                 padding: 30px 20px !important;
                 background-image: repeating-linear-gradient(
-                    transparent, 
-                    transparent 33px, 
-                    rgba(0, 0, 0, 0.25) 33px, 
+                    transparent,
+                    transparent 33px,
+                    rgba(0, 0, 0, 0.25) 33px,
                     rgba(0, 0, 0, 0.25) 34px
                 ) !important;
                 background-position: 0 25px !important;
             }
 
             .bottom-avatar-bio p {
-                font-size: 32px !important; 
+                font-size: 32px !important;
                 line-height: 34px !important;
                 margin: 0 0 34px 0 !important;
             }
-            
+
             .bottom-letter-signature {
                 line-height: 50px !important;
                 font-size: 36px !important;
@@ -506,90 +554,213 @@
                 right: 15px !important;
                 max-width: none !important;
             }
+
             #order-toast .toast-single-line {
                 white-space: normal !important;
             }
         }
 
-        .header-nav { width: 100%; max-width: 1600px; margin: 30px auto; background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(0, 0, 0, 0.05); padding: 18px 40px; border-radius: 30px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); box-sizing: border-box; position: sticky; top: 20px; z-index: 1000; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05); }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { width: 60px; height: 60px; border-radius: 15px; object-fit: cover; }
-        
-        .logo-text h3 { margin: 0; font-family: 'SF Pro Rounded', sans-serif; font-size: 26px; letter-spacing: -0.5px; color: #000000; text-shadow: none; }
-        .logo-text span { font-size: 13px; color: #0162fc; letter-spacing: 3px; text-transform: uppercase; display: block; text-shadow: none; font-weight: bold; }
-        
-        .nav-links { display: flex; align-items: center; gap: 5px; }
+        .header-nav {
+            width: 100%;
+            max-width: 1600px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 18px 40px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-sizing: border-box;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
 
-        .nav-links a { 
-            color: #aaaaaa; 
-            text-decoration: none; 
-            padding: 8px 20px; 
-            border-radius: 999px; 
-            transition: all 0.3s ease; 
-            font-size: 18px; 
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .logo-text h3 {
+            margin: 0;
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+            color: #000000;
+            text-shadow: none;
+        }
+
+        .logo-text span {
+            font-size: 13px;
+            color: #0162fc;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            text-shadow: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: #aaaaaa;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+            font-size: 18px;
             text-shadow: none;
             display: inline-block;
-            border: 1px solid transparent; 
+            border: 1px solid transparent;
         }
-        
-        .nav-links a:hover { 
+
+        .nav-links a:hover {
             color: #000000;
-            transform: translateY(-3px); 
+            transform: translateY(-3px);
             text-decoration: none;
         }
-        
-        .nav-links a.active { 
-            background: #0162fc; 
+
+        .nav-links a.active {
+            background: #0162fc;
             color: #ffffff;
             border-radius: 999px;
             padding: 8px 20px;
-            text-decoration: underline;      
-            text-decoration-color: #ffffff;  
-            text-underline-offset: 6px;      
+            text-decoration: underline;
+            text-decoration-color: #ffffff;
+            text-underline-offset: 6px;
         }
-        
-        .separator { color: #aaaaaa; margin: 0 5px; font-size: 18px; opacity: 0.7; text-shadow: none; }
 
-        #contact-section { scroll-margin-top: 140px; }
-        #product-section { scroll-margin-top: 140px; }
-        #reviews-section { scroll-margin-top: 140px; }
-
-        .hero-container { width: 100%; max-width: 1600px; margin: 90px auto 40px auto; padding: 0; display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center; box-sizing: border-box; }
-        
-        .hero-text h1 { font-family: 'SF Pro Rounded', sans-serif; font-size: 120px; font-weight: 900; line-height: 1.05; margin: 0; text-transform: uppercase; letter-spacing: -2px; color: #000000; text-shadow: none; }
-        .hero-text .outline { color: #ffffff; text-shadow: -2px -2px 0 #0162fc, 2px -2px 0 #0162fc, -2px 2px 0 #0162fc, 2px 2px 0 #0162fc; }
-        
-        .hero-text p { margin: 25px 0 0 0; font-size: 18px; color: #aaaaaa; opacity: 0.95; text-shadow: none; }
-
-        .hero-right { display: flex; flex-direction: column; justify-content: center; gap: 25px; }
-        .stats-grid { display: flex; gap: 20px; }
-
-        .stat-box { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.05); padding: 42px; border-radius: 24px; flex: 1; text-align: left; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1); }
-        
-        .stat-box h2 { 
-            font-family: 'SF Pro Rounded', sans-serif; 
-            font-size: 80px; 
-            color: #0162fc; 
-            margin: 0; 
-            text-shadow: none; 
+        .separator {
+            color: #aaaaaa;
+            margin: 0 5px;
+            font-size: 18px;
+            opacity: 0.7;
+            text-shadow: none;
         }
-        
-        .stat-box p { 
-            font-size: 20px; 
-            margin: 0; 
-            color: #000000; 
-            font-weight: 700; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            text-shadow: none; 
+
+        #contact-section {
+            scroll-margin-top: 140px;
+        }
+
+        #product-section {
+            scroll-margin-top: 140px;
+        }
+
+        #reviews-section {
+            scroll-margin-top: 140px;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 90px auto 40px auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .hero-text h1 {
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 120px;
+            font-weight: 900;
+            line-height: 1.05;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #000000;
+            text-shadow: none;
+        }
+
+        .hero-text .outline {
+            color: #ffffff;
+            text-shadow: -2px -2px 0 #0162fc, 2px -2px 0 #0162fc, -2px 2px 0 #0162fc, 2px 2px 0 #0162fc;
+        }
+
+        .hero-text p {
+            margin: 25px 0 0 0;
+            font-size: 18px;
+            color: #aaaaaa;
+            opacity: 0.95;
+            text-shadow: none;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .stats-grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 42px;
+            border-radius: 24px;
+            flex: 1;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-box h2 {
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 80px;
+            color: #0162fc;
+            margin: 0;
+            text-shadow: none;
+        }
+
+        .stat-box p {
+            font-size: 20px;
+            margin: 0;
+            color: #000000;
+            font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-shadow: none;
             display: inline-block;
             opacity: 0;
         }
 
         @keyframes popUpBounce {
-            0% { transform: translateY(20px); opacity: 0; }
-            50% { transform: translateY(-8px); opacity: 1; }
-            75% { transform: translateY(4px); opacity: 1; }
-            100% { transform: translateY(0); opacity: 1; }
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-8px);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(4px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .stat-box p.show-label {
@@ -597,33 +768,53 @@
         }
 
         @keyframes orderButtonPopUp {
-            0% { transform: translateY(25px) scale(0.9); opacity: 0; }
-            50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
-            75% { transform: translateY(4px) scale(0.98); opacity: 1; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
+            0% {
+                transform: translateY(25px) scale(0.9);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-8px) scale(1.02);
+                opacity: 1;
+            }
+            75% {
+                transform: translateY(4px) scale(0.98);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
         }
 
         @keyframes hoverBounce {
-            0% { transform: translateY(0) scale(1); }
-            40% { transform: translateY(-12px) scale(1.03); }
-            70% { transform: translateY(-4px) scale(0.99); }
-            100% { transform: translateY(-8px) scale(1.02); }
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-12px) scale(1.03);
+            }
+            70% {
+                transform: translateY(-4px) scale(0.99);
+            }
+            100% {
+                transform: translateY(-8px) scale(1.02);
+            }
         }
 
-        .cta-btn { 
-            background: #0162fc; 
-            color: #ffffff; 
-            display: block; 
-            font-family: 'SF Pro Rounded', sans-serif; 
-            text-align: center; 
-            padding: 22px; 
-            border-radius: 16px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            font-size: 30px; 
-            box-shadow: none; 
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, color 0.3s ease; 
-            margin: 0; 
+        .cta-btn {
+            background: #0162fc;
+            color: #ffffff;
+            display: block;
+            font-family: 'SF Pro Rounded', sans-serif;
+            text-align: center;
+            padding: 22px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 30px;
+            box-shadow: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, color 0.3s ease;
+            margin: 0;
             opacity: 0;
             cursor: pointer;
         }
@@ -632,10 +823,10 @@
             animation: orderButtonPopUp 0.6s ease-out forwards;
         }
 
-        .cta-btn.show-order-btn:hover { 
+        .cta-btn.show-order-btn:hover {
             transform: translateY(-8px) scale(1.02) !important;
-            box-shadow: none; 
-            color: #ffffff; 
+            box-shadow: none;
+            color: #ffffff;
         }
 
         #order-toast {
@@ -708,25 +899,37 @@
             white-space: nowrap;
         }
 
-        .section-container { width: 100%; max-width: 1600px; margin: 60px auto; padding: 0; box-sizing: border-box; }
-        .divider { height: 15px; width: 100%; background-color: #0162fc; margin: 40px auto; border-radius: 90px; }
-        
-        .title { 
-            font-family: 'SF Pro Rounded', sans-serif; 
-            font-size: 60px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            text-align: center !important; 
-            margin: 0 auto 20px auto !important; 
-            color: #000000; 
-            text-shadow: none; 
+        .section-container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 60px auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .divider {
+            height: 15px;
+            width: 100%;
+            background-color: #0162fc;
+            margin: 40px auto;
+            border-radius: 90px;
+        }
+
+        .title {
+            font-family: 'SF Pro Rounded', sans-serif;
+            font-size: 60px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center !important;
+            margin: 0 auto 20px auto !important;
+            color: #000000;
+            text-shadow: none;
             width: 100%;
             max-width: 1600px;
             box-sizing: border-box;
             display: block !important;
             line-height: 1.2;
         }
-
 
         .collaborator-grid {
             display: flex;
@@ -737,6 +940,7 @@
             gap: 34px 0;
             margin: 38px auto 0;
         }
+
         .collaborator-avatar-item {
             width: 25%;
             min-width: 0;
@@ -747,6 +951,7 @@
             padding: 0 12px;
             text-decoration: none;
         }
+
         .collaborator-link {
             display: flex;
             flex-direction: column;
@@ -759,11 +964,25 @@
             transform: translateY(0) scale(1);
             transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
         }
+
+        .collaborator-link *,
+        .collaborator-avatar,
+        .collaborator-avatar-name {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -webkit-user-drag: none !important;
+            pointer-events: auto;
+        }
+
         .collaborator-link:hover,
         .collaborator-link:focus-visible {
             transform: translateY(-8px) scale(1.03);
         }
+
         .collaborator-avatar {
             display: block;
             width: 150px;
@@ -773,9 +992,20 @@
             object-fit: cover;
             border-radius: 50%;
             border: none !important;
+            outline: 1px solid transparent;
+            outline-offset: 3px;
             box-shadow: none !important;
             flex-shrink: 0;
+            transition: outline-color 0.3s ease;
+            -webkit-user-drag: none !important;
+            user-drag: none !important;
         }
+
+        .collaborator-link:hover .collaborator-avatar,
+        .collaborator-link:focus-visible .collaborator-avatar {
+            outline-color: #0162fc;
+        }
+
         .collaborator-avatar-name {
             display: flex;
             justify-content: center;
@@ -795,56 +1025,110 @@
             overflow-wrap: anywhere;
             word-break: normal;
         }
+
         .collaborator-link:hover .collaborator-avatar-name,
         .collaborator-link:focus-visible .collaborator-avatar-name {
             color: #0162fc;
         }
-        .collaborator-pagination { margin-top: 30px !important; }
+
+        .collaborator-pagination {
+            margin-top: 30px !important;
+        }
+
         @media (max-width: 768px) {
-            .collaborator-grid { gap: 26px 0; margin-top: 28px; }
-            .collaborator-avatar-item { width: 50%; padding: 0 8px; }
-            .collaborator-link { max-width: 140px; }
-            .collaborator-avatar { width: 112px; height: 112px; }
+            .collaborator-grid {
+                gap: 26px 0;
+                margin-top: 28px;
+            }
+
+            .collaborator-avatar-item {
+                width: 25%;
+                padding: 0 3px;
+            }
+
+            .collaborator-link {
+                max-width: 76px;
+            }
+
+            .collaborator-avatar {
+                width: 100%;
+                height: auto;
+                max-width: 68px;
+                aspect-ratio: 1 / 1;
+            }
+
             .collaborator-avatar-name {
-                width: 10ch;
+                width: 100%;
                 min-height: 2.6em;
-                margin-top: 10px;
-                font-size: 14px;
+                margin-top: 8px;
+                font-size: 10.5px;
+                line-height: 1.25;
+                overflow-wrap: anywhere;
+                word-break: normal;
             }
         }
 
-        .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .video-card, .image-card { background: rgba(0, 0, 0, 0.03); border-radius: 16px; overflow: hidden; display: block; text-decoration: none; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.02); }
-        .video-card:hover, .image-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); }
-        .video-card img, .image-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+        .product-grid,
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
 
-        .pagination { 
-            display: flex !important; 
-            justify-content: center !important; 
-            align-items: center !important; 
-            gap: 16px; 
-            margin: 30px auto 0 auto !important; 
+        .video-card,
+        .image-card {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .video-card:hover,
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-card img,
+        .image-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pagination {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 16px;
+            margin: 30px auto 0 auto !important;
             width: 100%;
             max-width: 1600px;
             box-sizing: border-box;
             text-align: center;
             padding: 0 !important;
         }
-        
-        .page-num { 
-            background: #0162fc; 
-            border: none; 
-            width: 45px; 
-            height: 45px; 
-            border-radius: 50%; 
+
+        .page-num {
+            background: #0162fc;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             font-family: 'SF Pro Rounded', sans-serif;
-            font-weight: 900; 
-            font-size: 20px; 
-            color: #ffffff; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            display: inline-flex; 
-            justify-content: center; 
+            font-weight: 900;
+            font-size: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            justify-content: center;
             align-items: center;
             padding: 0;
             line-height: 1;
@@ -852,19 +1136,19 @@
             box-sizing: border-box;
         }
 
-        .page-arrow { 
+        .page-arrow {
             background: transparent;
-            border: none; 
-            width: 45px; 
-            height: 45px; 
+            border: none;
+            width: 45px;
+            height: 45px;
             font-family: 'SF Pro Rounded', sans-serif;
-            font-weight: 900; 
-            font-size: 24px; 
-            color: #0162fc; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            display: inline-flex; 
-            justify-content: center; 
+            font-weight: 900;
+            font-size: 24px;
+            color: #0162fc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            justify-content: center;
             align-items: center;
             text-shadow: none;
             line-height: 1;
@@ -883,28 +1167,28 @@
             width: 100%;
         }
 
-        .page-num.active { 
+        .page-num.active {
             background: #0050d1;
             transform: scale(1.1);
         }
 
-        .page-num:hover { 
-            background: #0050d1; 
-            transform: translateY(-3px); 
+        .page-num:hover {
+            background: #0050d1;
+            transform: translateY(-3px);
         }
 
-        .page-arrow:hover { 
-            color: #0050d1; 
-            transform: translateY(-3px) scale(1.15); 
+        .page-arrow:hover {
+            color: #0050d1;
+            transform: translateY(-3px) scale(1.15);
         }
 
         .review-slider {
             overflow: hidden;
             display: block;
-            width: 100%;              
-            max-width: 1600px;      
-            height: 450px;          
-            margin: 0 auto; 
+            width: 100%;
+            max-width: 1600px;
+            height: 450px;
+            margin: 0 auto;
             position: relative;
             cursor: grab;
             user-select: none;
@@ -912,16 +1196,19 @@
             -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
             touch-action: none;
         }
-        .review-slider:active{cursor:grabbing;}
+
+        .review-slider:active {
+            cursor: grabbing;
+        }
 
         .review-track {
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             gap: 30px;
             width: 100%;
-            will-change: transform; 
+            will-change: transform;
         }
-        
+
         .review-item {
             width: 100%;
             background: #ffffff;
@@ -990,14 +1277,15 @@
             font-family: 'SF Pro Rounded', sans-serif;
             text-shadow: none;
         }
+
         .site-footer {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end; 
+            align-items: flex-end;
             width: 96%;
             max-width: 1600px;
             margin: 0 auto;
-            padding: 40px 0; 
+            padding: 40px 0;
             box-sizing: border-box;
             user-select: none;
         }
@@ -1010,40 +1298,51 @@
         .footer-right {
             display: flex;
             flex-direction: column;
-            align-items: flex-end; 
-            gap: 15px; 
+            align-items: flex-end;
+            gap: 15px;
         }
 
         .site-credit {
             font-family: 'SF Pro Rounded', sans-serif;
             font-size: 14px;
             font-weight: 700;
-            color: #aaaaaa;   
+            color: #aaaaaa;
             letter-spacing: 0.3px;
             margin: 0;
             opacity: 1;
             text-shadow: none;
         }
 
-        .social-icons-wrapper { display: flex; align-items: center; gap: 18px; }
-        .social-icon-link { display: inline-block; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-
-        .social-icon-link img { 
-            width: 50px; 
-            height: 50px; 
-            border-radius: 50%; /* Bo tròn 100% thành hình tròn */
-            object-fit: cover; /* Đảm bảo hình ảnh không bị méo/móp */
-            filter: grayscale(100%) brightness(0.2); 
-            opacity: 0.3; 
-            transition: filter 0.3s ease, opacity 0.3s ease; 
+        .social-icons-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 18px;
         }
 
-        .social-icon-link:hover { transform: translateY(-5px); }
-
-        .social-icon-link:hover img { 
-            filter: grayscale(0%) brightness(1); 
-            opacity: 1; 
+        .social-icon-link {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
+        .social-icon-link img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.2);
+            opacity: 0.3;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .social-icon-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon-link:hover img {
+            filter: grayscale(0%) brightness(1);
+            opacity: 1;
+        }
+
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -1094,10 +1393,18 @@
         }
 
         @keyframes closeHoverBounce {
-            0% { transform: translateY(0) rotate(0deg); }
-            40% { transform: translateY(-12px) rotate(-180deg); }
-            70% { transform: translateY(-4px) rotate(-280deg); }
-            100% { transform: translateY(-8px) rotate(-360deg); }
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            40% {
+                transform: translateY(-12px) rotate(-180deg);
+            }
+            70% {
+                transform: translateY(-4px) rotate(-280deg);
+            }
+            100% {
+                transform: translateY(-8px) rotate(-360deg);
+            }
         }
 
         .lightbox-close {
@@ -1186,13 +1493,13 @@
         .bottom-avatar {
             width: 150px;
             height: 150px;
-            border-radius: 50%; /* Tạo hình tròn */
-            object-fit: cover;  /* Cắt ảnh vừa vặn khuôn tròn mà không bị dãn */
+            border-radius: 50%;
+            object-fit: cover;
             border: 8px solid #ffffff;
             flex-shrink: 0;
             box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
         }
-        
+
         .bottom-avatar-text-group {
             display: flex;
             flex-direction: column;
@@ -1200,7 +1507,7 @@
             align-items: flex-start;
             gap: 6px;
         }
-        
+
         .bottom-avatar-name {
             font-family: 'SF Pro Rounded', sans-serif;
             font-weight: 900;
@@ -1213,7 +1520,7 @@
             display: flex;
             align-items: center;
         }
-        
+
         .bottom-avatar-subtext {
             font-family: 'SF Pro Rounded', sans-serif;
             font-size: 14px;
@@ -1234,11 +1541,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            
             box-shadow: 0 8px 10px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.15);
-            
             border: 1px solid rgba(0, 0, 0, 0.05);
-
             background-image: repeating-linear-gradient(
                 transparent,
                 transparent 39px,
@@ -1256,12 +1560,12 @@
 
         .bottom-avatar-bio p {
             font-family: 'Reenie Beanie', cursive;
-            font-size: 38px; 
+            font-size: 38px;
             font-weight: normal;
-            color: #1a1a1a; 
+            color: #1a1a1a;
             line-height: 40px;
             margin: 0 0 40px 0;
-            text-shadow: none; 
+            text-shadow: none;
         }
 
         .bottom-avatar-bio p:last-child {
@@ -1282,7 +1586,7 @@
         .bottom-letter-signature {
             font-family: 'VNI 08 Springtime2 BoldOblique', cursive;
             font-weight: normal;
-            font-size: 56px; 
+            font-size: 56px;
             color: #0d0d0d;
             text-align: right;
             margin: 0;
@@ -1296,8 +1600,6 @@
             text-shadow: none;
         }
 
-
-        /* Keep the avatar, name, and introduction card outside the blue footer treatment. */
         #profile-section {
             background: transparent;
         }
@@ -1320,7 +1622,6 @@
             background-color: #fcfcfc;
         }
 
-        /* Blue gradient belongs only to the bottom footer with its text and social logos. */
         .site-footer {
             width: 100%;
             max-width: none;
@@ -1368,8 +1669,6 @@
             }
         }
 
-
-        /* Showcase category filters */
         .showcase-filters {
             display: flex;
             justify-content: center;
@@ -1396,8 +1695,7 @@
             line-height: 1;
             cursor: pointer;
             text-shadow: none;
-            transition: transform 0.22s ease, background 0.22s ease,
-                        color 0.22s ease, border-color 0.22s ease;
+            transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
         }
 
         .showcase-filter:hover {
@@ -1431,6 +1729,7 @@
                 gap: 9px;
                 margin-bottom: 22px;
             }
+
             .showcase-filter {
                 padding: 10px 16px;
                 min-height: 40px;
@@ -1438,18 +1737,15 @@
             }
         }
 
-    
-
-        /* Avatar images: remove the white frame and dark drop shadow site-wide. */
         .collaborator-avatar,
         .bottom-avatar,
         .review-avatar {
             border: none !important;
             box-shadow: none !important;
         }
-
     </style>
 </head>
+
 <body ontouchstart="">
     <div id="welcome-screen">
         <div class="welcome-title-wrapper">
@@ -1480,13 +1776,16 @@
         <nav class="header-nav">
             <div class="logo-area">
                 <img src="https://i.postimg.cc/kGXggtCW/DSA.png" class="logo-icon">
-                <div class="logo-text"><h3>✦ DENJI STORE</h3><span>Youtube Thumbnail Studio</span></div>
+                <div class="logo-text">
+                    <h3>✦ DENJI STORE</h3>
+                    <span>Youtube Thumbnail Studio</span>
+                </div>
             </div>
             <div class="nav-links">
-                <a href="#reviews-section" class="nav-item">Reviews</a> 
-                <span class="separator">/</span> 
-                <a href="#product-section" class="nav-item">Works</a> 
-                <span class="separator">/</span> 
+                <a href="#reviews-section" class="nav-item">Reviews</a>
+                <span class="separator">/</span>
+                <a href="#product-section" class="nav-item">Works</a>
+                <span class="separator">/</span>
                 <a href="#contact-section" class="nav-item active">Contact</a>
             </div>
         </nav>
@@ -1494,14 +1793,16 @@
         <section id="product-section" class="section-container">
             <div class="divider"></div>
             <h2 class="title">SHOWCASE</h2>
+
             <div class="showcase-filters" id="showcaseFilters" role="group" aria-label="Filter thumbnails by category">
                 <button type="button" class="showcase-filter active" data-category="Minecraft" aria-pressed="true">Minecraft</button>
                 <button type="button" class="showcase-filter" data-category="Other games" aria-pressed="false">Other games</button>
                 <button type="button" class="showcase-filter" data-category="Technology" aria-pressed="false">Technology</button>
                 <button type="button" class="showcase-filter" data-category="Travel" aria-pressed="false">Travel</button>
             </div>
-            <div class="showcase-grid" id="showcaseGrid">
-            </div>
+
+            <div class="showcase-grid" id="showcaseGrid"></div>
+
             <div class="pagination" id="pagination">
                 <button class="page-arrow" onclick="changePage(-1)"><span>◄</span></button>
                 <div id="pageNumbers" style="display: flex; gap: 16px; align-items: center; justify-content: center;"></div>
@@ -1513,6 +1814,7 @@
             <div class="divider"></div>
             <h2 class="title">COLLABORATORS</h2>
             <div class="collaborator-grid" id="collaboratorGrid" aria-label="Collaborator avatars"></div>
+
             <div class="pagination collaborator-pagination" id="collaboratorPagination" style="display: none;">
                 <button class="page-arrow" type="button" onclick="changeCollaboratorPage(-1)" aria-label="Previous collaborators page"><span>◄</span></button>
                 <div id="collaboratorPageNumbers" style="display: flex; gap: 16px; align-items: center; justify-content: center;"></div>
@@ -1523,6 +1825,7 @@
         <section id="reviews-section" class="section-container">
             <div class="divider"></div>
             <h2 class="title">REVIEWS</h2>
+
             <div class="review-slider">
                 <div class="review-track" id="reviewTrack">
 
@@ -1584,6 +1887,7 @@
 
                 </div>
             </div>
+
             <div class="divider"></div>
         </section>
 
@@ -1597,22 +1901,17 @@
                         <p class="bottom-avatar-subtext">zhyuan.bii</p>
                     </div>
                 </div>
-                
+
                 <div class="bottom-letter-box">
-                    
                     <div class="bottom-avatar-bio">
                         <p>Dear Customer,</p>
-
                         <p>Hello! I'm Denj1 - The founder of DENJI STORE.</p>
-                        
                         <p>With 2 years of experience, along with my skills, dedication, and passion for my work, I am committed to delivering the highest-quality products and the best results I can possibly create.</p>
-                        
                         <p>Your satisfaction is what motivates me the most. Of course, I'm not perfect, and there may be times when I make mistakes or fall short of your expectations. If that happens, I sincerely appreciate your feedback and understanding. I will always listen, learn, and do my best to improve.</p>
-                        
                         <p>Thank you for visiting. I hope we'll have the opportunity to work together in the future.</p>
                     </div>
-                    
-                    <h5 class="bottom-letter-signature">Denj1</h5>
+
+                    <h5 class="bottom-letter-signature">Dewj1</h5>
                 </div>
             </div>
         </section>
@@ -1621,17 +1920,24 @@
     <footer class="site-footer">
         <div class="footer-left">
             <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
-                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;"><img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none; filter: brightness(0) invert(1);">Vietnam</p>
+                <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; display: flex; align-items: center; gap: 6px; margin: 0;">
+                    <img src="https://i.postimg.cc/QxXjY7KY/pin-location-icon-sign-symbol-design-free-png.png" alt="Location" style="height: 16px; width: auto; vertical-align: middle; text-shadow: none; filter: brightness(0) invert(1);">
+                    Vietnam
+                </p>
                 <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif; margin: 0;">&copy; 2026 Denji Store | July 21, 2026</p>
             </div>
         </div>
 
         <div class="footer-right">
             <div class="social-icons-wrapper">
-                <a href="https://discordapp.com/users/925391448243847189" class="social-icon-link social-toast-link" data-msg="Success! You are now contacting Denj1..."><img src="https://i.postimg.cc/kXGthQ55/discord.png" alt="Discord"></a>
-                <a href="https://discord.gg/fZkWkShtp6" class="social-icon-link social-toast-link" data-msg="Success! Redirecting to DENJI STORE..."><img src="https://i.postimg.cc/kGXggtCW/DSA.png" alt="Store"></a>
+                <a href="https://discordapp.com/users/925391448243847189" class="social-icon-link social-toast-link" data-msg="Success! You are now contacting Denj1...">
+                    <img src="https://i.postimg.cc/kXGthQ55/discord.png" alt="Discord">
+                </a>
+                <a href="https://discord.gg/fZkWkShtp6" class="social-icon-link social-toast-link" data-msg="Success! Redirecting to DENJI STORE...">
+                    <img src="https://i.postimg.cc/kGXggtCW/DSA.png" alt="Store">
+                </a>
             </div>
-            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; Developer: Denj1</p>
+            <p class="site-credit" style="font-family: 'SF Pro Rounded', sans-serif;">&copy; Developer: dewj1</p>
         </div>
     </footer>
 
@@ -1643,677 +1949,902 @@
     </div>
 
     <script>
-    (function() {
-        let currentScrollY = window.scrollY;
-        let targetScrollY = window.scrollY;
-        let isSmoothScrolling = false;
+        (function() {
+            let currentScrollY = window.scrollY;
+            let targetScrollY = window.scrollY;
+            let isSmoothScrolling = false;
 
-        window.addEventListener('wheel', (e) => {
-            if (document.body.classList.contains('lightbox-open')) return;
-            e.preventDefault();
-            
-            const scrollSensitivity = 0.65; 
-            targetScrollY += e.deltaY * scrollSensitivity;
-            targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
+            window.addEventListener('wheel', (e) => {
+                if (document.body.classList.contains('lightbox-open')) return;
+                e.preventDefault();
 
-            if (!isSmoothScrolling) {
-                isSmoothScrolling = true;
-                requestAnimationFrame(updateScroll);
-            }
-        }, { passive: false });
+                const scrollSensitivity = 0.65;
+                targetScrollY += e.deltaY * scrollSensitivity;
+                targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
 
-        function updateScroll() {
-            if (!isSmoothScrolling) return;
-
-            const ease = 0.045;
-            const diff = targetScrollY - currentScrollY;
-            
-            currentScrollY += diff * ease;
-            window.scrollTo(0, currentScrollY);
-
-            if (Math.abs(diff) > 0.5) {
-                requestAnimationFrame(updateScroll);
-            } else {
-                currentScrollY = targetScrollY;
-                window.scrollTo(0, currentScrollY);
-                isSmoothScrolling = false;
-            }
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!isSmoothScrolling) {
-                currentScrollY = window.scrollY;
-                targetScrollY = window.scrollY;
-            }
-        });
-    })();
-
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('welcome-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('welcome-screen').style.display = 'none';
-                window.scrollTo({ top: 0, behavior: 'instant' });
-
-                if (orderToast) {
-                    const toastTitle = orderToast.querySelector('.toast-title');
-                    const toastDesc = orderToast.querySelector('.toast-desc');
-                    if (toastTitle) toastTitle.textContent = "Success!";
-                    if (toastDesc) toastDesc.innerHTML = "You have successfully accessed the DENJI STORE website!";
-
-                    orderToast.classList.add('show');
-                    setTimeout(() => {
-                        orderToast.classList.remove('show');
-                    }, 3000);
+                if (!isSmoothScrolling) {
+                    isSmoothScrolling = true;
+                    requestAnimationFrame(updateScroll);
                 }
-            }, 600);
-        }, 2200); 
-    });
+            }, { passive: false });
 
-    document.addEventListener('contextmenu', function(e) {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
-    });
+            function updateScroll() {
+                if (!isSmoothScrolling) return;
 
-    const orderBtn = document.getElementById('order-btn');
-    const orderToast = document.getElementById('order-toast');
+                const ease = 0.045;
+                const diff = targetScrollY - currentScrollY;
 
-    if (orderBtn) {
-        orderBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetUrl = this.getAttribute('href');
+                currentScrollY += diff * ease;
+                window.scrollTo(0, currentScrollY);
 
-            if (orderToast) {
-                const toastTitle = orderToast.querySelector('.toast-title');
-                const toastDesc = orderToast.querySelector('.toast-desc');
-                if (toastTitle) toastTitle.textContent = "Success!";
-                if (toastDesc) toastDesc.innerHTML = "Redirecting to DENJI STORE...";
-
-                orderToast.classList.add('show');
-                
-                setTimeout(function() {
-                    orderToast.classList.remove('show'); 
-                    
-                    setTimeout(function() {
-                        const tempLink = document.createElement('a');
-                        tempLink.href = targetUrl;
-                        tempLink.target = '_blank';
-                        tempLink.rel = 'noopener noreferrer';
-                        document.body.appendChild(tempLink);
-                        tempLink.click();
-                        document.body.removeChild(tempLink);
-                    }, 400); 
-
-                }, 3000);
+                if (Math.abs(diff) > 0.5) {
+                    requestAnimationFrame(updateScroll);
+                } else {
+                    currentScrollY = targetScrollY;
+                    window.scrollTo(0, currentScrollY);
+                    isSmoothScrolling = false;
+                }
             }
-        });
-    }
 
-    document.querySelectorAll('.social-toast-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetUrl = this.getAttribute('href');
-            const customMsg = this.getAttribute('data-msg');
+            window.addEventListener('scroll', () => {
+                if (!isSmoothScrolling) {
+                    currentScrollY = window.scrollY;
+                    targetScrollY = window.scrollY;
+                }
+            });
+        })();
 
-            if (orderToast) {
-                const toastTitle = orderToast.querySelector('.toast-title');
-                const toastDesc = orderToast.querySelector('.toast-desc');
-                if (toastTitle) toastTitle.textContent = "Success!";
-                if (toastDesc) toastDesc.innerHTML = customMsg;
+        const orderBtn = document.getElementById('order-btn');
+        const orderToast = document.getElementById('order-toast');
 
-                orderToast.classList.add('show');
-                
-                setTimeout(function() {
-                    orderToast.classList.remove('show'); 
-                    
-                    setTimeout(function() {
-                        const tempLink = document.createElement('a');
-                        tempLink.href = targetUrl;
-                        tempLink.target = '_blank';
-                        tempLink.rel = 'noopener noreferrer';
-                        document.body.appendChild(tempLink);
-                        tempLink.click();
-                        document.body.removeChild(tempLink);
-                    }, 400); 
+        let toastTimeout = null;
+        let toastFallbackTimeout = null;
+        let toastPendingRequest = null;
+        let toastAfterHide = null;
+        let toastHiding = false;
+        let toastFinishCallback = null;
 
-                }, 3000);
-            } else {
-                window.open(targetUrl, '_blank');
-            }
-        });
-    });
+        function displayToast(request) {
+            if (!orderToast) return;
 
-    const marquee = document.getElementById("marquee");
-    const marqueeTrack = document.getElementById("marqueeTrack");
+            clearTimeout(toastTimeout);
 
-    while (marqueeTrack.scrollWidth < window.innerWidth * 3) {
-        marqueeTrack.innerHTML += marquee.outerHTML;
-    }
-
-    document.querySelectorAll('[data-youtube]').forEach(el => {
-        const id = el.getAttribute('data-youtube');
-        const videoUrl = `https://www.youtube.com/watch?v=${id}`;
-
-        el.innerHTML = `
-            <a href="${videoUrl}" class="video-card" onclick="openYoutubeWithToast(event, '${videoUrl}')">
-                <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail">
-            </a>
-        `;
-    });
-
-    function openYoutubeWithToast(e, targetUrl) {
-        e.preventDefault();
-
-        if (orderToast) {
             const toastTitle = orderToast.querySelector('.toast-title');
             const toastDesc = orderToast.querySelector('.toast-desc');
 
-            if (toastTitle) toastTitle.textContent = "Success!";
-            if (toastDesc) toastDesc.innerHTML = "Redirecting to YouTube...";
+            if (toastTitle) {
+                toastTitle.textContent = "Success!";
+            }
 
+            if (toastDesc) {
+                if (request.html) {
+                    toastDesc.innerHTML = request.message;
+                } else {
+                    toastDesc.textContent = request.message;
+                }
+            }
+
+            toastHiding = false;
+            toastAfterHide = null;
             orderToast.classList.add('show');
 
-            setTimeout(function() {
-                orderToast.classList.remove('show');
-
-                setTimeout(function() {
-                    const tempLink = document.createElement('a');
-                    tempLink.href = targetUrl;
-                    tempLink.target = '_blank';
-                    tempLink.rel = 'noopener noreferrer';
-                    document.body.appendChild(tempLink);
-                    tempLink.click();
-                    document.body.removeChild(tempLink);
-                }, 400);
-
-            }, 3000);
-        } else {
-            window.open(targetUrl, '_blank');
+            toastTimeout = setTimeout(() => {
+                beginToastHide(request.afterHide || null);
+            }, request.duration);
         }
-    }
 
-    // Add future thumbnails to the matching category array below.
-    // The four existing showcase thumbnails are kept in Minecraft.
-    const showcaseCategories = {
-        "Minecraft": [
-            "https://i.postimg.cc/bv7KQ643/1-1.png",
-            "https://i.postimg.cc/fLQr3V0K/2-2.png",
-            "https://i.postimg.cc/VsRGp9D8/SHOWCASE-V3.png",
-            "https://i.postimg.cc/Bb395rxN/SHOWCASE-V3.png"
-        ],
-        "Other games": [
-            "https://i.postimg.cc/fLGwG0d4/2200436b-fecb-4f4d-8c2d-fd53f79283e4-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/VNSPzk12/8d499d90-f09a-455c-8d95-af035aabb681-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/WzvBmmZH/baa3382c-93f0-4ba3-8118-d996d1f63884-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/FHBwCXc3/7ec631d0-5d66-4919-adf1-c3632f948fa9-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/rwKPrZbr/8c3af9a6-aefd-4770-afc5-3365133292a2-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/L4xD3Bj1/0ee8592d-fe61-4abf-88d6-38d52b14bcb5-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
-            "https://i.postimg.cc/nc6v3dr3/Hana-gta6-(2).png",
-            "https://i.postimg.cc/nrNQwzFC/Hana-khoaitay2.png"
-        ],
-        "Technology": [
-            "https://i.postimg.cc/tTY3r831/30d026ed-e470-42d5-a264-7665a880872e-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png"
-        ],
-        "Travel": []
-    };
+        function finishToastHide() {
+            if (!toastHiding || !toastFinishCallback) return;
+            toastFinishCallback();
+        }
 
-    const showcaseItemsPerPage = 6;
-    let activeShowcaseCategory = "Minecraft";
-    let currentPage = 1;
-    const showcaseGrid = document.getElementById('showcaseGrid');
-    const pageNumbersContainer = document.getElementById('pageNumbers');
-    const pagination = document.getElementById('pagination');
-    const showcaseFilters = document.getElementById('showcaseFilters');
+        function beginToastHide(afterHide = null) {
+            if (!orderToast) {
+                if (afterHide) afterHide();
+                return;
+            }
 
-    function getActiveShowcaseItems() {
-        return showcaseCategories[activeShowcaseCategory] || [];
-    }
+            clearTimeout(toastTimeout);
+            toastAfterHide = afterHide;
 
-    function getShowcasePageCount() {
-        return Math.max(1, Math.ceil(getActiveShowcaseItems().length / showcaseItemsPerPage));
-    }
+            if (!orderToast.classList.contains('show')) {
+                if (toastPendingRequest) {
+                    const nextRequest = toastPendingRequest;
+                    toastPendingRequest = null;
+                    toastAfterHide = null;
+                    displayToast(nextRequest);
+                } else {
+                    const action = toastAfterHide;
+                    toastAfterHide = null;
+                    if (action) action();
+                }
+                return;
+            }
 
-    function selectShowcaseCategory(category) {
-        if (!Object.prototype.hasOwnProperty.call(showcaseCategories, category)) return;
+            toastHiding = true;
+            orderToast.classList.remove('show');
 
-        activeShowcaseCategory = category;
-        currentPage = 1;
+            let completed = false;
+
+            const complete = () => {
+                if (completed) return;
+
+                completed = true;
+                toastHiding = false;
+                toastFinishCallback = null;
+
+                clearTimeout(toastFallbackTimeout);
+
+                if (toastPendingRequest) {
+                    const nextRequest = toastPendingRequest;
+                    toastPendingRequest = null;
+                    toastAfterHide = null;
+                    displayToast(nextRequest);
+                    return;
+                }
+
+                const action = toastAfterHide;
+                toastAfterHide = null;
+
+                if (action) {
+                    action();
+                }
+            };
+
+            toastFinishCallback = complete;
+
+            toastFallbackTimeout = setTimeout(() => {
+                finishToastHide();
+            }, 500);
+        }
+
+        function showOrderToast(message, duration = 3000, options = {}) {
+            if (!orderToast) return;
+
+            const request = {
+                message,
+                duration,
+                html: options.html === true,
+                afterHide: typeof options.afterHide === 'function'
+                    ? options.afterHide
+                    : null
+            };
+
+            clearTimeout(toastTimeout);
+
+            if (orderToast.classList.contains('show') || toastHiding) {
+                toastPendingRequest = request;
+                toastAfterHide = null;
+
+                if (!toastHiding) {
+                    beginToastHide(null);
+                }
+
+                return;
+            }
+
+            toastPendingRequest = null;
+            displayToast(request);
+        }
+
+        function hideOrderToast() {
+            if (!orderToast) return;
+
+            clearTimeout(toastTimeout);
+
+            toastPendingRequest = null;
+            toastAfterHide = null;
+
+            if (orderToast.classList.contains('show')) {
+                beginToastHide(null);
+            }
+        }
+
+        orderToast.addEventListener('transitionend', (e) => {
+            if (
+                e.target === orderToast &&
+                e.propertyName === 'transform' &&
+                toastHiding
+            ) {
+                finishToastHide();
+            }
+        });
+
+        function openExternalAfterToast(targetUrl, message) {
+            showOrderToast(message, 3000, {
+                afterHide: () => {
+                    const newTab = window.open(targetUrl, '_blank');
+
+                    if (newTab) {
+                        try {
+                            newTab.opener = null;
+                        } catch (error) {
+                        }
+                    } else {
+                        const tempLink = document.createElement('a');
+                        tempLink.href = targetUrl;
+                        tempLink.target = '_blank';
+                        tempLink.rel = 'noopener noreferrer';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.opacity = '0';
+
+                setTimeout(() => {
+                    document.getElementById('welcome-screen').style.display = 'none';
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+
+                    showOrderToast(
+                        "You have successfully accessed the DENJI STORE website!",
+                        3000
+                    );
+                }, 600);
+            }, 2200);
+        });
+
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+
+        if (orderBtn) {
+            orderBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetUrl = this.getAttribute('href');
+
+                openExternalAfterToast(
+                    targetUrl,
+                    "Redirecting to DENJI STORE..."
+                );
+            });
+        }
+
+        document.querySelectorAll('.social-toast-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                openExternalAfterToast(
+                    this.getAttribute('href'),
+                    this.getAttribute('data-msg')
+                );
+            });
+        });
+
+        const marquee = document.getElementById("marquee");
+        const marqueeTrack = document.getElementById("marqueeTrack");
+
+        while (marqueeTrack.scrollWidth < window.innerWidth * 3) {
+            marqueeTrack.innerHTML += marquee.outerHTML;
+        }
+
+        document.querySelectorAll('[data-youtube]').forEach(el => {
+            const id = el.getAttribute('data-youtube');
+            const videoUrl = `https://www.youtube.com/watch?v=${id}`;
+
+            el.innerHTML = `
+                <a href="${videoUrl}" class="video-card" onclick="openYoutubeWithToast(event, '${videoUrl}')">
+                    <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" alt="Thumbnail">
+                </a>
+            `;
+        });
+
+        function openYoutubeWithToast(e, targetUrl) {
+            e.preventDefault();
+
+            openExternalAfterToast(
+                targetUrl,
+                "Redirecting to YouTube..."
+            );
+        }
+
+        const showcaseCategories = {
+            "Minecraft": [
+                "https://i.postimg.cc/bv7KQ643/1-1.png",
+                "https://i.postimg.cc/fLQr3V0K/2-2.png",
+                "https://i.postimg.cc/VsRGp9D8/SHOWCASE-V3.png",
+                "https://i.postimg.cc/Bb395rxN/SHOWCASE-V3.png"
+            ],
+            "Other games": [
+                "https://i.postimg.cc/fLGwG0d4/2200436b-fecb-4f4d-8c2d-fd53f79283e4-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/VNSPzk12/8d499d90-f09a-455c-8d95-af035aabb681-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/WzvBmmZH/baa3382c-93f0-4ba3-8118-d996d1f63884-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/FHBwCXc3/7ec631d0-5d66-4919-adf1-c3632f948fa9-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/rwKPrZbr/8c3af9a6-aefd-4770-afc5-3365133292a2-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/L4xD3Bj1/0ee8592d-fe61-4abf-88d6-38d52b14bcb5-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+                "https://i.postimg.cc/nc6v3dr3/Hana-gta6-(2).png",
+                "https://i.postimg.cc/nrNQwzFC/Hana-khoaitay2.png"
+            ],
+            "Technology": [
+                "https://i.postimg.cc/tTY3r831/30d026ed-e470-42d5-a264-7665a880872e-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png"
+            ],
+            "Travel": []
+        };
+
+        const showcaseItemsPerPage = 6;
+        let activeShowcaseCategory = "Minecraft";
+        let currentPage = 1;
+
+        const showcaseGrid = document.getElementById('showcaseGrid');
+        const pageNumbersContainer = document.getElementById('pageNumbers');
+        const pagination = document.getElementById('pagination');
+        const showcaseFilters = document.getElementById('showcaseFilters');
+
+        function getActiveShowcaseItems() {
+            return showcaseCategories[activeShowcaseCategory] || [];
+        }
+
+        function getShowcasePageCount() {
+            return Math.max(1, Math.ceil(getActiveShowcaseItems().length / showcaseItemsPerPage));
+        }
+
+        function selectShowcaseCategory(category) {
+            if (!Object.prototype.hasOwnProperty.call(showcaseCategories, category)) return;
+
+            activeShowcaseCategory = category;
+            currentPage = 1;
+
+            showcaseFilters.querySelectorAll('.showcase-filter').forEach(button => {
+                const selected = button.dataset.category === category;
+                button.classList.toggle('active', selected);
+                button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+            });
+
+            showOrderToast(
+                "You are being redirected to other topics.",
+                3000
+            );
+
+            renderPage(1);
+        }
 
         showcaseFilters.querySelectorAll('.showcase-filter').forEach(button => {
-            const selected = button.dataset.category === category;
-            button.classList.toggle('active', selected);
-            button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+            button.addEventListener('click', () => {
+                selectShowcaseCategory(button.dataset.category);
+            });
+        });
+
+        function renderPage(page) {
+            const items = getActiveShowcaseItems();
+            const totalPages = getShowcasePageCount();
+
+            if (page < 1 || page > totalPages) return;
+
+            currentPage = page;
+
+            if (items.length === 0) {
+                showcaseGrid.innerHTML = '<div class="showcase-empty">Thumbnails for this category will be added soon.</div>';
+                pagination.style.display = 'none';
+                pageNumbersContainer.innerHTML = '';
+                return;
+            }
+
+            const startIndex = (page - 1) * showcaseItemsPerPage;
+            const visibleItems = items.slice(startIndex, startIndex + showcaseItemsPerPage);
+
+            showcaseGrid.innerHTML = visibleItems.map(src => `
+                <div class="image-card">
+                    <img src="${src}" alt="${activeShowcaseCategory} thumbnail" loading="lazy">
+                </div>
+            `).join('');
+
+            pagination.style.display = totalPages > 1 ? 'flex' : 'none';
+
+            updatePaginationUI();
+            initLightboxEvents();
+
+            if (page !== 1) {
+                document.getElementById('product-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function updatePaginationUI() {
+            const totalPages = getShowcasePageCount();
+
+            pageNumbersContainer.innerHTML = Array.from(
+                { length: totalPages },
+                (_, index) => index + 1
+            ).map(num => `
+                <button class="page-num ${currentPage === num ? 'active' : ''}" onclick="renderPage(${num})">${num}</button>
+            `).join('');
+        }
+
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+
+            if (newPage >= 1 && newPage <= getShowcasePageCount()) {
+                renderPage(newPage);
+            }
+        }
+
+        window.renderPage = renderPage;
+        window.changePage = changePage;
+
+        renderPage(1);
+
+        const collaboratorAvatars = [
+            {
+                src: "https://i.postimg.cc/fWSnGL59/Hanakoishi-profile-maxres.jpg",
+                name: "Hanakoishi",
+                url: "https://www.youtube.com/@Hanakoishi"
+            }
+        ];
+
+        const collaboratorsPerPage = 8;
+        let currentCollaboratorPage = 1;
+
+        const collaboratorGrid = document.getElementById('collaboratorGrid');
+        const collaboratorPagination = document.getElementById('collaboratorPagination');
+        const collaboratorPageNumbers = document.getElementById('collaboratorPageNumbers');
+
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.closest('#collaboratorGrid .collaborator-link')) {
+                e.preventDefault();
+            }
+        }, true);
+
+        function getCollaboratorPageCount() {
+            return Math.max(1, Math.ceil(collaboratorAvatars.length / collaboratorsPerPage));
+        }
+
+        function openCollaboratorWithToast(e, targetUrl) {
+            e.preventDefault();
+
+            openExternalAfterToast(
+                targetUrl,
+                "You are being redirected to YouTube. Please wait..."
+            );
+        }
+
+        function renderCollaborators(page = 1) {
+            const totalPages = getCollaboratorPageCount();
+
+            currentCollaboratorPage = Math.min(
+                Math.max(page, 1),
+                totalPages
+            );
+
+            const start = (currentCollaboratorPage - 1) * collaboratorsPerPage;
+            const visibleAvatars = collaboratorAvatars.slice(
+                start,
+                start + collaboratorsPerPage
+            );
+
+            collaboratorGrid.innerHTML = visibleAvatars.map((collaborator) => {
+                const nameCharacters = Array.from(collaborator.name);
+
+                const displayName = nameCharacters.length > 10
+                    ? `${nameCharacters.slice(0, 10).join('')}<br>${nameCharacters.slice(10).join('')}`
+                    : collaborator.name;
+
+                return `
+                    <div class="collaborator-avatar-item">
+                        <a class="collaborator-link" href="${collaborator.url}" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Visit YouTube channel ${collaborator.name}">
+                            <img class="collaborator-avatar" src="${collaborator.src}" alt="${collaborator.name}" loading="lazy" draggable="false">
+                            <span class="collaborator-avatar-name" draggable="false">${displayName}</span>
+                        </a>
+                    </div>
+                `;
+            }).join('');
+
+            collaboratorGrid.querySelectorAll('.collaborator-link').forEach(link => {
+                link.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                });
+
+                link.addEventListener('mousedown', function(e) {
+                    if (e.button === 0) {
+                        this.setAttribute('draggable', 'false');
+                    }
+                });
+
+                link.addEventListener('click', function(e) {
+                    openCollaboratorWithToast(e, this.href);
+                });
+            });
+
+            collaboratorPagination.style.display =
+                collaboratorAvatars.length > collaboratorsPerPage ? 'flex' : 'none';
+
+            collaboratorPageNumbers.innerHTML = Array.from(
+                { length: totalPages },
+                (_, index) => index + 1
+            ).map(num => `
+                <button class="page-num ${currentCollaboratorPage === num ? 'active' : ''}" type="button" onclick="renderCollaborators(${num})" aria-label="Collaborators page ${num}" aria-current="${currentCollaboratorPage === num ? 'page' : 'false'}">${num}</button>
+            `).join('');
+        }
+
+        function changeCollaboratorPage(direction) {
+            const nextPage = currentCollaboratorPage + direction;
+
+            if (nextPage >= 1 && nextPage <= getCollaboratorPageCount()) {
+                renderCollaborators(nextPage);
+            }
+        }
+
+        window.renderCollaborators = renderCollaborators;
+        window.changeCollaboratorPage = changeCollaboratorPage;
+
+        renderCollaborators(1);
+
+        let imgScale = 1;
+        let imgPosX = 0;
+        let imgPosY = 0;
+        let isDraggingImg = false;
+        let startX = 0;
+        let startY = 0;
+        let dragDistance = 0;
+
+        const lightboxOverlay = document.getElementById('lightboxOverlay');
+        const lightboxImgWrapper = document.getElementById('lightboxImgWrapper');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        function updateImgTransform(withTransition = false) {
+            if (withTransition) {
+                lightboxImg.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+            } else {
+                lightboxImg.style.transition = 'none';
+            }
+
+            lightboxImg.style.transform = `translate(${imgPosX}px, ${imgPosY}px) scale(${imgScale})`;
+
+            if (imgScale > 1) {
+                lightboxClose.classList.add('hide-btn');
+            } else {
+                lightboxClose.classList.remove('hide-btn');
+            }
+        }
+
+        function resetImgTransform() {
+            imgScale = 1;
+            imgPosX = 0;
+            imgPosY = 0;
+            updateImgTransform(true);
+        }
+
+        function initLightboxEvents() {
+            const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
+
+            showcaseImages.forEach(img => {
+                img.onclick = (e) => {
+                    e.stopPropagation();
+
+                    lightboxImg.src = img.src;
+                    lightboxClose.classList.remove('ready');
+
+                    resetImgTransform();
+
+                    lightboxOverlay.classList.add('active');
+                    document.body.classList.add('lightbox-open');
+                };
+            });
+        }
+
+        lightboxOverlay.addEventListener('transitionend', (e) => {
+            if (e.target !== lightboxOverlay) return;
+
+            if (
+                e.propertyName === 'opacity' &&
+                lightboxOverlay.classList.contains('active')
+            ) {
+                lightboxClose.classList.add('ready');
+
+                showOrderToast(
+                    'Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail. Click again to restore the original aspect ratio</span>',
+                    4000,
+                    { html: true }
+                );
+            }
+        });
+
+        lightboxOverlay.addEventListener('wheel', (e) => {
+            if (!lightboxOverlay.classList.contains('active')) return;
+
+            e.preventDefault();
+
+            const zoomFactor = 0.15;
+
+            if (e.deltaY < 0) {
+                imgScale = Math.min(imgScale + zoomFactor, 4);
+            } else {
+                imgScale = Math.max(imgScale - zoomFactor, 1);
+
+                if (imgScale === 1) {
+                    imgPosX = 0;
+                    imgPosY = 0;
+                }
+            }
+
+            updateImgTransform(true);
+        }, { passive: false });
+
+        lightboxImgWrapper.addEventListener('mousedown', (e) => {
+            if (!lightboxOverlay.classList.contains('active')) return;
+            if (e.target === lightboxClose || e.target.classList.contains('lightbox-close')) return;
+
+            isDraggingImg = true;
+            dragDistance = 0;
+            startX = e.clientX - imgPosX;
+            startY = e.clientY - imgPosY;
+
+            lightboxImg.style.transition = 'none';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDraggingImg) return;
+
+            e.preventDefault();
+
+            const nextX = e.clientX - startX;
+            const nextY = e.clientY - startY;
+
+            dragDistance += Math.hypot(
+                nextX - imgPosX,
+                nextY - imgPosY
+            );
+
+            imgPosX = nextX;
+            imgPosY = nextY;
+
+            updateImgTransform(false);
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDraggingImg) {
+                isDraggingImg = false;
+            }
+        });
+
+        lightboxImg.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (imgScale > 1 && dragDistance < 5) {
+                resetImgTransform();
+            }
+        });
+
+        function closeLightbox() {
+            lightboxClose.classList.remove('ready');
+            lightboxOverlay.classList.remove('active');
+            document.body.classList.remove('lightbox-open');
+
+            resetImgTransform();
+            hideOrderToast();
+        }
+
+        lightboxClose.addEventListener('click', (e) => {
+            if (!lightboxClose.classList.contains('ready')) return;
+
+            e.stopPropagation();
+            closeLightbox();
+        });
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (!lightboxClose.classList.contains('ready')) return;
+
+            if (e.target === lightboxClose || e.target === lightboxOverlay) {
+                closeLightbox();
+            }
         });
 
         renderPage(1);
-    }
 
-    showcaseFilters.querySelectorAll('.showcase-filter').forEach(button => {
-        button.addEventListener('click', () => selectShowcaseCategory(button.dataset.category));
-    });
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-links .nav-item');
 
-    function renderPage(page) {
-        const items = getActiveShowcaseItems();
-        const totalPages = getShowcasePageCount();
+        let isManualScrolling = false;
+        let scrollTimeout;
 
-        if (page < 1 || page > totalPages) return;
-        currentPage = page;
+        const updateActiveNav = () => {
+            if (isManualScrolling) return;
 
-        if (items.length === 0) {
-            showcaseGrid.innerHTML = '<div class="showcase-empty">Thumbnails for this category will be added soon.</div>';
-            pagination.style.display = 'none';
-            pageNumbersContainer.innerHTML = '';
-            return;
-        }
+            let currentSectionId = "";
+            let pageAtTop = window.scrollY === 0;
 
-        const startIndex = (page - 1) * showcaseItemsPerPage;
-        const visibleItems = items.slice(startIndex, startIndex + showcaseItemsPerPage);
+            if (pageAtTop) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
 
-        showcaseGrid.innerHTML = visibleItems.map(src => `
-            <div class="image-card">
-                <img src="${src}" alt="${activeShowcaseCategory} thumbnail" loading="lazy">
-            </div>
-        `).join('');
+                    if (item.getAttribute('href') === '#contact-section') {
+                        item.classList.add('active');
+                    }
+                });
 
-        pagination.style.display = totalPages > 1 ? 'flex' : 'none';
-        updatePaginationUI();
-        initLightboxEvents();
-
-        if (page !== 1) {
-            document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    function updatePaginationUI() {
-        const totalPages = getShowcasePageCount();
-        pageNumbersContainer.innerHTML = Array.from({ length: totalPages }, (_, index) => index + 1).map(num => `
-            <button class="page-num ${currentPage === num ? 'active' : ''}" onclick="renderPage(${num})">${num}</button>
-        `).join('');
-    }
-
-    function changePage(direction) {
-        const newPage = currentPage + direction;
-        if (newPage >= 1 && newPage <= getShowcasePageCount()) renderPage(newPage);
-    }
-
-    // Keep the existing inline pagination controls available to the HTML buttons.
-    window.renderPage = renderPage;
-    window.changePage = changePage;
-
-    renderPage(1);
-
-    const collaboratorAvatars = [
-        {
-            src: "https://i.postimg.cc/fWSnGL59/Hanakoishi-profile-maxres.jpg",
-            name: "Hanakoishi",
-            url: "https://www.youtube.com/@Hanakoishi"
-        }
-    ];
-    const collaboratorsPerPage = 8;
-    let currentCollaboratorPage = 1;
-    const collaboratorGrid = document.getElementById('collaboratorGrid');
-    const collaboratorPagination = document.getElementById('collaboratorPagination');
-    const collaboratorPageNumbers = document.getElementById('collaboratorPageNumbers');
-
-    function getCollaboratorPageCount() {
-        return Math.max(1, Math.ceil(collaboratorAvatars.length / collaboratorsPerPage));
-    }
-
-    function renderCollaborators(page = 1) {
-        const totalPages = getCollaboratorPageCount();
-        currentCollaboratorPage = Math.min(Math.max(page, 1), totalPages);
-        const start = (currentCollaboratorPage - 1) * collaboratorsPerPage;
-        const visibleAvatars = collaboratorAvatars.slice(start, start + collaboratorsPerPage);
-
-        collaboratorGrid.innerHTML = visibleAvatars.map((collaborator, index) => {
-            const nameCharacters = Array.from(collaborator.name);
-            const displayName = nameCharacters.length > 10
-                ? `${nameCharacters.slice(0, 10).join('')}<br>${nameCharacters.slice(10).join('')}`
-                : collaborator.name;
-
-            return `
-                <div class="collaborator-avatar-item">
-                    <a class="collaborator-link" href="${collaborator.url}" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel ${collaborator.name}">
-                        <img class="collaborator-avatar" src="${collaborator.src}" alt="${collaborator.name}" loading="lazy">
-                        <span class="collaborator-avatar-name">${displayName}</span>
-                    </a>
-                </div>
-            `;
-        }).join('');
-
-        collaboratorPagination.style.display = collaboratorAvatars.length > collaboratorsPerPage ? 'flex' : 'none';
-        collaboratorPageNumbers.innerHTML = Array.from({ length: totalPages }, (_, index) => index + 1).map(num => `
-            <button class="page-num ${currentCollaboratorPage === num ? 'active' : ''}" type="button" onclick="renderCollaborators(${num})" aria-label="Collaborators page ${num}" aria-current="${currentCollaboratorPage === num ? 'page' : 'false'}">${num}</button>
-        `).join('');
-    }
-
-    function changeCollaboratorPage(direction) {
-        const nextPage = currentCollaboratorPage + direction;
-        if (nextPage >= 1 && nextPage <= getCollaboratorPageCount()) renderCollaborators(nextPage);
-    }
-
-    window.renderCollaborators = renderCollaborators;
-    window.changeCollaboratorPage = changeCollaboratorPage;
-    renderCollaborators(1);
-
-
-        let imgScale = 1;
-    let imgPosX = 0;
-    let imgPosY = 0;
-    let isDraggingImg = false;
-    let startX = 0;
-    let startY = 0;
-    let dragDistance = 0;
-    let toastTimeout = null;
-
-    const lightboxOverlay = document.getElementById('lightboxOverlay');
-    const lightboxImgWrapper = document.getElementById('lightboxImgWrapper');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-
-    function updateImgTransform(withTransition = false) {
-        if (withTransition) {
-            lightboxImg.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
-        } else {
-            lightboxImg.style.transition = 'none';
-        }
-        lightboxImg.style.transform = `translate(${imgPosX}px, ${imgPosY}px) scale(${imgScale})`;
-
-        if (imgScale > 1) {
-            lightboxClose.classList.add('hide-btn');
-        } else {
-            lightboxClose.classList.remove('hide-btn');
-        }
-    }
-
-    function resetImgTransform() {
-        imgScale = 1;
-        imgPosX = 0;
-        imgPosY = 0;
-        updateImgTransform(true);
-    }
-
-    function initLightboxEvents() {
-        const showcaseImages = document.querySelectorAll('.showcase-grid .image-card img');
-
-        showcaseImages.forEach(img => {
-            img.onclick = (e) => {
-                e.stopPropagation();
-                lightboxImg.src = img.src;
-                lightboxClose.classList.remove('ready');
-                resetImgTransform();
-                lightboxOverlay.classList.add('active');
-                document.body.classList.add('lightbox-open');
-            };
-        });
-    }
-
-    lightboxOverlay.addEventListener('transitionend', (e) => {
-        if (e.target !== lightboxOverlay) return;
-
-        if (e.propertyName === 'opacity' && lightboxOverlay.classList.contains('active')) {
-            lightboxClose.classList.add('ready');
-
-            if (orderToast) {
-                const toastTitle = orderToast.querySelector('.toast-title');
-                const toastDesc = orderToast.querySelector('.toast-desc');
-
-                if (toastTitle) toastTitle.textContent = "Success!";
-                if (toastDesc) toastDesc.innerHTML = 'Thumbnail expanded<br><span class="toast-single-line">You can use the mouse wheel and hold left click to zoom in/out of the thumbnail. Click again to restore the original aspect ratio</span>';
-
-                orderToast.classList.add('show');
-
-                clearTimeout(toastTimeout);
-                toastTimeout = setTimeout(() => {
-                    orderToast.classList.remove('show');
-                }, 4000);
+                return;
             }
-        }
-    });
 
-    lightboxOverlay.addEventListener('wheel', (e) => {
-        if (!lightboxOverlay.classList.contains('active')) return;
-        e.preventDefault();
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
 
-        const zoomFactor = 0.15;
-        if (e.deltaY < 0) {
-            imgScale = Math.min(imgScale + zoomFactor, 4);
-        } else {
-            imgScale = Math.max(imgScale - zoomFactor, 1);
-            if (imgScale === 1) {
-                imgPosX = 0;
-                imgPosY = 0;
-            }
-        }
-        updateImgTransform(true);
-    }, { passive: false });
-
-    lightboxImgWrapper.addEventListener('mousedown', (e) => {
-        if (!lightboxOverlay.classList.contains('active')) return;
-        if (e.target === lightboxClose || e.target.classList.contains('lightbox-close')) return;
-        
-        isDraggingImg = true;
-        dragDistance = 0;
-        startX = e.clientX - imgPosX;
-        startY = e.clientY - imgPosY;
-        lightboxImg.style.transition = 'none';
-    });
-
-    window.addEventListener('mousemove', (e) => {
-        if (!isDraggingImg) return;
-        e.preventDefault();
-        const nextX = e.clientX - startX;
-        const nextY = e.clientY - startY;
-
-        dragDistance += Math.hypot(nextX - imgPosX, nextY - imgPosY);
-
-        imgPosX = nextX;
-        imgPosY = nextY;
-        updateImgTransform(false);
-    });
-
-    window.addEventListener('mouseup', () => {
-        if (isDraggingImg) {
-            isDraggingImg = false;
-        }
-    });
-
-    lightboxImg.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (imgScale > 1 && dragDistance < 5) {
-            resetImgTransform();
-        }
-    });
-
-    function closeLightbox() {
-        lightboxClose.classList.remove('ready');
-        lightboxOverlay.classList.remove('active');
-        document.body.classList.remove('lightbox-open');
-        resetImgTransform();
-        if (orderToast) {
-            orderToast.classList.remove('show');
-        }
-    }
-
-    lightboxClose.addEventListener('click', (e) => { 
-        if (!lightboxClose.classList.contains('ready')) return;
-        e.stopPropagation();
-        closeLightbox();
-    });
-
-    lightboxOverlay.addEventListener('click', (e) => { 
-        if (!lightboxClose.classList.contains('ready')) return;
-        if (e.target === lightboxClose || e.target === lightboxOverlay) {
-            closeLightbox();
-        }
-    });
-
-    renderPage(1);
-
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('.nav-links .nav-item');
-
-    let isManualScrolling = false;
-    let scrollTimeout;
-
-    const updateActiveNav = () => {
-        if (isManualScrolling) return;
-
-        let currentSectionId = "";
-        let pageAtTop = window.scrollY === 0;
-
-        if (pageAtTop) {
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === '#contact-section') {
-                    item.classList.add('active');
+                if (
+                    rect.top <= window.innerHeight * 0.4 &&
+                    rect.bottom >= window.innerHeight * 0.3
+                ) {
+                    currentSectionId = section.getAttribute('id');
                 }
             });
-            return;
-        }
-        
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.3) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
 
-        if (currentSectionId) {
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.getAttribute('href') === `#${currentSectionId}`) {
-                    item.classList.add('active');
-                }
+            if (currentSectionId) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+
+                    const targetSection = item.getAttribute('href').slice(1);
+
+                    if (
+                        targetSection === currentSectionId ||
+                        (
+                            currentSectionId === 'collaborator-section' &&
+                            targetSection === 'product-section'
+                        )
+                    ) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        };
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                isManualScrolling = true;
+                clearTimeout(scrollTimeout);
+
+                navItems.forEach(n => n.classList.remove('active'));
+                this.classList.add('active');
+
+                scrollTimeout = setTimeout(() => {
+                    isManualScrolling = false;
+
+                    if (window.scrollY !== 0) {
+                        updateActiveNav();
+                    }
+                }, 850);
             });
-        }
-    };
-
-    window.addEventListener('scroll', updateActiveNav);
-
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            isManualScrolling = true;
-            clearTimeout(scrollTimeout);
-
-            navItems.forEach(n => n.classList.remove('active'));
-            this.classList.add('active');
-
-            scrollTimeout = setTimeout(() => {
-                isManualScrolling = false;
-                if(window.scrollY !== 0) updateActiveNav();
-            }, 850);
         });
-    });
 
-    const reviewSlider = document.querySelector('.review-slider');
-    const reviewTrack = document.getElementById('reviewTrack');
+        const reviewSlider = document.querySelector('.review-slider');
+        const reviewTrack = document.getElementById('reviewTrack');
 
-    const originalContent = reviewTrack.innerHTML;
-    reviewTrack.innerHTML = originalContent + originalContent;
-    let currentY = 0;            
-    let speed = 0.6;              
-    let isDragging = false;       
-    let startYDrag = 0;               
-    let baseHeight = 0;          
+        const originalContent = reviewTrack.innerHTML;
+        reviewTrack.innerHTML = originalContent + originalContent;
 
-    function updatedDimensions() {
-        baseHeight = (reviewTrack.scrollHeight / 2) + 15;
-    }
-    window.addEventListener('load', updatedDimensions);
-    window.addEventListener('resize', updatedDimensions);
-    updatedDimensions();
+        let currentY = 0;
+        let speed = 0.6;
+        let isDragging = false;
+        let startYDrag = 0;
+        let baseHeight = 0;
 
-    function renderLoop() {
-        if (!isDragging) {
-            currentY -= speed; 
-            if (Math.abs(currentY) >= baseHeight) {
-                currentY += baseHeight;
-            }
+        function updatedDimensions() {
+            baseHeight = (reviewTrack.scrollHeight / 2) + 15;
         }
-        reviewTrack.style.transform = `translateY(${currentY}px)`;
-        requestAnimationFrame(renderLoop);
-    }
-    setTimeout(renderLoop, 200);
 
-    reviewSlider.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startYDrag = e.pageY - currentY;
-    });
+        window.addEventListener('load', updatedDimensions);
+        window.addEventListener('resize', updatedDimensions);
 
-    window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        currentY = e.pageY - startYDrag;
-        if (currentY > 0) currentY -= baseHeight;
-        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
-    });
+        updatedDimensions();
 
-    window.addEventListener('mouseup', () => { isDragging = false; });
+        function renderLoop() {
+            if (!isDragging) {
+                currentY -= speed;
 
-    reviewSlider.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startYDrag = e.touches[0].pageY - currentY;
-    }, { passive: false });
+                if (Math.abs(currentY) >= baseHeight) {
+                    currentY += baseHeight;
+                }
+            }
 
-    reviewSlider.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault(); 
-        currentY = e.touches[0].pageY - startYDrag;
-        if (currentY > 0) currentY -= baseHeight;
-        if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
-    }, { passive: false });
+            reviewTrack.style.transform = `translateY(${currentY}px)`;
 
-    window.addEventListener('touchend', () => { isDragging = false; });
-    window.addEventListener('blur', () => { isDragging = false; });
+            requestAnimationFrame(renderLoop);
+        }
 
-    function initCounters() {
-        const counters = document.querySelectorAll('.counter');
-        let completedCount = 0;
-        
-        counters.forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-target'));
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const decimals = parseInt(counter.getAttribute('data-dec')) || 0;
-            const duration = 2000;
-            let startTime = null;
+        setTimeout(renderLoop, 200);
 
-            function updateCount(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const progress = timestamp - startTime;
-                const current = Math.min(progress / duration, 1) * target;
-                
-                counter.textContent = current.toFixed(decimals) + suffix;
+        reviewSlider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startYDrag = e.pageY - currentY;
+        });
 
-                if (progress < duration) {
-                    requestAnimationFrame(updateCount);
-                } else {
-                    counter.textContent = target.toFixed(decimals) + suffix;
-                    completedCount++;
-                    
-                    if (completedCount === counters.length) {
-                        const labels = document.querySelectorAll('.stat-label');
-                        labels.forEach(label => {
-                            label.classList.add('show-label');
-                        });
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
 
-                        setTimeout(() => {
-                            const ctaBtn = document.querySelector('.cta-btn');
-                            if (ctaBtn) {
-                                ctaBtn.classList.add('show-order-btn');
-                            }
-                        }, 300);
+            e.preventDefault();
+
+            currentY = e.pageY - startYDrag;
+
+            if (currentY > 0) currentY -= baseHeight;
+            if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        reviewSlider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startYDrag = e.touches[0].pageY - currentY;
+        }, { passive: false });
+
+        reviewSlider.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+
+            e.preventDefault();
+
+            currentY = e.touches[0].pageY - startYDrag;
+
+            if (currentY > 0) currentY -= baseHeight;
+            if (Math.abs(currentY) >= baseHeight) currentY += baseHeight;
+        }, { passive: false });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        window.addEventListener('blur', () => {
+            isDragging = false;
+        });
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter');
+            let completedCount = 0;
+
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const decimals = parseInt(counter.getAttribute('data-dec')) || 0;
+                const duration = 2000;
+                let startTime = null;
+
+                function updateCount(timestamp) {
+                    if (!startTime) startTime = timestamp;
+
+                    const progress = timestamp - startTime;
+                    const current = Math.min(progress / duration, 1) * target;
+
+                    counter.textContent = current.toFixed(decimals) + suffix;
+
+                    if (progress < duration) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.textContent = target.toFixed(decimals) + suffix;
+                        completedCount++;
+
+                        if (completedCount === counters.length) {
+                            const labels = document.querySelectorAll('.stat-label');
+
+                            labels.forEach(label => {
+                                label.classList.add('show-label');
+                            });
+
+                            setTimeout(() => {
+                                const ctaBtn = document.querySelector('.cta-btn');
+
+                                if (ctaBtn) {
+                                    ctaBtn.classList.add('show-order-btn');
+                                }
+                            }, 300);
+                        }
                     }
                 }
-            }
-            requestAnimationFrame(updateCount);
-        });
-    }
 
-    window.addEventListener('load', () => {
-        setTimeout(initCounters, 500);
-    });
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(initCounters, 500);
+        });
     </script>
 </body>
 </html>
