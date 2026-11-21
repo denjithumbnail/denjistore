@@ -728,12 +728,11 @@
         }
 
 
-        /* Collaborator avatars and pagination */
         .collaborator-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             width: 100%;
             gap: 34px 0;
             margin: 38px auto 0;
@@ -743,9 +742,27 @@
             min-width: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             box-sizing: border-box;
             padding: 0 12px;
+            text-decoration: none;
+        }
+        .collaborator-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 170px;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            transform: translateY(0) scale(1);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .collaborator-link:hover,
+        .collaborator-link:focus-visible {
+            transform: translateY(-8px) scale(1.03);
         }
         .collaborator-avatar {
             display: block;
@@ -755,14 +772,45 @@
             aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 50%;
-            border: 8px solid #ffffff;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
+            border: none !important;
+            box-shadow: none !important;
+            flex-shrink: 0;
+        }
+        .collaborator-avatar-name {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 10ch;
+            min-height: 2.6em;
+            margin: 12px 0 0;
+            color: #000000;
+            transition: color 0.3s ease;
+            font-family: 'SF Pro Rounded', 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 1.3;
+            letter-spacing: 0;
+            text-align: center;
+            text-shadow: none;
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+        .collaborator-link:hover .collaborator-avatar-name,
+        .collaborator-link:focus-visible .collaborator-avatar-name {
+            color: #0162fc;
         }
         .collaborator-pagination { margin-top: 30px !important; }
         @media (max-width: 768px) {
             .collaborator-grid { gap: 26px 0; margin-top: 28px; }
             .collaborator-avatar-item { width: 50%; padding: 0 8px; }
-            .collaborator-avatar { width: 112px; height: 112px; border-width: 6px; }
+            .collaborator-link { max-width: 140px; }
+            .collaborator-avatar { width: 112px; height: 112px; }
+            .collaborator-avatar-name {
+                width: 10ch;
+                min-height: 2.6em;
+                margin-top: 10px;
+                font-size: 14px;
+            }
         }
 
         .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -1895,9 +1943,12 @@
 
     renderPage(1);
 
-    // Collaborators: four avatars per row, two rows per page.
     const collaboratorAvatars = [
-        "https://i.postimg.cc/fWSnGL59/Hanakoishi-profile-maxres.jpg"
+        {
+            src: "https://i.postimg.cc/fWSnGL59/Hanakoishi-profile-maxres.jpg",
+            name: "Hanakoishi",
+            url: "https://www.youtube.com/@Hanakoishi"
+        }
     ];
     const collaboratorsPerPage = 8;
     let currentCollaboratorPage = 1;
@@ -1915,11 +1966,21 @@
         const start = (currentCollaboratorPage - 1) * collaboratorsPerPage;
         const visibleAvatars = collaboratorAvatars.slice(start, start + collaboratorsPerPage);
 
-        collaboratorGrid.innerHTML = visibleAvatars.map((src, index) => `
-            <div class="collaborator-avatar-item">
-                <img class="collaborator-avatar" src="${src}" alt="Collaborator avatar ${start + index + 1}" loading="lazy">
-            </div>
-        `).join('');
+        collaboratorGrid.innerHTML = visibleAvatars.map((collaborator, index) => {
+            const nameCharacters = Array.from(collaborator.name);
+            const displayName = nameCharacters.length > 10
+                ? `${nameCharacters.slice(0, 10).join('')}<br>${nameCharacters.slice(10).join('')}`
+                : collaborator.name;
+
+            return `
+                <div class="collaborator-avatar-item">
+                    <a class="collaborator-link" href="${collaborator.url}" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel ${collaborator.name}">
+                        <img class="collaborator-avatar" src="${collaborator.src}" alt="${collaborator.name}" loading="lazy">
+                        <span class="collaborator-avatar-name">${displayName}</span>
+                    </a>
+                </div>
+            `;
+        }).join('');
 
         collaboratorPagination.style.display = collaboratorAvatars.length > collaboratorsPerPage ? 'flex' : 'none';
         collaboratorPageNumbers.innerHTML = Array.from({ length: totalPages }, (_, index) => index + 1).map(num => `
