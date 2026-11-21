@@ -727,6 +727,44 @@
             line-height: 1.2;
         }
 
+
+        /* Collaborator avatars and pagination */
+        .collaborator-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 34px 0;
+            margin: 38px auto 0;
+        }
+        .collaborator-avatar-item {
+            width: 25%;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0 12px;
+        }
+        .collaborator-avatar {
+            display: block;
+            width: 150px;
+            height: 150px;
+            max-width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid #ffffff;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.18);
+        }
+        .collaborator-pagination { margin-top: 30px !important; }
+        @media (max-width: 768px) {
+            .collaborator-grid { gap: 26px 0; margin-top: 28px; }
+            .collaborator-avatar-item { width: 50%; padding: 0 8px; }
+            .collaborator-avatar { width: 112px; height: 112px; border-width: 6px; }
+        }
+
         .product-grid, .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .video-card, .image-card { background: rgba(0, 0, 0, 0.03); border-radius: 16px; overflow: hidden; display: block; text-decoration: none; transition: 0.3s; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(0, 0, 0, 0.02); }
         .video-card:hover, .image-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); }
@@ -1282,6 +1320,86 @@
             }
         }
 
+
+        /* Showcase category filters */
+        .showcase-filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 0 auto 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .showcase-filter {
+            appearance: none;
+            border: 2px solid transparent;
+            background: transparent;
+            color: #000000;
+            border-radius: 999px;
+            padding: 11px 23px;
+            min-height: 44px;
+            font-family: 'SF Pro Rounded', 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 900;
+            letter-spacing: 0.1px;
+            line-height: 1;
+            cursor: pointer;
+            text-shadow: none;
+            transition: transform 0.22s ease, background 0.22s ease,
+                        color 0.22s ease, border-color 0.22s ease;
+        }
+
+        .showcase-filter:hover {
+            transform: translateY(-2px);
+            background: transparent;
+            border-color: transparent;
+            color: #000000;
+        }
+
+        .showcase-filter.active {
+            background: #0162fc;
+            color: #ffffff;
+            border-color: #0162fc;
+            box-shadow: none;
+        }
+
+        .showcase-empty {
+            grid-column: 1 / -1;
+            padding: 35px 20px;
+            text-align: center;
+            color: #aaaaaa;
+            font-size: 15px;
+            font-weight: 700;
+            text-shadow: none;
+            background: rgba(0, 0, 0, 0.025);
+            border-radius: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-filters {
+                gap: 9px;
+                margin-bottom: 22px;
+            }
+            .showcase-filter {
+                padding: 10px 16px;
+                min-height: 40px;
+                font-size: 13px;
+            }
+        }
+
+    
+
+        /* Avatar images: remove the white frame and dark drop shadow site-wide. */
+        .collaborator-avatar,
+        .bottom-avatar,
+        .review-avatar {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
     </style>
 </head>
 <body ontouchstart="">
@@ -1328,6 +1446,12 @@
         <section id="product-section" class="section-container">
             <div class="divider"></div>
             <h2 class="title">SHOWCASE</h2>
+            <div class="showcase-filters" id="showcaseFilters" role="group" aria-label="Filter thumbnails by category">
+                <button type="button" class="showcase-filter active" data-category="Minecraft" aria-pressed="true">Minecraft</button>
+                <button type="button" class="showcase-filter" data-category="Other games" aria-pressed="false">Other games</button>
+                <button type="button" class="showcase-filter" data-category="Technology" aria-pressed="false">Technology</button>
+                <button type="button" class="showcase-filter" data-category="Travel" aria-pressed="false">Travel</button>
+            </div>
             <div class="showcase-grid" id="showcaseGrid">
             </div>
             <div class="pagination" id="pagination">
@@ -1337,9 +1461,15 @@
             </div>
         </section>
 
-        <section id="collaborations-section" class="section-container">
+        <section id="collaborator-section" class="section-container">
             <div class="divider"></div>
-            <h2 class="title">COLLABORATIONS</h2>
+            <h2 class="title">COLLABORATORS</h2>
+            <div class="collaborator-grid" id="collaboratorGrid" aria-label="Collaborator avatars"></div>
+            <div class="pagination collaborator-pagination" id="collaboratorPagination" style="display: none;">
+                <button class="page-arrow" type="button" onclick="changeCollaboratorPage(-1)" aria-label="Previous collaborators page"><span>◄</span></button>
+                <div id="collaboratorPageNumbers" style="display: flex; gap: 16px; align-items: center; justify-content: center;"></div>
+                <button class="page-arrow" type="button" onclick="changeCollaboratorPage(1)" aria-label="Next collaborators page"><span>►</span></button>
+            </div>
         </section>
 
         <section id="reviews-section" class="section-container">
@@ -1655,49 +1785,159 @@
         }
     }
 
-    const showcasePages = {
-        1: [
+    // Add future thumbnails to the matching category array below.
+    // The four existing showcase thumbnails are kept in Minecraft.
+    const showcaseCategories = {
+        "Minecraft": [
             "https://i.postimg.cc/bv7KQ643/1-1.png",
             "https://i.postimg.cc/fLQr3V0K/2-2.png",
             "https://i.postimg.cc/VsRGp9D8/SHOWCASE-V3.png",
             "https://i.postimg.cc/Bb395rxN/SHOWCASE-V3.png"
         ],
-        2: [
-        ]
+        "Other games": [
+            "https://i.postimg.cc/fLGwG0d4/2200436b-fecb-4f4d-8c2d-fd53f79283e4-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/VNSPzk12/8d499d90-f09a-455c-8d95-af035aabb681-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/WzvBmmZH/baa3382c-93f0-4ba3-8118-d996d1f63884-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/FHBwCXc3/7ec631d0-5d66-4919-adf1-c3632f948fa9-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/rwKPrZbr/8c3af9a6-aefd-4770-afc5-3365133292a2-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/L4xD3Bj1/0ee8592d-fe61-4abf-88d6-38d52b14bcb5-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png",
+            "https://i.postimg.cc/nc6v3dr3/Hana-gta6-(2).png",
+            "https://i.postimg.cc/nrNQwzFC/Hana-khoaitay2.png"
+        ],
+        "Technology": [
+            "https://i.postimg.cc/tTY3r831/30d026ed-e470-42d5-a264-7665a880872e-link-in-bio-image-block-home-90c0ab20-d909-40db-8bfb-f1e9fe.png"
+        ],
+        "Travel": []
     };
 
+    const showcaseItemsPerPage = 6;
+    let activeShowcaseCategory = "Minecraft";
     let currentPage = 1;
     const showcaseGrid = document.getElementById('showcaseGrid');
     const pageNumbersContainer = document.getElementById('pageNumbers');
+    const pagination = document.getElementById('pagination');
+    const showcaseFilters = document.getElementById('showcaseFilters');
+
+    function getActiveShowcaseItems() {
+        return showcaseCategories[activeShowcaseCategory] || [];
+    }
+
+    function getShowcasePageCount() {
+        return Math.max(1, Math.ceil(getActiveShowcaseItems().length / showcaseItemsPerPage));
+    }
+
+    function selectShowcaseCategory(category) {
+        if (!Object.prototype.hasOwnProperty.call(showcaseCategories, category)) return;
+
+        activeShowcaseCategory = category;
+        currentPage = 1;
+
+        showcaseFilters.querySelectorAll('.showcase-filter').forEach(button => {
+            const selected = button.dataset.category === category;
+            button.classList.toggle('active', selected);
+            button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+
+        renderPage(1);
+    }
+
+    showcaseFilters.querySelectorAll('.showcase-filter').forEach(button => {
+        button.addEventListener('click', () => selectShowcaseCategory(button.dataset.category));
+    });
 
     function renderPage(page) {
-        if (page < 1 || page > 2) return;
+        const items = getActiveShowcaseItems();
+        const totalPages = getShowcasePageCount();
+
+        if (page < 1 || page > totalPages) return;
         currentPage = page;
-        showcaseGrid.innerHTML = showcasePages[page].map(src => `
+
+        if (items.length === 0) {
+            showcaseGrid.innerHTML = '<div class="showcase-empty">Thumbnails for this category will be added soon.</div>';
+            pagination.style.display = 'none';
+            pageNumbersContainer.innerHTML = '';
+            return;
+        }
+
+        const startIndex = (page - 1) * showcaseItemsPerPage;
+        const visibleItems = items.slice(startIndex, startIndex + showcaseItemsPerPage);
+
+        showcaseGrid.innerHTML = visibleItems.map(src => `
             <div class="image-card">
-                <img src="${src}" alt="Showcase">
+                <img src="${src}" alt="${activeShowcaseCategory} thumbnail" loading="lazy">
             </div>
         `).join('');
-        
+
+        pagination.style.display = totalPages > 1 ? 'flex' : 'none';
         updatePaginationUI();
         initLightboxEvents();
+
         if (page !== 1) {
             document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });
         }
     }
 
     function updatePaginationUI() {
-        pageNumbersContainer.innerHTML = [1, 2].map(num => `
+        const totalPages = getShowcasePageCount();
+        pageNumbersContainer.innerHTML = Array.from({ length: totalPages }, (_, index) => index + 1).map(num => `
             <button class="page-num ${currentPage === num ? 'active' : ''}" onclick="renderPage(${num})">${num}</button>
         `).join('');
     }
 
     function changePage(direction) {
-        let newPage = currentPage + direction;
-        if (newPage >= 1 && newPage <= 2) renderPage(newPage);
+        const newPage = currentPage + direction;
+        if (newPage >= 1 && newPage <= getShowcasePageCount()) renderPage(newPage);
     }
 
-    let imgScale = 1;
+    // Keep the existing inline pagination controls available to the HTML buttons.
+    window.renderPage = renderPage;
+    window.changePage = changePage;
+
+    renderPage(1);
+
+    // Collaborators: four avatars per row, two rows per page.
+    const collaboratorAvatars = [
+        "https://i.postimg.cc/fWSnGL59/Hanakoishi-profile-maxres.jpg"
+    ];
+    const collaboratorsPerPage = 8;
+    let currentCollaboratorPage = 1;
+    const collaboratorGrid = document.getElementById('collaboratorGrid');
+    const collaboratorPagination = document.getElementById('collaboratorPagination');
+    const collaboratorPageNumbers = document.getElementById('collaboratorPageNumbers');
+
+    function getCollaboratorPageCount() {
+        return Math.max(1, Math.ceil(collaboratorAvatars.length / collaboratorsPerPage));
+    }
+
+    function renderCollaborators(page = 1) {
+        const totalPages = getCollaboratorPageCount();
+        currentCollaboratorPage = Math.min(Math.max(page, 1), totalPages);
+        const start = (currentCollaboratorPage - 1) * collaboratorsPerPage;
+        const visibleAvatars = collaboratorAvatars.slice(start, start + collaboratorsPerPage);
+
+        collaboratorGrid.innerHTML = visibleAvatars.map((src, index) => `
+            <div class="collaborator-avatar-item">
+                <img class="collaborator-avatar" src="${src}" alt="Collaborator avatar ${start + index + 1}" loading="lazy">
+            </div>
+        `).join('');
+
+        collaboratorPagination.style.display = collaboratorAvatars.length > collaboratorsPerPage ? 'flex' : 'none';
+        collaboratorPageNumbers.innerHTML = Array.from({ length: totalPages }, (_, index) => index + 1).map(num => `
+            <button class="page-num ${currentCollaboratorPage === num ? 'active' : ''}" type="button" onclick="renderCollaborators(${num})" aria-label="Collaborators page ${num}" aria-current="${currentCollaboratorPage === num ? 'page' : 'false'}">${num}</button>
+        `).join('');
+    }
+
+    function changeCollaboratorPage(direction) {
+        const nextPage = currentCollaboratorPage + direction;
+        if (nextPage >= 1 && nextPage <= getCollaboratorPageCount()) renderCollaborators(nextPage);
+    }
+
+    window.renderCollaborators = renderCollaborators;
+    window.changeCollaboratorPage = changeCollaboratorPage;
+    renderCollaborators(1);
+
+
+        let imgScale = 1;
     let imgPosX = 0;
     let imgPosY = 0;
     let isDraggingImg = false;
